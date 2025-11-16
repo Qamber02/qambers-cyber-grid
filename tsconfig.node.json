@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+
+    /* --- THIS IS THE ALIAS FIX --- */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+    /* --- END OF FIX --- */
+  },
+  "include": ["vite.config.ts", "package.json"]
+}
