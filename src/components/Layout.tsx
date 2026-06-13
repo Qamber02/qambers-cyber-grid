@@ -59,12 +59,12 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Three.js grid — desktop only — z:0 */}
       {!isMobile && <CyberGrid />}
 
-      {/* Digital rain — z:1 */}
+      {/* Digital rain — z:2 */}
       <DigitalRain reducedColumns={isMobile} />
 
-      {/* Dark overlay between background and content — z:2 */}
+      {/* Dark overlay between background and content — z:1 */}
       <div
-        className="fixed inset-0 pointer-events-none z-[2]"
+        className="fixed inset-0 pointer-events-none z-[1]"
         style={{ background: 'rgba(0, 0, 0, 0.52)' }}
         aria-hidden="true"
       />
