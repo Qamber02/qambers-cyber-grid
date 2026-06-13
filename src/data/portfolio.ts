@@ -4,7 +4,7 @@ export const portfolioData = {
   name: "Qamber Muhammad Hanif",
   title: "Developer & UI/UX Enthusiast",
   location: "Sohrabi Ward Gwader Balochistan",
-  email: "1111287@stud.uot.edu.pk",
+  email: "qamberhanif11@gmail.com",
   github: "https://github.com/Qamber02",
   
   education: [
@@ -65,18 +65,18 @@ export const portfolioData = {
     },
     {
       id: 3,
-      title: "Study Assistant",
-      subtitle: "AI-powered PDF Learning Tool",
-      description: "Developed an AI-powered study assistant that enables students to extract key information from PDFs, generate summaries, and ask content-based questions to facilitate smarter studying.",
-      techStack: ["Python", "Google Gemini LLM", "Streamlit"],
+      title: "Cherág",
+      subtitle: "AI Learning Tool for Low Connectivity",
+      description: "Developed Cherág, an AI-powered study assistant designed for students with limited internet connectivity. Enables students to extract key information from educational materials, generate summaries, and perform offline-first/low-bandwidth content querying.",
+      techStack: ["Node.js (v18+)", "Python 3.10+", "Supabase Project", "Google Gemini LLM"],
       highlights: [
-        "Integrated Google Gemini LLM",
-        "PDF to interactive learning material",
-        "Active recall and understanding features",
-        "Smart content-based querying",
+        "Specifically optimized for students with low-bandwidth internet",
+        "Integrated Supabase backend for secure and persistent cloud storage",
+        "Engineered Node.js (v18+) and Python (3.10+) hybrid runtime environment",
+        "Implemented active recall and smart content-based querying algorithms",
       ],
       color: "accent",
-      sourceLink: "https://github.com/Qamber02/Study_Assistant", // <-- ADDED
+      sourceLink: "https://github.com/Qamber02/cherag",
     },
     {
       id: 4,
@@ -97,34 +97,32 @@ export const portfolioData = {
 
   skills: {
     languages: [
-      { name: "Python", level: 90, category: "language", icon: "python-logo.jpeg" as const },
-      { name: "TypeScript", level: 95, category: "language", icon: "typescript-logo.jpeg" as const },
-      { name: "JavaScript", level: 95, category: "language", icon: "javascript-logo.jpeg" as const },
-      { name: "HTML/CSS", level: 95, category: "language", icon: "html-logo.jpeg" as const },
+      { name: "Python", icon: "python-logo.jpeg" as const },
+      { name: "JavaScript", icon: "javascript-logo.jpeg" as const },
+      { name: "TypeScript", icon: "typescript-logo.jpeg" as const },
+      { name: "Dart" },
     ],
-    frameworks: [
-      { name: "React", level: 95, category: "framework" },
-      { name: "Next.js", level: 90, category: "framework" },
-      { name: "Vite", level: 85, category: "framework" },
-      { name: "Flutter", level: 70, category: "framework" },
-      { name: "Tailwind CSS", level: 95, category: "framework" },
+    frontend: [
+      { name: "React" },
+      { name: "Vite" },
+      { name: "TailwindCSS" },
+      { name: "Flutter" },
+    ],
+    backend: [
+      { name: "FastAPI" },
+      { name: "Node.js" },
+      { name: "Express" },
     ],
     databases: [
-      { name: "Supabase", level: 85, category: "database" },
-      { name: "SQL", level: 80, category: "database", icon: "sql-logo.jpeg" as const },
-      { name: "MariaDB", level: 75, category: "database" },
-      { name: "SQLite", level: 80, category: "database" },
+      { name: "PostgreSQL" },
+      { name: "MongoDB" },
+      { name: "Supabase" },
     ],
-    tools: [
-      { name: "VS Code", level: 95, category: "tool" },
-      { name: "Git/GitHub", level: 90, category: "tool" },
-      { name: "Electron", level: 75, category: "tool" },
-    ],
-    other: [
-      { name: "TCP/IP", level: 80, category: "networking" },
-      { name: "OSI Model", level: 75, category: "networking" },
-      { name: "Website Optimization", level: 85, category: "other" },
-      { name: "Troubleshooting", level: 90, category: "other" },
+    toolsDevOps: [
+      { name: "Git" },
+      { name: "Docker" },
+      { name: "Stripe API" },
+      { name: "Linux (Ubuntu/Debian/Fedora)" },
     ],
   },
 

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import cyberBg from '@/assets/cyber-bg.jpg';
 
 const CyberGrid = () => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -105,20 +104,10 @@ const CyberGrid = () => {
   }, []);
 
   return (
-    <>
-      <div 
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `url(${cyberBg})`,
-          filter: 'brightness(0.4) contrast(1.2)'
-        }}
-      />
-      <div 
-        ref={mountRef} 
-        className="fixed inset-0 -z-10" 
-        style={{ background: 'radial-gradient(ellipse at center, rgba(26,15,46,0.8) 0%, rgba(10,10,26,0.9) 100%)' }}
-      />
-    </>
+    <div 
+      ref={mountRef} 
+      className="fixed inset-0 z-[0] pointer-events-none" 
+    />
   );
 };
 

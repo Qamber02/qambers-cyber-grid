@@ -45,6 +45,12 @@ const ContactSection = () => {
         break;
       case 'download_cv':
         newOutput.push('  Initiating CV download...');
+        const link = document.createElement('a');
+        link.href = '/cv.pdf';
+        link.download = 'Qamber_CV.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         break;
       case 'clear':
         setOutput(['> Terminal cleared']);
@@ -158,7 +164,7 @@ const ContactSection = () => {
 
             {/* Download CV */}
             <Card className="holographic p-6 hover:shadow-xl hover:shadow-electric/20 transition-all group cursor-pointer">
-              <div className="flex items-center gap-4">
+              <a href="/cv.pdf" download="Qamber_CV.pdf" className="flex items-center gap-4 w-full h-full">
                 <div className="w-12 h-12 rounded-full bg-electric/20 flex items-center justify-center group-hover:bg-electric/30 transition-colors">
                   <Download className="h-6 w-6 text-electric" />
                 </div>
@@ -168,7 +174,7 @@ const ContactSection = () => {
                   </h3>
                   <p className="text-muted-foreground">Get full resume</p>
                 </div>
-              </div>
+              </a>
             </Card>
 
             {/* Status Badge */}
