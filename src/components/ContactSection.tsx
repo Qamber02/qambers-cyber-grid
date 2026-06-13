@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import { portfolioData } from '@/data/portfolio';
 import { Card } from './ui/card';
 import { Github, Mail, Download } from 'lucide-react';
@@ -311,4 +311,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default memo(ContactSection);

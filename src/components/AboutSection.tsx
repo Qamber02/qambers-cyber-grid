@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { GraduationCap, Award } from 'lucide-react';
 import avatarImg from '@/assets/avatar.jpeg';
+import { memo } from 'react';
 
 // ─── Profile HUD Component ───────────────────────────────────────────────────
 // Crisp profile photo rendering constrained to match the height of the bio text card on desktop.
@@ -307,4 +308,4 @@ const AboutSection = () => (
   </section>
 );
 
-export default AboutSection;
+export default memo(AboutSection);

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
+import { memo } from 'react';
 
 const skillGroups = [
   { 
@@ -210,4 +211,4 @@ const SkillsSection = () => (
   </section>
 );
 
-export default SkillsSection;
+export default memo(SkillsSection);

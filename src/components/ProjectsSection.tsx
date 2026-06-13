@@ -15,7 +15,7 @@ import {
   Sparkles,
   Search,
 } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 
 type Project = (typeof portfolioData.projects)[0];
 
@@ -376,7 +376,7 @@ interface CardProps {
   index: number;
 }
 
-const ProjectGridCard = ({ project, index }: CardProps) => {
+const ProjectGridCard = memo(({ project, index }: CardProps) => {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const glowStyle = ACCENT_COLORS[project.color] ?? ACCENT_COLORS.primary;
@@ -539,10 +539,10 @@ const ProjectGridCard = ({ project, index }: CardProps) => {
       </div>
     </motion.article>
   );
-};
+});
 
 // ── Project List Row ────────────────────────────────────────────────────────
-const ProjectListRow = ({ project, index }: CardProps) => {
+const ProjectListRow = memo(({ project, index }: CardProps) => {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const glowStyle = ACCENT_COLORS[project.color] ?? ACCENT_COLORS.primary;
   const accent = glowStyle.primary;
@@ -658,7 +658,7 @@ const ProjectListRow = ({ project, index }: CardProps) => {
       </AnimatePresence>
     </motion.article>
   );
-};
+});
 
 // ── Stats Strip Component ───────────────────────────────────────────────────
 const StatsStrip = () => (
