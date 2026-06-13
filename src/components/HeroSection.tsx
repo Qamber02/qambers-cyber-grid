@@ -1,62 +1,69 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
-import { useState, useEffect } from 'react';
-import { Github, Mail } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Github, Mail, User, FolderGit2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import avatarImg from '@/assets/avatar.jpeg';
 
-// ─── Glowing Avatar Photo ───────────────────────────────────────────
-const GlitchAvatar = () => (
-  <div 
-    className="relative w-64 h-64 md:w-[320px] md:h-[320px] mx-auto select-none rounded-full flex-shrink-0"
+// ─── Signature Element: Glitch Avatar ────────────────────────────────────────
+// The distinctive "glitch-avatar" CSS animation fires every ~7 seconds,
+// producing a brief chromatic-aberration-style flicker that reinforces the
+// cyberpunk identity without dominating the composition.
+const AvatarCard = () => (
+  <div
+    className="relative w-64 h-64 md:w-[300px] md:h-[300px] mx-auto select-none rounded-full flex-shrink-0"
     style={{
-      border: '2px solid #00f5ff',
-      boxShadow: '0 0 24px rgba(0, 245, 255, 0.4), 0 0 60px rgba(0, 245, 255, 0.12)',
+      border: '2px solid var(--cyan-primary)',
+      boxShadow: '0 0 28px rgba(0, 245, 255, 0.35), 0 0 64px rgba(0, 245, 255, 0.1)',
     }}
   >
     {/* Scanline overlay */}
     <div
       className="absolute inset-0 rounded-full overflow-hidden pointer-events-none z-10"
+      aria-hidden="true"
       style={{
         background:
-          'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)',
+          'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px)',
       }}
     />
 
-    {/* Inner Photo avatar */}
-    <div className="absolute inset-0 rounded-full overflow-hidden flex items-center justify-center bg-[#050510]">
+    {/* Avatar photo — glitch-avatar animation applied here */}
+    <div className="absolute inset-0 rounded-full overflow-hidden flex items-center justify-center bg-[var(--bg-base)]">
       <img
         src={avatarImg}
-        alt="Qamber"
-        className="w-full h-full object-cover"
-        style={{ 
-          objectPosition: 'center 15%' // Keeps head fully inside the circle
-        }}
+        alt="Qamber Muhammad Hanif"
+        className="w-full h-full object-cover glitch-avatar"
+        style={{ objectPosition: 'center 15%' }}
+        draggable="false"
+        loading="eager"
+        width={300}
+        height={300}
       />
     </div>
 
     {/* Online badge */}
-    <div 
+    <div
       className="absolute left-1/2 -translate-x-1/2 px-3 py-1 rounded-full border flex items-center gap-1.5 whitespace-nowrap z-20"
       style={{
-        bottom: '-8px',
-        background: 'rgba(5, 5, 20, 0.85)',
-        borderColor: 'rgba(255, 255, 255, 0.1)',
+        bottom: '-10px',
+        background: 'rgba(5, 5, 20, 0.9)',
+        borderColor: 'rgba(255, 255, 255, 0.12)',
       }}
+      aria-label="Status: online"
     >
-      <div className="relative w-1.5 h-1.5 flex items-center justify-center">
+      <div className="relative w-1.5 h-1.5 flex items-center justify-center" aria-hidden="true">
         <div className="w-1.5 h-1.5 bg-[#22c55e] rounded-full" />
         <motion.div
-          animate={{ scale: [1, 1.4], opacity: [1, 0] }}
+          animate={{ scale: [1, 1.6], opacity: [1, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
           className="absolute w-1.5 h-1.5 bg-[#22c55e] rounded-full pointer-events-none"
         />
       </div>
-      <span 
+      <span
         style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: '11px',
-          color: 'rgba(255, 255, 255, 0.6)',
+          color: 'var(--white-muted)',
         }}
       >
         online
@@ -65,52 +72,102 @@ const GlitchAvatar = () => (
   </div>
 );
 
+// ─── CTA Button primitives ────────────────────────────────────────────────────
+// Using <Link> styled as a button (not <Link><button>) to keep valid HTML.
+interface CtaLinkProps {
+  to: string;
+  variant?: 'primary' | 'ghost' | 'danger';
+  children: React.ReactNode;
+  'aria-label'?: string;
+}
+
+const CtaLink = ({ to, variant = 'ghost', children, 'aria-label': ariaLabel }: CtaLinkProps) => {
+  const styles: Record<string, React.CSSProperties> = {
+    primary: {
+      background: '#0057ff',
+      color: '#fff',
+      border: '1px solid transparent',
+    },
+    ghost: {
+      background: 'transparent',
+      color: '#fff',
+      border: '1px solid rgba(255,255,255,0.2)',
+    },
+    danger: {
+      background: 'transparent',
+      color: 'var(--red-accent)',
+      border: '1px solid rgba(255, 71, 87, 0.4)',
+    },
+  };
+
+  return (
+    <Link
+      to={to}
+      aria-label={ariaLabel}
+      className="flex-shrink-0 h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
+      style={{
+        fontFamily: "'Inter', sans-serif",
+        ...styles[variant],
+      }}
+    >
+      {children}
+    </Link>
+  );
+};
+
+// ─── Hero Section ─────────────────────────────────────────────────────────────
+const FULL_TEXT = "Hey, I'm Qamber.";
+const TYPING_SPEED_MS = 55; // fast enough to feel snappy but slow enough to be legible
+
 const HeroSection = () => {
   const [typedText, setTypedText] = useState('');
-  const [cursorVisible, setCursorVisible] = useState(true);
-  const fullText = "Hey, I'm Qamber.";
+  const [typingDone, setTypingDone] = useState(false);
+  const prefersReducedMotion = useRef(
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
+  // Typewriter effect
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setTypedText(fullText);
+    if (prefersReducedMotion.current) {
+      setTypedText(FULL_TEXT);
+      setTypingDone(true);
       return;
     }
 
     let index = 0;
-    const typingInterval = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(typingInterval);
+    const interval = setInterval(() => {
+      index++;
+      setTypedText(FULL_TEXT.slice(0, index));
+      if (index >= FULL_TEXT.length) {
+        clearInterval(interval);
+        setTypingDone(true);
       }
-    }, 300); // 300ms per character
+    }, TYPING_SPEED_MS);
 
-    return () => clearInterval(typingInterval);
-  }, []);
-
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setCursorVisible((prev) => !prev);
-    }, 500);
-    return () => clearInterval(cursorInterval);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      aria-label="Introduction"
+    >
       {/* Scanlines effect */}
-      <div className="scanlines absolute inset-0 pointer-events-none" />
+      <div className="scanlines absolute inset-0 pointer-events-none" aria-hidden="true" />
 
-      {/* Main Content container (z-[3] to sit above overlay) */}
       <div className="relative z-[3] w-full max-w-6xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[58fr_42fr] gap-12 lg:gap-8 items-center">
 
-          {/* Left column: Text + CTAs */}
-          <div className="flex flex-col text-left">
-            {/* Eyebrow label */}
-            <span 
-              className="text-[13px] tracking-[3px] uppercase mb-4"
+          {/* ── Left: Text + CTAs ─────────────────────────────── */}
+          <motion.div
+            className="flex flex-col text-left"
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            {/* Eyebrow */}
+            <span
+              className="text-[12px] tracking-[3px] uppercase mb-4 block"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 color: 'rgba(0, 245, 255, 0.5)',
@@ -119,112 +176,107 @@ const HeroSection = () => {
               // full-stack engineer
             </span>
 
-            {/* Typewriter H1 Heading */}
-            <h1 
-              className="text-[40px] md:text-[64px] font-bold mb-6 leading-tight select-none"
-              style={{ 
+            {/* Typewriter H1 */}
+            <h1
+              className="text-[40px] md:text-[62px] font-bold mb-6 leading-tight select-none"
+              style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                color: '#00f5ff',
-                textShadow: '0 0 40px rgba(0, 245, 255, 0.35)',
+                color: 'var(--cyan-primary)',
+                textShadow: '0 0 40px rgba(0, 245, 255, 0.3)',
               }}
             >
               {typedText}
-              <span className={cursorVisible ? 'opacity-100' : 'opacity-0'}>▋</span>
+              {/* Cursor blinks while typing, stops when done */}
+              {!typingDone && (
+                <span
+                  className="inline-block w-[3px] h-[0.85em] bg-[var(--cyan-primary)] ml-1 align-middle"
+                  style={{ animation: 'cursor-blink 0.5s step-end infinite' }}
+                  aria-hidden="true"
+                />
+              )}
             </h1>
 
-            {/* Body paragraph */}
-            <p 
-              className="text-[17px] leading-[1.75] font-medium mb-4"
+            {/* Primary bio */}
+            <p
+              className="text-[17px] leading-[1.8] font-medium mb-4 max-w-xl"
               style={{
                 fontFamily: "'Inter', sans-serif",
-                color: 'rgba(255, 255, 255, 0.88)',
+                color: 'var(--white-body)',
               }}
             >
-              I build things that actually get used — backends that don't break,
-              apps for places most devs have never heard of.
+              I build things that actually get used — backends that hold under
+              pressure, apps for places most developers haven't mapped yet.
             </p>
 
-            {/* Cyan secondary line */}
-            <p 
-              className="text-[15px] font-normal leading-[1.75] mb-2"
+            {/* Secondary line */}
+            <p
+              className="text-[15px] font-normal leading-[1.75] mb-2 max-w-xl"
               style={{
                 fontFamily: "'Inter', sans-serif",
-                color: '#4fc3f7',
+                color: 'var(--cyan-dim)',
               }}
             >
-              CS student at University of Turbat, currently shipping at Unhire (one of the EVU Ventures) and successfully created the payment architecture. Gwadar born, globally minded.
+              CS student at the University of Turbat. Shipping payment architecture at Unhire
+              (an EVU Venture). Born in Gwadar, building for the world.
             </p>
 
             {/* Casual sign-off */}
-            <p 
-              className="text-[14px] font-normal italic mt-1"
+            <p
+              className="text-[13px] font-normal italic mt-1 max-w-xl"
               style={{
                 fontFamily: "'Inter', sans-serif",
-                color: 'rgba(255, 255, 255, 0.45)',
+                color: 'var(--white-muted)',
               }}
             >
-              I graduate in 2027. I game on Linux. That's about it.
+              2027 graduate. Linux gamer. That's the short version.
             </p>
 
-            {/* Button row */}
-            <div className="flex flex-row items-center gap-[12px] mt-[32px] overflow-x-auto scrollbar-none py-1">
-              
-              {/* About me Button */}
-              <Link to="/about" className="flex-shrink-0">
-                <button
-                  className="h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center transition-all duration-200 ease-in-out bg-[#0057ff] text-white hover:bg-[#0066ff] hover:shadow-[0_0_16px_rgba(0,87,255,0.4)]"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  <span className="font-mono mr-2">&gt;</span>
-                  About me
-                </button>
-              </Link>
+            {/* CTA row */}
+            <div className="flex flex-row flex-wrap items-center gap-3 mt-8">
+              <CtaLink to="/about" variant="primary" aria-label="Learn more about Qamber">
+                <span className="font-mono text-xs opacity-70">&gt;</span>
+                About me
+              </CtaLink>
 
-              {/* Works Button */}
-              <Link to="/projects" className="flex-shrink-0">
-                <button
-                  className="h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center transition-all duration-200 ease-in-out border border-white/20 text-white hover:border-[#00f5ff]/50 hover:text-[#00f5ff]"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Works
-                </button>
-              </Link>
+              <CtaLink to="/projects" aria-label="View Qamber's projects">
+                <FolderGit2 className="w-4 h-4" aria-hidden="true" />
+                Works
+              </CtaLink>
 
-              {/* GitHub Button */}
-              <button
-                onClick={() => window.open(portfolioData.github, '_blank')}
-                className="h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center transition-all duration-200 ease-in-out border border-[#ff4757]/40 text-[#ff4757] hover:border-[#ff4757] hover:shadow-[0_0_16px_rgba(255,71,87,0.25)] flex-shrink-0"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+              {/* GitHub — external link, not a route */}
+              <a
+                href={portfolioData.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Qamber's GitHub profile (opens in new tab)"
+                className="flex-shrink-0 h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  background: 'transparent',
+                  color: 'var(--red-accent)',
+                  border: '1px solid rgba(255, 71, 87, 0.4)',
+                }}
               >
-                <span className="mr-2 flex items-center">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                  </svg>
-                </span>
+                <Github className="w-4 h-4" aria-hidden="true" />
                 GitHub
-              </button>
+              </a>
 
-              {/* Contact Button */}
-              <Link to="/contact" className="flex-shrink-0">
-                <button
-                  className="h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center transition-all duration-200 ease-in-out border border-white/20 text-white hover:border-[#00f5ff]/50 hover:text-[#00f5ff]"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  <span className="mr-2 flex items-center">
-                    <svg className="w-4 h-4 fill-none stroke-current" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                  Contact
-                </button>
-              </Link>
+              <CtaLink to="/contact" aria-label="Contact Qamber">
+                <Mail className="w-4 h-4" aria-hidden="true" />
+                Contact
+              </CtaLink>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right column: Avatar */}
-          <div className="flex justify-center items-center h-full">
-            <GlitchAvatar />
-          </div>
+          {/* ── Right: Avatar ─────────────────────────────────── */}
+          <motion.div
+            className="flex justify-center items-center h-full"
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <AvatarCard />
+          </motion.div>
 
         </div>
       </div>

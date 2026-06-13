@@ -1,24 +1,51 @@
-// Qamber's Portfolio Data extracted from CV
+// Qamber's Portfolio Data — single source of truth for all content
 
 export const portfolioData = {
   name: "Qamber Muhammad Hanif",
-  title: "Developer & UI/UX Enthusiast",
-  location: "Sohrabi Ward Gwader Balochistan",
+  title: "Full Stack Engineer",
+  location: "Gwadar, Balochistan",
   email: "qamberhanif11@gmail.com",
   github: "https://github.com/Qamber02",
-  
+
+  // Quick-facts strip (used in AboutSection)
+  facts: [
+    { label: "Location", value: "Gwadar, Balochistan" },
+    { label: "University", value: "University of Turbat" },
+    { label: "Graduating", value: "2027" },
+    { label: "Status", value: "Available" },
+  ],
+
+  // Current work (used in AboutSection)
+  currentWork: [
+    {
+      label: "Full Stack Intern",
+      detail: "Unhire (EVU Ventures) — built the Stripe Connect payment architecture",
+      color: "#00e5ff",
+    },
+    {
+      label: "Karwan",
+      detail: "Food delivery for Gwadar and Turbat — personal project",
+      color: "#4fc3f7",
+    },
+    {
+      label: "Cherág",
+      detail: "AI learning tool built for students with limited internet",
+      color: "#ff6b9d",
+    },
+  ],
+
   education: [
     {
       institution: "University Of Turbat",
       location: "Kech, Balochistan",
-      degree: "Bachelor Of Computer Science (In Progress)",
+      degree: "Bachelor of Computer Science (In Progress)",
       gpa: "3.44 CGPA",
       graduationDate: "Dec 2027",
     },
     {
       institution: "Gwader Degree College",
       location: "Gwader, Balochistan",
-      degree: "FSC in Pre Engineering",
+      degree: "FSC in Pre-Engineering",
       score: "63%",
       graduationDate: "Jul 2023",
     },
@@ -36,44 +63,47 @@ export const portfolioData = {
       id: 1,
       title: "DSA Visualizer",
       subtitle: "Interactive Web Application",
-      description: "Engineered an interactive visualization tool that dynamically illustrates complex data structures and algorithms, boosting user comprehension by over 40% as measured through usability testing metrics.",
+      description:
+        "An interactive visualization tool that dynamically illustrates complex data structures and algorithms — making abstract concepts tangible and measurably improving comprehension.",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       highlights: [
-        "40% increase in user comprehension",
-        "15+ visualizer modules",
+        "40% increase in user comprehension (usability testing)",
+        "15+ visualizer modules shipped",
         "25% reduction in deployment errors",
-        "Modular UI components with React hooks",
+        "Modular UI with React hooks",
       ],
       color: "primary",
-      sourceLink: "https://github.com/Qamber02/dsa-visualizer", // <-- ADDED
+      sourceLink: "https://github.com/Qamber02/dsa-visualizer",
     },
     {
       id: 2,
       title: "POS Shopping System",
       subtitle: "Modern Point of Sale",
-      description: "Developed a full-featured, offline-first POS system using React, TypeScript, and Electron, ensuring full functionality without an internet connection.",
+      description:
+        "A full-featured, offline-first point-of-sale system using React, TypeScript, and Electron. Works without internet and syncs automatically when back online.",
       techStack: ["React 18", "TypeScript", "Supabase", "Dexie", "Electron"],
       highlights: [
         "Full PWA support with service workers",
-        "Offline-first architecture with IndexedDB",
+        "Offline-first with IndexedDB",
         "Auto-sync with Supabase when online",
         "90% faster search performance",
         "40% bundle size reduction",
       ],
       color: "secondary",
-      sourceLink: "https://github.com/Qamber02/pos-system", // <-- ADDED
+      sourceLink: "https://github.com/Qamber02/pos-system",
     },
     {
       id: 3,
       title: "Cherág",
       subtitle: "AI Learning Tool for Low Connectivity",
-      description: "Developed Cherág, an AI-powered study assistant designed for students with limited internet connectivity. Enables students to extract key information from educational materials, generate summaries, and perform offline-first/low-bandwidth content querying.",
-      techStack: ["Node.js (v18+)", "Python 3.10+", "Supabase Project", "Google Gemini LLM"],
+      description:
+        "An AI-powered study assistant for students who don't have great internet. Extracts key information from educational materials, generates summaries, and queries content offline.",
+      techStack: ["Node.js v18+", "Python 3.10+", "Supabase", "Gemini LLM"],
       highlights: [
-        "Specifically optimized for students with low-bandwidth internet",
-        "Integrated Supabase backend for secure and persistent cloud storage",
-        "Engineered Node.js (v18+) and Python (3.10+) hybrid runtime environment",
-        "Implemented active recall and smart content-based querying algorithms",
+        "Optimized for low-bandwidth environments",
+        "Supabase backend for persistent cloud storage",
+        "Node.js + Python hybrid runtime",
+        "Active recall and smart content querying",
       ],
       color: "accent",
       sourceLink: "https://github.com/Qamber02/cherag",
@@ -82,7 +112,8 @@ export const portfolioData = {
       id: 4,
       title: "URL Health Checker",
       subtitle: "Streamlit-based URL Validation",
-      description: "Developed an interactive web application that automates URL extraction and validation from various input formats, processing over 10,000 URLs monthly.",
+      description:
+        "An interactive web app that automates URL extraction and validation across multiple input formats, processing over 10,000 URLs monthly with full verification coverage.",
       techStack: ["Python", "Streamlit"],
       highlights: [
         "40% reduction in manual checking time",
@@ -91,19 +122,28 @@ export const portfolioData = {
         "100% link verification coverage",
       ],
       color: "electric",
-      sourceLink: "https://github.com/Qamber02/url-health-checker", // <-- ADDED
+      sourceLink: "https://github.com/Qamber02/url-health-checker",
     },
+  ],
+
+  // Summary stats (used in ProjectsSection)
+  stats: [
+    { value: "4+", label: "Major Projects" },
+    { value: "10K+", label: "URLs Processed" },
+    { value: "40%", label: "Performance Boost" },
+    { value: "15+", label: "Technologies" },
   ],
 
   skills: {
     languages: [
-      { name: "Python", icon: "python-logo.jpeg" as const },
-      { name: "JavaScript", icon: "javascript-logo.jpeg" as const },
-      { name: "TypeScript", icon: "typescript-logo.jpeg" as const },
+      { name: "Python" },
+      { name: "JavaScript" },
+      { name: "TypeScript" },
       { name: "Dart" },
     ],
     frontend: [
       { name: "React" },
+      { name: "Next.js" },
       { name: "Vite" },
       { name: "TailwindCSS" },
       { name: "Flutter" },
@@ -122,7 +162,7 @@ export const portfolioData = {
       { name: "Git" },
       { name: "Docker" },
       { name: "Stripe API" },
-      { name: "Linux (Ubuntu/Debian/Fedora)" },
+      { name: "Linux" },
     ],
   },
 
@@ -130,8 +170,8 @@ export const portfolioData = {
     "Google CyberSecurity Certificate",
     "Nvidia Networking Certificate",
     "WordPress Web Development Certificate",
-    "OOP and GUI with Python Certificate - Arizona University",
-    "Fast API Certificate",
+    "OOP and GUI with Python — Arizona University",
+    "FastAPI Certificate",
   ],
 
   interests: [
