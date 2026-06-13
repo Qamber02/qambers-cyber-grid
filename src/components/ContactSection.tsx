@@ -193,7 +193,7 @@ const ContactSection = () => {
                 aria-live="polite"
                 aria-label="Terminal output"
                 tabIndex={0}
-                className="rounded-lg p-4 mb-4 font-mono text-sm overflow-y-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)]"
+                className="rounded-lg p-4 mb-4 font-mono text-xs md:text-sm overflow-y-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)]"
                 style={{
                   background: 'rgba(0, 0, 0, 0.35)',
                   height: '18rem',

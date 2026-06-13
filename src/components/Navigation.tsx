@@ -39,7 +39,7 @@ const Navigation = () => {
 
           {/* Nav links */}
           <nav aria-label="Page links">
-            <ul className="flex items-center gap-1 list-none m-0 p-0">
+            <ul className="flex items-center gap-0.5 sm:gap-1 list-none m-0 p-0">
               {navItems.map((item) => {
                 const isActive = location.pathname === item.route;
                 return (
@@ -47,7 +47,7 @@ const Navigation = () => {
                     <Link
                       to={item.route}
                       aria-current={isActive ? 'page' : undefined}
-                      className="px-5 py-2 rounded-lg transition-all duration-200 text-sm font-medium inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
+                      className="px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg transition-all duration-200 text-sm font-medium inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         background: isActive ? 'rgba(0, 245, 255, 0.1)' : 'transparent',
@@ -74,7 +74,7 @@ const Navigation = () => {
               />
             </div>
             <span
-              className="text-[12px] font-medium"
+              className="text-[12px] font-medium hidden sm:inline"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 color: 'var(--white-muted)',

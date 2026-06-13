@@ -6,7 +6,7 @@ import avatarImg from '@/assets/avatar.jpeg';
 // ─── Profile HUD Component ───────────────────────────────────────────────────
 // Crisp profile photo rendering constrained to match the height of the bio text card on desktop.
 const ProfileHud = () => (
-  <div className="relative w-full h-[300px] lg:h-full select-none flex flex-col justify-between pb-6">
+  <div className="relative w-full max-w-[280px] h-[300px] lg:h-full mx-auto select-none flex flex-col justify-between pb-6">
     {/* Crisp 1px solid neon cyan border around the container */}
     <div 
       className="flex-1 w-full overflow-hidden relative border border-[var(--cyan-primary)] bg-[var(--bg-base)]"
@@ -119,7 +119,7 @@ const AboutSection = () => (
           return (
             <div
               key={fact.label}
-              className="flex flex-col gap-1.5 p-4 rounded-[8px] relative overflow-hidden transition-all duration-300 hover:bg-white/[0.04]"
+              className="flex flex-col gap-1 p-3 md:p-4 rounded-[8px] relative overflow-hidden transition-all duration-300 hover:bg-white/[0.04]"
               style={{
                 background: 'rgba(0, 0, 0, 0.4)',
                 backdropFilter: 'blur(4px)',
@@ -130,12 +130,12 @@ const AboutSection = () => (
               {/* Glow light indicator */}
               <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[var(--cyan-primary)] opacity-40 shadow-[0_0_6px_var(--cyan-primary)]" />
               <dt
-                className="font-mono uppercase text-[10px] tracking-widest flex items-center justify-between text-cyan-400 font-semibold"
+                className="font-mono uppercase text-[9px] md:text-[10px] tracking-widest flex items-center justify-between text-cyan-400 font-semibold"
               >
                 <span>{fact.label}</span>
-                <span className="text-[8px] opacity-80 font-normal">[{codes[index % codes.length]}]</span>
+                <span className="text-[7px] md:text-[8px] opacity-70 font-normal">[{codes[index % codes.length]}]</span>
               </dt>
-              <dd className="text-white font-bold text-sm sm:text-[15px] mt-1 select-all">{fact.value}</dd>
+              <dd className="text-white font-bold text-xs sm:text-[14px] md:text-[15px] mt-1 select-all truncate">{fact.value}</dd>
             </div>
           );
         })}
