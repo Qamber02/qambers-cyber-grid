@@ -14,7 +14,7 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*(){}[]<>/';
     const charList = chars.split('');
@@ -51,7 +51,7 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
           startX: edge.x,
           startY: edge.y,
           progress: Math.random(),
-          speed: 0.002 + Math.random() * 0.005,
+          speed: 0.001 + Math.random() * 0.0025,
           length: 5 + Math.floor(Math.random() * 8),
           chars: [],
         };
@@ -76,7 +76,7 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
           stream.startX = edge.x;
           stream.startY = edge.y;
           stream.progress = 0;
-          stream.speed = 0.002 + Math.random() * 0.005;
+          stream.speed = 0.001 + Math.random() * 0.0025;
           stream.length = 5 + Math.floor(Math.random() * 8);
         }
 
@@ -105,23 +105,11 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
       });
     };
 
-    // Reduced motion: render one static frame and stop
-    if (prefersReducedMotion) {
-      draw();
-      return;
-    }
-
-    // Animation loop using requestAnimationFrame for frame-rate sync
+    // Animation loop using requestAnimationFrame
     let rafId: number;
-    let lastTime = 0;
-    const TARGET_FPS = 30;
-    const FRAME_INTERVAL = 1000 / TARGET_FPS;
-
-    const loop = (time: number) => {
-      rafId = requestAnimationFrame(loop);
-      if (time - lastTime < FRAME_INTERVAL) return;
-      lastTime = time;
+    const loop = () => {
       draw();
+      rafId = requestAnimationFrame(loop);
     };
     rafId = requestAnimationFrame(loop);
 
