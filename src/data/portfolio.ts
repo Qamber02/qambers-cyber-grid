@@ -63,6 +63,7 @@ export const portfolioData = {
       id: 1,
       title: "DSA Visualizer",
       subtitle: "Interactive Web Application",
+      category: "Frontend",
       description:
         "An interactive visualization tool that dynamically illustrates complex data structures and algorithms — making abstract concepts tangible and measurably improving comprehension.",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
@@ -79,6 +80,7 @@ export const portfolioData = {
       id: 2,
       title: "POS Shopping System",
       subtitle: "Modern Point of Sale",
+      category: "Full-Stack",
       description:
         "A full-featured, offline-first point-of-sale system using React, TypeScript, and Electron. Works without internet and syncs automatically when back online.",
       techStack: ["React 18", "TypeScript", "Supabase", "Dexie", "Electron"],
@@ -96,6 +98,7 @@ export const portfolioData = {
       id: 3,
       title: "Cherág",
       subtitle: "AI Learning Tool for Low Connectivity",
+      category: "AI & Systems",
       description:
         "An AI-powered study assistant for students who don't have great internet. Extracts key information from educational materials, generates summaries, and queries content offline.",
       techStack: ["Node.js v18+", "Python 3.10+", "Supabase", "Gemini LLM"],
@@ -112,6 +115,7 @@ export const portfolioData = {
       id: 4,
       title: "URL Health Checker",
       subtitle: "Streamlit-based URL Validation",
+      category: "Tools & CLI",
       description:
         "An interactive web app that automates URL extraction and validation across multiple input formats, processing over 10,000 URLs monthly with full verification coverage.",
       techStack: ["Python", "Streamlit"],
