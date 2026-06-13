@@ -167,6 +167,14 @@ export const portfolioData = {
       { name: "Docker" },
       { name: "Stripe API" },
       { name: "Linux" },
+      { name: "Firebase" },
+    ],
+    deployments: [
+      { name: "Vercel" },
+      { name: "Netlify" },
+      { name: "Render" },
+      { name: "Railway" },
+      { name: "Azure" },
     ],
   },
 

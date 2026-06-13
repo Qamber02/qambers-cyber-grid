@@ -383,14 +383,13 @@ const ProjectGridCard = ({ project, index }: CardProps) => {
   const accent = glowStyle.primary;
 
   // Track cursor movement on card for dynamic neon glow coordinate shifts
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setCoords({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
   };
 
   return (
@@ -418,7 +417,7 @@ const ProjectGridCard = ({ project, index }: CardProps) => {
       <div
         className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
         style={{
-          background: `radial-gradient(180px circle at ${coords.x}px ${coords.y}px, ${glowStyle.glow}, transparent 75%)`,
+          background: `radial-gradient(180px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), ${glowStyle.glow}, transparent 75%)`,
         }}
       />
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 
 interface DigitalRainProps {
   reducedColumns?: boolean;
@@ -135,4 +135,4 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
   );
 };
 
-export default DigitalRain;
+export default memo(DigitalRain);

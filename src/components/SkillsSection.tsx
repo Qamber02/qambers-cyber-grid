@@ -2,11 +2,60 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 
 const skillGroups = [
-  { title: 'Languages', skills: portfolioData.skills.languages },
-  { title: 'Frontend', skills: portfolioData.skills.frontend },
-  { title: 'Backend', skills: portfolioData.skills.backend },
-  { title: 'Databases', skills: portfolioData.skills.databases },
-  { title: 'Tools & DevOps', skills: portfolioData.skills.toolsDevOps },
+  { 
+    title: 'Languages', 
+    skills: portfolioData.skills.languages,
+    color: '#00f5ff', // Cyan
+    glowShadow: '0 0 20px rgba(0, 245, 255, 0.18)',
+    borderGlow: 'rgba(0, 245, 255, 0.28)',
+    bgHover: 'rgba(0, 245, 255, 0.05)',
+    tag: 'LANG_SYS'
+  },
+  { 
+    title: 'Frontend', 
+    skills: portfolioData.skills.frontend,
+    color: '#ff6b9d', // Pink/Magenta
+    glowShadow: '0 0 20px rgba(255, 107, 157, 0.18)',
+    borderGlow: 'rgba(255, 107, 157, 0.28)',
+    bgHover: 'rgba(255, 107, 157, 0.05)',
+    tag: 'UI_RENDER'
+  },
+  { 
+    title: 'Backend', 
+    skills: portfolioData.skills.backend,
+    color: '#3b82f6', // Electric Blue
+    glowShadow: '0 0 20px rgba(59, 130, 246, 0.18)',
+    borderGlow: 'rgba(59, 130, 246, 0.28)',
+    bgHover: 'rgba(59, 130, 246, 0.05)',
+    tag: 'CORE_SRV'
+  },
+  { 
+    title: 'Databases', 
+    skills: portfolioData.skills.databases,
+    color: '#10b981', // Emerald
+    glowShadow: '0 0 20px rgba(16, 185, 129, 0.18)',
+    borderGlow: 'rgba(16, 185, 129, 0.28)',
+    bgHover: 'rgba(16, 185, 129, 0.05)',
+    tag: 'DB_STORE'
+  },
+  { 
+    title: 'Tools & DevOps', 
+    skills: portfolioData.skills.toolsDevOps,
+    color: '#f59e0b', // Amber/Gold
+    glowShadow: '0 0 20px rgba(245, 158, 11, 0.18)',
+    borderGlow: 'rgba(245, 158, 11, 0.28)',
+    bgHover: 'rgba(245, 158, 11, 0.05)',
+    tag: 'SYS_WORK'
+  },
+  { 
+    title: 'Deployments & Cloud', 
+    skills: portfolioData.skills.deployments,
+    color: '#a855f7', // Purple/Violet
+    glowShadow: '0 0 20px rgba(168, 85, 247, 0.18)',
+    borderGlow: 'rgba(168, 85, 247, 0.28)',
+    bgHover: 'rgba(168, 85, 247, 0.05)',
+    tag: 'NET_CLOUD'
+  },
 ];
 
 const totalSkillsCount = skillGroups.reduce((acc, g) => acc + g.skills.length, 0);
@@ -34,7 +83,7 @@ const SkillsSection = () => (
             color: 'rgba(0, 245, 255, 0.5)',
           }}
         >
-          // system capabilities
+          // SYSTEM CAPABILITIES
         </span>
         <h1
           id="skills-heading"
@@ -68,33 +117,68 @@ const SkillsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: index * 0.07, ease: [0.25, 0.1, 0.25, 1] }}
-            className="p-6 rounded-[10px] flex flex-col"
+            className="p-6 rounded-[10px] flex flex-col transition-all duration-300 relative overflow-hidden"
             style={{
               background: 'var(--glass-bg)',
               border: '1px solid var(--glass-border)',
             }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = group.borderGlow;
+              e.currentTarget.style.boxShadow = group.glowShadow;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--glass-border)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
           >
-            <h2
-              className="text-[13px] font-bold tracking-[2px] mb-6 uppercase"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                color: 'var(--cyan-primary)',
-                textShadow: '0 0 10px rgba(0, 245, 255, 0.15)',
-              }}
-            >
-              // {group.title}
-            </h2>
+            {/* Header with Custom Tag */}
+            <div className="flex items-center justify-between mb-6">
+              <h2
+                className="text-[13px] font-bold tracking-[2px] uppercase m-0"
+                style={{
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  color: group.color,
+                  textShadow: `0 0 10px ${group.color}26`,
+                }}
+              >
+                // {group.title}
+              </h2>
+              <span 
+                className="text-[9px] font-mono opacity-50 px-1.5 py-0.5 rounded border uppercase"
+                style={{ 
+                  color: group.color, 
+                  borderColor: `${group.color}22`,
+                  background: `${group.color}06`
+                }}
+              >
+                {group.tag}
+              </span>
+            </div>
 
             <ul className="flex flex-wrap gap-2.5 list-none m-0 p-0">
               {group.skills.map((skill) => (
                 <li key={skill.name}>
                   <span
-                    className="flex items-center gap-2 h-9 px-3.5 rounded-[6px] text-[13px] font-medium border cursor-default transition-all duration-200 ease-in-out hover:border-[var(--cyan-primary)] hover:text-[var(--cyan-primary)] hover:shadow-[0_0_12px_rgba(0,245,255,0.2)] hover:bg-[rgba(0,245,255,0.04)] select-none"
+                    className="flex items-center gap-2 h-9 px-3.5 rounded-[6px] text-[13px] font-medium border cursor-default transition-all duration-200 ease-in-out select-none"
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       color: 'rgba(255,255,255,0.88)',
                       borderColor: 'rgba(255,255,255,0.1)',
                       background: 'rgba(255,255,255,0.02)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = group.color;
+                      e.currentTarget.style.color = group.color;
+                      e.currentTarget.style.boxShadow = `0 0 12px ${group.color}33`;
+                      e.currentTarget.style.background = group.bgHover;
+                      e.currentTarget.style.transform = 'scale(1.03)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                      e.currentTarget.style.color = 'rgba(255,255,255,0.88)';
+                      e.currentTarget.style.boxShadow = 'none';
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                      e.currentTarget.style.transform = 'none';
                     }}
                   >
                     {skill.name}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import * as THREE from 'three';
 
 const CyberGrid = () => {
@@ -106,4 +106,4 @@ const CyberGrid = () => {
   );
 };
 
-export default CyberGrid;
+export default memo(CyberGrid);

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { Home } from 'lucide-react';
 
 const navItems = [
   { label: 'Works', route: '/projects' },
@@ -33,7 +34,7 @@ const Navigation = () => {
             aria-label="Home"
             className="w-9 h-9 border-2 border-[var(--cyan-primary)] rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-[0_0_14px_rgba(0,245,255,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
           >
-            <span className="text-[var(--cyan-primary)] font-bold text-sm font-sans select-none">Q</span>
+            <Home className="w-4 h-4 text-[var(--cyan-primary)]" />
           </Link>
 
           {/* Nav links */}
