@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { portfolioData } from '@/data/portfolio';
 import { Card } from './ui/card';
-import { Github, Mail, Terminal, Download } from 'lucide-react';
+import { Github, Mail, Download } from 'lucide-react';
 
 // ── Utility — triggers a file download ───────────────────────────────────────
 function downloadFile(href: string, filename: string) {
@@ -153,14 +153,36 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             <Card className="holographic p-6 h-full">
-              {/* Title bar */}
+              {/* macOS-style title bar */}
               <div
-                className="flex items-center gap-2 mb-4 pb-4"
-                style={{ borderBottom: '1px solid rgba(0, 245, 255, 0.12)' }}
+                className="flex items-center px-1 mb-4 pb-3 relative"
+                style={{ borderBottom: '1px solid rgba(0, 245, 255, 0.1)' }}
               >
-                <Terminal className="h-5 w-5" style={{ color: 'hsl(var(--primary))' }} aria-hidden="true" />
-                <span className="font-mono text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
-                  terminal@qamber:~$
+                {/* Traffic-light dots */}
+                <div className="flex items-center gap-1.5 flex-shrink-0" aria-hidden="true">
+                  <span
+                    className="w-3 h-3 rounded-full inline-block"
+                    style={{ background: '#ff5f57', boxShadow: '0 0 4px rgba(255,95,87,0.6)' }}
+                    title="Close"
+                  />
+                  <span
+                    className="w-3 h-3 rounded-full inline-block"
+                    style={{ background: '#febc2e', boxShadow: '0 0 4px rgba(254,188,46,0.6)' }}
+                    title="Minimize"
+                  />
+                  <span
+                    className="w-3 h-3 rounded-full inline-block"
+                    style={{ background: '#28c840', boxShadow: '0 0 4px rgba(40,200,64,0.6)' }}
+                    title="Maximize"
+                  />
+                </div>
+
+                {/* Centered hostname — absolutely positioned to be truly centered */}
+                <span
+                  className="absolute left-1/2 -translate-x-1/2 font-mono text-xs select-none"
+                  style={{ color: 'rgba(255,255,255,0.45)' }}
+                >
+                  terminal@qamber-sys:~
                 </span>
               </div>
 

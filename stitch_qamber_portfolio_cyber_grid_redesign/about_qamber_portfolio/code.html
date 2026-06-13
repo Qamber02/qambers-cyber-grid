@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qamber Muhammad Hanif - The story so far.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#050510',
+                        primary: '#00f5ff',
+                        'primary-dim': '#4fc3f7',
+                        accent: '#ff4757',
+                        'text-body': 'rgba(255,255,255,0.88)',
+                        'text-muted': 'rgba(255,255,255,0.45)',
+                        'glass-bg': 'rgba(255,255,255,0.03)',
+                        'glass-border': 'rgba(0,245,255,0.12)'
+                    },
+                    fontFamily: {
+                        headline: ["Space Grotesk", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050510;
+            color: rgba(255,255,255,0.88);
+            font-family: 'Inter', sans-serif;
+        }
+        .neon-text {
+            color: #00f5ff;
+            text-shadow: 0 0 20px rgba(0,245,255,0.4);
+        }
+        .glass-panel {
+            background-color: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0,245,255,0.12);
+            box-shadow: 0 0 16px rgba(0,245,255,0.15);
+        }
+        .grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(0, 245, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 245, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        /* TopAppBar Styles */
+        .top-app-bar {
+            background-color: rgba(5,5,16,0.03);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(0,245,255,0.12);
+            box-shadow: 0 0 16px rgba(0,245,255,0.15);
+        }
+        /* BottomNavBar Styles */
+        .bottom-nav-bar {
+            background-color: rgba(5,5,16,0.8);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(0,245,255,0.2);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="grid-bg min-h-screen pb-24 relative overflow-x-hidden pt-20">
+<!-- TopAppBar (Hidden on md-down, visible md-up) -->
+<header class="top-app-bar fixed top-0 w-full z-50 hidden md:block">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00f5ff]">menu</span>
+<span class="font-headline font-bold text-2xl text-[#00f5ff] drop-shadow-[0_0_8px_rgba(0,245,255,0.8)]">Q</span>
+</div>
+<nav class="flex gap-8">
+<!-- Assuming standard nav items, 'About' is active based on intent -->
+<a class="text-[rgba(255,255,255,0.88)] hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all active:scale-95 duration-200" href="#">Home</a>
+<a class="text-[#00f5ff] border-b-2 border-[#00f5ff] hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all active:scale-95 duration-200" href="#">About</a>
+<a class="text-[rgba(255,255,255,0.88)] hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all active:scale-95 duration-200" href="#">Projects</a>
+<a class="text-[rgba(255,255,255,0.88)] hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all active:scale-95 duration-200" href="#">Contact</a>
+</nav>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-6 pt-8 pb-12 relative z-10">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="font-headline font-bold text-4xl md:text-5xl neon-text mb-4">The story so far.</h1>
+<div class="font-mono text-primary-dim text-sm">// system.log("loading_profile_data")</div>
+</header>
+<!-- Bio Section -->
+<section class="mb-12 space-y-6 text-text-body leading-relaxed">
+<p>
+                I am a Full Stack Engineer based in Gwadar, Balochistan. My journey into technology started with a fascination for how systems fit together, and has evolved into a dedicated pursuit of building robust, scalable applications.
+            </p>
+<p>
+                I specialize in crafting digital experiences that bridge the gap between complex backend logic and intuitive, user-centric interfaces. My approach is rooted in clean code, continuous learning, and an unyielding curiosity for emerging technologies.
+            </p>
+<p>
+                Currently, I'm exploring the intersections of distributed systems and modern frontend frameworks, aiming to deliver software that doesn't just work, but performs beautifully under pressure.
+            </p>
+</section>
+<!-- Facts Strip -->
+<section class="mb-12">
+<div class="glass-panel rounded-lg p-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono text-xs text-text-muted">
+<div class="flex flex-col gap-1">
+<span class="text-primary">// location</span>
+<span class="text-text-body">Gwadar, PK</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-primary">// university</span>
+<span class="text-text-body">UoB</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-primary">// graduating</span>
+<span class="text-text-body">2024</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-primary">// status</span>
+<span class="text-[#00ff9d]">Open to Work</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Work List -->
+<section class="mb-12">
+<h2 class="font-headline font-bold text-2xl text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">construction</span>
+                Currently building
+            </h2>
+<div class="space-y-4">
+<div class="glass-panel p-4 rounded-md flex items-center justify-between group hover:border-primary transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+<span class="font-body font-medium">Distributed Task Scheduler</span>
+</div>
+<span class="font-mono text-xs text-text-muted">// in_progress</span>
+</div>
+<div class="glass-panel p-4 rounded-md flex items-center justify-between group hover:border-primary transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary-dim"></div>
+<span class="font-body font-medium">Portfolio V2</span>
+</div>
+<span class="font-mono text-xs text-text-muted">// optimizing</span>
+</div>
+<div class="glass-panel p-4 rounded-md flex items-center justify-between group hover:border-primary transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-[#00ff9d]"></div>
+<span class="font-body font-medium">AI Integration Module</span>
+</div>
+<span class="font-mono text-xs text-text-muted">// deployed</span>
+</div>
+</div>
+</section>
+<!-- Education & Certifications Grid -->
+<section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Education -->
+<div>
+<h2 class="font-headline font-bold text-xl text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">school</span>
+                        Education
+                    </h2>
+<div class="glass-panel p-5 rounded-lg border-l-4 border-l-primary h-full">
+<h3 class="font-body font-bold text-lg mb-1">BS Computer Science</h3>
+<p class="text-primary-dim text-sm mb-3">University of Balochistan</p>
+<p class="text-text-muted text-sm font-mono">// 2020 - 2024</p>
+<div class="mt-4 pt-4 border-t border-glass-border text-sm text-text-body">
+                            Focusing on Software Engineering and Systems Architecture.
+                        </div>
+</div>
+</div>
+<!-- Certifications -->
+<div>
+<h2 class="font-headline font-bold text-xl text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">workspace_premium</span>
+                        Certifications
+                    </h2>
+<div class="grid grid-cols-1 gap-3 h-full">
+<div class="glass-panel p-4 rounded-md flex items-center gap-3">
+<span class="material-symbols-outlined text-accent text-2xl">code</span>
+<div>
+<h4 class="font-body font-medium text-sm">Advanced React Patterns</h4>
+<span class="font-mono text-[10px] text-text-muted">Frontend Masters</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-md flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-dim text-2xl">cloud</span>
+<div>
+<h4 class="font-body font-medium text-sm">AWS Cloud Practitioner</h4>
+<span class="font-mono text-[10px] text-text-muted">Amazon Web Services</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="bottom-nav-bar md:hidden fixed bottom-0 left-0 right-0 z-50 rounded-t-xl flex justify-around items-center py-3 px-4">
+<!-- Assuming person maps to About/Profile based on intents -->
+<a class="flex flex-col items-center justify-center text-[rgba(255,255,255,0.45)] hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px] transition-transform" href="#">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[rgba(255,255,255,0.45)] hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px] transition-transform" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00f5ff] drop-shadow-[0_0_10px_rgba(0,245,255,0.6)] scale-110 hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px] transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[rgba(255,255,255,0.45)] hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px] transition-transform" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#050510] border-t border-[rgba(0,245,255,0.1)] mb-16 md:mb-0">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-[#ff4757] font-bold font-headline">Q</div>
+<div class="font-label text-xs uppercase tracking-tighter text-[rgba(255,255,255,0.45)]">
+                © 2024 QAMBER MUHAMMAD HANIF // SYSTEM_READY
+            </div>
+<div class="flex gap-4 font-label text-xs uppercase tracking-tighter">
+<a class="text-[rgba(255,255,255,0.45)] hover:text-[#00f5ff] hover:underline decoration-[#00f5ff] cursor-pointer" href="#">GitHub</a>
+<a class="text-[rgba(255,255,255,0.45)] hover:text-[#00f5ff] hover:underline decoration-[#00f5ff] cursor-pointer" href="#">LinkedIn</a>
+<a class="text-[rgba(255,255,255,0.45)] hover:text-[#00f5ff] hover:underline decoration-[#00f5ff] cursor-pointer" href="#">Terminal_Access</a>
+</div>
+</div>
+</footer>
+</body></html>

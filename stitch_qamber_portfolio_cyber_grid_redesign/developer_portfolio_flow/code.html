@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qamber Muhammad Hanif - Full Stack Engineer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono&amp;family=Public+Sans&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#050510',
+                        primary: '#00f5ff',
+                        'primary-dim': '#4fc3f7',
+                        accent: '#ff4757',
+                        'text-body': 'rgba(255,255,255,0.88)',
+                        'text-muted': 'rgba(255,255,255,0.45)',
+                        'glass-bg': 'rgba(255,255,255,0.03)',
+                        'glass-border': 'rgba(0,245,255,0.12)'
+                    },
+                    fontFamily: {
+                        headline: ["Space Grotesk", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        label: ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050510;
+            color: rgba(255,255,255,0.88);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.18;
+            background-image: 
+                linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        .glitch-avatar {
+            position: relative;
+            animation: pulse-border 3s infinite alternate;
+        }
+
+        .glitch-avatar::before,
+        .glitch-avatar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.5;
+            z-index: -1;
+            mix-blend-mode: screen;
+        }
+
+        .glitch-avatar::before {
+            background-color: rgba(255, 71, 87, 0.5); /* red */
+            animation: glitch-anim-1 7s infinite linear alternate-reverse;
+        }
+
+        .glitch-avatar::after {
+            background-color: rgba(0, 245, 255, 0.5); /* cyan */
+            animation: glitch-anim-2 7s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { transform: translate(0) }
+            20% { transform: translate(2px, -2px) }
+            40% { transform: translate(2px, 2px) }
+            60% { transform: translate(-2px, -2px) }
+            80% { transform: translate(-2px, 2px) }
+            100% { transform: translate(0) }
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 10px rgba(0, 245, 255, 0.5); }
+            100% { box-shadow: 0 0 25px rgba(0, 245, 255, 1); }
+        }
+
+        .btn-hover-glow:hover {
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+            transform: translateY(-2px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen relative flex flex-col">
+<!-- Matrix Background Effects -->
+<div class="matrix-bg"></div>
+<canvas class="matrix-rain" id="matrix-canvas"></canvas>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[rgba(5,5,16,0.03)] backdrop-blur-xl border-b border-[rgba(0,245,255,0.12)] shadow-[0_0_16px_rgba(0,245,255,0.15)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00f5ff] text-2xl hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all cursor-pointer">menu</span>
+<span class="font-headline font-bold text-2xl text-[#00f5ff] drop-shadow-[0_0_8px_rgba(0,245,255,0.8)]">Q</span>
+</div>
+<nav class="hidden md:flex gap-6">
+<!-- Desktop nav items would go here if needed, omitted for mobile focus as requested -->
+</nav>
+</div>
+</header>
+<!-- Hero Section (Mobile Optimized) -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 pt-24 pb-20 relative z-10 w-full max-w-md mx-auto">
+<!-- Avatar -->
+<div class="mb-8 relative w-40 h-40 rounded-full border-2 border-primary glitch-avatar bg-glass-bg p-1 backdrop-blur-sm shadow-[0_0_20px_rgba(0,245,255,0.3)]">
+<img alt="Avatar" class="w-full h-full object-cover rounded-full mix-blend-luminosity grayscale hover:grayscale-0 transition-all duration-500" data-alt="A striking portrait of a young male developer with an intense, focused expression, set against a deep navy blue background. The lighting is dramatic and cinematic, featuring sharp electric cyan neon highlights on one side of his face and subtle red accents on the other, creating a cyberpunk hacker aesthetic. The style is hyper-realistic and modern, emphasizing the dark, technical, 'terminal with a soul' vibe of the portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmZ3uG59u3R6BGV1Ug7D3jY-ZtiH9ZOrqFiJ8qoQmLLlbfmTzVHcc7NHchSBC-jZuKwLDAKK2iGU1nw5Xq-3g_iw30H7a8rk2b9CgB8_uelKMGV9ashkZ_aLWMm9ZXPYb5dVn-j1pTEk2B1X4Jop1_KH2O20cpIRDbiRviNmOcygR5Qg1V3YfBqY9g4zynVUmbvQ7fV8kulABphRrDBAWQXy_8zZA2gsYU59lk_TBuIKXpDMwrvCSGLEQpNCRgqMdEsqGrvL9hrZs"/>
+</div>
+<!-- Headline -->
+<div class="text-center mb-10 w-full">
+<p class="font-label text-primary-dim text-sm mb-2 tracking-widest uppercase">// System initialized</p>
+<h1 class="font-headline font-bold text-[62px] leading-none text-primary text-shadow-[0_0_20px_rgba(0,245,255,0.8)] drop-shadow-[0_0_10px_rgba(0,245,255,0.5)] mb-4">
+                Hey, I'm Qamber.
+            </h1>
+<p class="font-body text-text-body text-lg max-w-[280px] mx-auto mt-4">
+                Full Stack Engineer engineering digital experiences from the edge.
+            </p>
+</div>
+<!-- CTAs Stack -->
+<div class="flex flex-col gap-4 w-full px-4">
+<button class="bg-[#0057ff] text-white font-label font-bold py-4 rounded bg-opacity-90 hover:bg-opacity-100 transition-all btn-hover-glow shadow-[0_0_15px_rgba(0,87,255,0.4)] border border-transparent">
+                View Projects
+            </button>
+<button class="bg-glass-bg backdrop-blur-md border border-glass-border text-primary font-label py-4 rounded hover:bg-[rgba(0,245,255,0.1)] transition-all btn-hover-glow">
+                Read Bio
+            </button>
+<button class="bg-glass-bg backdrop-blur-md border border-accent text-accent font-label py-4 rounded hover:bg-[rgba(255,71,87,0.1)] transition-all hover:shadow-[0_0_15px_rgba(255,71,87,0.4)]">
+                Terminal Access
+            </button>
+<button class="bg-transparent border border-text-muted text-text-muted font-label py-4 rounded hover:border-text-body hover:text-text-body transition-all">
+                Contact Me
+            </button>
+</div>
+</main>
+<!-- Matrix Rain Script -->
+<script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width/fontSize;
+
+        const rainDrops = [];
+
+        for( let x = 0; x < columns; x++ ) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(5, 5, 16, 0.05)'; // Deep navy bg with trailing effect
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Fallback green
+            ctx.fillStyle = '#00f5ff'; // Electric cyan
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < rainDrops.length; i++)
+            {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i*fontSize, rainDrops[i]*fontSize);
+
+                if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.97){
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body></html>

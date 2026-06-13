@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qamber Muhammad Hanif - Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;700&amp;family=Public+Sans:wght@400;600&amp;family=Space+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#050510',
+                        primary: '#00f5ff',
+                        'primary-dim': '#4fc3f7',
+                        accent: '#ff4757',
+                        'glass-bg': 'rgba(255,255,255,0.03)',
+                        'glass-border': 'rgba(0,245,255,0.12)',
+                        body: 'rgba(255,255,255,0.88)',
+                        muted: 'rgba(255,255,255,0.45)',
+                    },
+                    fontFamily: {
+                        headline: ["Space Grotesk", "sans-serif"],
+                        display: ["Space Grotesk", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        label: ["JetBrains Mono", "monospace"],
+                        code: ["JetBrains Mono", "monospace"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050510;
+            color: rgba(255,255,255,0.88);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* Matrix Background Effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: linear-gradient(0deg, transparent 24%, rgba(0, 245, 255, 0.3) 25%, rgba(0, 245, 255, 0.3) 26%, transparent 27%, transparent 74%, rgba(0, 245, 255, 0.3) 75%, rgba(0, 245, 255, 0.3) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 245, 255, 0.3) 25%, rgba(0, 245, 255, 0.3) 26%, transparent 27%, transparent 74%, rgba(0, 245, 255, 0.3) 75%, rgba(0, 245, 255, 0.3) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050510;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 245, 255, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 245, 255, 0.6);
+        }
+
+        /* Card Hover Effects */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* List View Styles */
+        .list-view .project-card {
+            grid-column: span 2;
+        }
+        
+        @media (max-width: 768px) {
+            .list-view .project-card {
+                grid-column: span 1;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary selection:text-background">
+<div class="matrix-bg"></div>
+<!-- TopAppBar -->
+<header class="bg-[rgba(5,5,16,0.03)] backdrop-blur-xl fixed top-0 w-full z-50 border-b border-[rgba(0,245,255,0.12)] shadow-[0_0_16px_rgba(0,245,255,0.15)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00f5ff] text-2xl active:scale-95 duration-200 cursor-pointer hidden md:block">menu</span>
+<span class="font-headline font-bold text-2xl text-[#00f5ff] drop-shadow-[0_0_8px_rgba(0,245,255,0.8)]">Q</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-8">
+<a class="text-[rgba(255,255,255,0.88)] font-label uppercase tracking-wider text-sm hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all" href="#">Home</a>
+<a class="text-[#00f5ff] border-b-2 border-[#00f5ff] font-label uppercase tracking-wider text-sm hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all" href="#">Projects</a>
+<a class="text-[rgba(255,255,255,0.88)] font-label uppercase tracking-wider text-sm hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all" href="#">Skills</a>
+<a class="text-[rgba(255,255,255,0.88)] font-label uppercase tracking-wider text-sm hover:text-[#00f5ff] hover:drop-shadow-[0_0_5px_rgba(0,245,255,0.5)] transition-all" href="#">Contact</a>
+</nav>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen">
+<!-- Section Header & Controls -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+<div>
+<h1 class="font-headline font-bold text-4xl md:text-5xl text-primary text-shadow-[0_0_20px_rgba(0,245,255,0.4)] mb-2">// PROJECTS</h1>
+<p class="font-body text-muted text-lg">System.out.println("Building the future.");</p>
+</div>
+<!-- View Toggle -->
+<div class="flex bg-glass-bg border border-glass-border rounded-lg p-1 backdrop-blur-md">
+<button aria-label="Grid View" class="p-2 rounded text-primary bg-[rgba(0,245,255,0.1)] transition-colors hover:text-primary" id="grid-view-btn">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button aria-label="List View" class="p-2 rounded text-muted hover:text-primary transition-colors" id="list-view-btn">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-container">
+<!-- Project Card 1 -->
+<article class="project-card relative bg-glass-bg border border-glass-border rounded-xl p-6 backdrop-blur-xl overflow-hidden group">
+<!-- Decorative Brackets -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary rounded-tl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-primary rounded-tr-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-primary rounded-bl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary rounded-br-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<!-- Glowing Accent -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-[50px] pointer-events-none group-hover:bg-primary/30 transition-colors"></div>
+<div class="relative z-10 flex flex-col h-full">
+<h2 class="font-headline font-bold text-2xl text-primary mb-3 text-shadow-[0_0_10px_rgba(0,245,255,0.3)]">Nexus AI Engine</h2>
+<p class="font-body text-body mb-6 flex-grow">A high-performance neural network orchestration platform designed for real-time edge computing. Optimizes inference latency by 40% across distributed nodes.</p>
+<ul class="space-y-2 mb-6 font-body text-sm text-body">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">arrow_forward_ios</span>
+<span>Implemented custom tensor core utilization</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">arrow_forward_ios</span>
+<span>Rust-based microservices architecture</span>
+</li>
+</ul>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-code text-xs px-2 py-1 rounded border border-primary/30 text-primary-dim hover:border-primary hover:text-primary hover:shadow-[0_0_8px_rgba(0,245,255,0.4)] transition-all cursor-default bg-background/50">Rust</span>
+<span class="font-code text-xs px-2 py-1 rounded border border-primary/30 text-primary-dim hover:border-primary hover:text-primary hover:shadow-[0_0_8px_rgba(0,245,255,0.4)] transition-all cursor-default bg-background/50">WASM</span>
+<span class="font-code text-xs px-2 py-1 rounded border border-primary/30 text-primary-dim hover:border-primary hover:text-primary hover:shadow-[0_0_8px_rgba(0,245,255,0.4)] transition-all cursor-default bg-background/50">TensorFlow</span>
+</div>
+<a class="inline-flex items-center gap-2 font-code text-sm text-accent hover:text-white border border-accent/50 hover:border-accent hover:bg-accent/20 px-4 py-2 rounded transition-all mt-auto self-start" href="#">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                        GitHub Source
+                    </a>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="project-card relative bg-glass-bg border border-[#ff00ff]/30 rounded-xl p-6 backdrop-blur-xl overflow-hidden group">
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#ff00ff] rounded-tl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#ff00ff] rounded-tr-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#ff00ff] rounded-bl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#ff00ff] rounded-br-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-[#ff00ff]/10 rounded-full blur-[50px] pointer-events-none group-hover:bg-[#ff00ff]/20 transition-colors"></div>
+<div class="relative z-10 flex flex-col h-full">
+<h2 class="font-headline font-bold text-2xl text-[#ff00ff] mb-3 text-shadow-[0_0_10px_rgba(255,0,255,0.3)]">CyberGrid Terminal</h2>
+<p class="font-body text-body mb-6 flex-grow">A WebGL-powered interactive developer environment. Simulates a fully functional UNIX-like terminal within the browser with 3D spatial window management.</p>
+<ul class="space-y-2 mb-6 font-body text-sm text-body">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#ff00ff] text-[16px] mt-0.5">arrow_forward_ios</span>
+<span>Custom GLSL shaders for CRT effects</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#ff00ff] text-[16px] mt-0.5">arrow_forward_ios</span>
+<span>WebSockets for pseudo-SSH capabilities</span>
+</li>
+</ul>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-code text-xs px-2 py-1 rounded border border-[#ff00ff]/30 text-[#ff00ff]/80 hover:border-[#ff00ff] hover:text-[#ff00ff] hover:shadow-[0_0_8px_rgba(255,0,255,0.4)] transition-all cursor-default bg-background/50">Three.js</span>
+<span class="font-code text-xs px-2 py-1 rounded border border-[#ff00ff]/30 text-[#ff00ff]/80 hover:border-[#ff00ff] hover:text-[#ff00ff] hover:shadow-[0_0_8px_rgba(255,0,255,0.4)] transition-all cursor-default bg-background/50">TypeScript</span>
+<span class="font-code text-xs px-2 py-1 rounded border border-[#ff00ff]/30 text-[#ff00ff]/80 hover:border-[#ff00ff] hover:text-[#ff00ff] hover:shadow-[0_0_8px_rgba(255,0,255,0.4)] transition-all cursor-default bg-background/50">GLSL</span>
+</div>
+<a class="inline-flex items-center gap-2 font-code text-sm text-accent hover:text-white border border-accent/50 hover:border-accent hover:bg-accent/20 px-4 py-2 rounded transition-all mt-auto self-start" href="#">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                        GitHub Source
+                    </a>
+</div>
+</article>
+<!-- Project Card 3 -->
+<article class="project-card relative bg-glass-bg border border-[#00ff9d]/30 rounded-xl p-6 backdrop-blur-xl overflow-hidden group">
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#00ff9d] rounded-tl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#00ff9d] rounded-tr-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#00ff9d] rounded-bl-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#00ff9d] rounded-br-xl opacity-50 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-[#00ff9d]/10 rounded-full blur-[50px] pointer-events-none group-hover:bg-[#00ff9d]/20 transition-colors"></div>
+<div class="relative z-10 flex flex-col h-full">
+<h2 class="font-headline font-bold text-2xl text-[#00ff9d] mb-3 text-shadow-[0_0_10px_rgba(0,255,157,0.3)]">Synapse Protocol</h2>
+<p class="font-body text-body mb-6 flex-grow">Decentralized data exchange layer built on Substrate. Enables secure, verifiable peer-to-peer telemetry data streaming for IoT devices in hostile network environments.</p>
+<ul class="space-y-2 mb-6 font-body text-sm text-body">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#00ff9d] text-[16px] mt-0.5">arrow_forward_ios</span>
+<span>Zero-knowledge proofs for data integrity</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#00ff9d] text-[16px] mt-0.5">arrow_forward_ios</span>
+<span>Custom consensus mechanism</span>
+</li>
+</ul>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="font-code text-xs px-2 py-1 rounded border border-[#00ff9d]/30 text-[#00ff9d]/80 hover:border-[#00ff9d] hover:text-[#00ff9d] hover:shadow-[0_0_8px_rgba(0,255,157,0.4)] transition-all cursor-default bg-background/50">Solidity</span>
+<span class="font-code text-xs px-2 py-1 rounded border border-[#00ff9d]/30 text-[#00ff9d]/80 hover:border-[#00ff9d] hover:text-[#00ff9d] hover:shadow-[0_0_8px_rgba(0,255,157,0.4)] transition-all cursor-default bg-background/50">Rust</span>
+<span class="font-code text-xs px-2 py-1 rounded border border-[#00ff9d]/30 text-[#00ff9d]/80 hover:border-[#00ff9d] hover:text-[#00ff9d] hover:shadow-[0_0_8px_rgba(0,255,157,0.4)] transition-all cursor-default bg-background/50">Web3.js</span>
+</div>
+<a class="inline-flex items-center gap-2 font-code text-sm text-accent hover:text-white border border-accent/50 hover:border-accent hover:bg-accent/20 px-4 py-2 rounded transition-all mt-auto self-start" href="#">
+<span class="material-symbols-outlined text-[18px]">code</span>
+                        GitHub Source
+                    </a>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-[rgba(5,5,16,0.8)] backdrop-blur-lg fixed bottom-0 left-0 right-0 z-50 rounded-t-xl border-t border-[rgba(0,245,255,0.2)] shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="w-full flex justify-around items-center py-3 px-4">
+<a class="flex flex-col items-center justify-center text-[rgba(255,255,255,0.45)] hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px]" href="#">
+<span class="material-symbols-outlined mb-1">terminal</span>
+<span class="font-label uppercase tracking-widest text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00f5ff] drop-shadow-[0_0_10px_rgba(0,245,255,0.6)] scale-110 hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px]" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">code</span>
+<span class="font-label uppercase tracking-widest text-[10px]">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[rgba(255,255,255,0.45)] hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px]" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label uppercase tracking-widest text-[10px]">Skills</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[rgba(255,255,255,0.45)] hover:text-[#4fc3f7] transition-colors active:translate-y-[-2px]" href="#">
+<span class="material-symbols-outlined mb-1">mail</span>
+<span class="font-label uppercase tracking-widest text-[10px]">Contact</span>
+</a>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="bg-[#050510] w-full py-12 border-t border-[rgba(0,245,255,0.1)] mb-16 md:mb-0">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label text-xs uppercase tracking-tighter text-[rgba(255,255,255,0.45)]">© 2024 QAMBER MUHAMMAD HANIF // SYSTEM_READY</p>
+<div class="flex gap-6 font-label text-xs uppercase tracking-tighter">
+<a class="text-[rgba(255,255,255,0.45)] hover:text-[#00f5ff] hover:underline decoration-[#00f5ff] cursor-pointer transition-colors text-[#ff4757] font-bold" href="#">GitHub</a>
+<a class="text-[rgba(255,255,255,0.45)] hover:text-[#00f5ff] hover:underline decoration-[#00f5ff] cursor-pointer transition-colors" href="#">LinkedIn</a>
+<a class="text-[rgba(255,255,255,0.45)] hover:text-[#00f5ff] hover:underline decoration-[#00f5ff] cursor-pointer transition-colors" href="#">Terminal_Access</a>
+</div>
+</div>
+</footer>
+<script>
+        // View Toggle Logic
+        const gridBtn = document.getElementById('grid-view-btn');
+        const listBtn = document.getElementById('list-view-btn');
+        const container = document.getElementById('projects-container');
+
+        gridBtn.addEventListener('click', () => {
+            container.classList.remove('list-view');
+            
+            // Update button styles
+            gridBtn.classList.add('text-primary', 'bg-[rgba(0,245,255,0.1)]');
+            gridBtn.classList.remove('text-muted');
+            
+            listBtn.classList.remove('text-primary', 'bg-[rgba(0,245,255,0.1)]');
+            listBtn.classList.add('text-muted');
+        });
+
+        listBtn.addEventListener('click', () => {
+            container.classList.add('list-view');
+            
+            // Update button styles
+            listBtn.classList.add('text-primary', 'bg-[rgba(0,245,255,0.1)]');
+            listBtn.classList.remove('text-muted');
+            
+            gridBtn.classList.remove('text-primary', 'bg-[rgba(0,245,255,0.1)]');
+            gridBtn.classList.add('text-muted');
+        });
+    </script>
+</body></html>
