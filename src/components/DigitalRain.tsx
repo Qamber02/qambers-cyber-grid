@@ -60,9 +60,7 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
     let streams = initStreams();
 
     const draw = () => {
-      // Slight alpha trail
-      ctx.fillStyle = 'rgba(5, 5, 16, 0.08)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const isMobileViewport = canvas.width < 768;
       const targetX = isMobileViewport ? canvas.width * 0.5 : canvas.width * 0.3;
@@ -95,7 +93,7 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
 
           const trailFade = 1 - j / stream.length;
           const targetFade = Math.min(1, (1 - trailProgress) * 4);
-          const opacity = 0.18 * trailFade * targetFade;
+          const opacity = 0.3 * trailFade * targetFade;
           if (opacity <= 0) continue;
 
           ctx.fillStyle =
@@ -144,7 +142,6 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-[2]"
-      style={{ mixBlendMode: 'screen' }}
       aria-hidden="true"
     />
   );
