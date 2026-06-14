@@ -4,7 +4,7 @@ import SkillsSection from '@/components/SkillsSection';
 const About = () => (
   <>
     <AboutSection />
-    <SkillsSection />
+    <SkillsSection as="h2" />
   </>
 );
 

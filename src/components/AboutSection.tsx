@@ -18,6 +18,9 @@ const ProfileHud = () => (
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: 'top' }}
         draggable="false"
+        width={280}
+        height={300}
+        loading="lazy"
       />
       {/* HUD scanner line scanning down (crisp overlay) */}
       <motion.div
@@ -71,7 +74,7 @@ const AboutSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true }}
-          className="p-6 md:p-8 rounded-[12px] border border-white/10" style={{ background: 'rgba(0,0,0,0.75)' }}
+          className="p-6 md:p-8 rounded-xl border border-white/10" style={{ background: 'rgba(0,0,0,0.75)' }}
         >
           <p className="text-xl md:text-[22px] text-white font-semibold leading-relaxed">
             I'm from Gwadar, Balochistan — a port city most people know only from geopolitics.
@@ -120,7 +123,7 @@ const AboutSection = () => (
           return (
             <div
               key={fact.label}
-              className="flex flex-col gap-1 p-3 md:p-4 rounded-[8px] relative overflow-hidden transition-all duration-300 hover:bg-white/[0.04]"
+              className="flex flex-col gap-1 p-3 md:p-4 rounded-lg relative overflow-hidden transition-all duration-300 hover:bg-white/[0.04]"
               style={{
                 background: 'rgba(0, 0, 0, 0.4)',
                 backdropFilter: 'blur(4px)',
@@ -162,7 +165,7 @@ const AboutSection = () => (
           {portfolioData.currentWork.map((item, index) => (
             <div
               key={item.label}
-              className="p-5 rounded-[8px] border transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between"
+              className="p-5 rounded-lg border transition-all duration-300 hover:-translate-y-1 relative flex flex-col justify-between"
               style={{
                 background: 'rgba(0, 0, 0, 0.5)',
                 backdropFilter: 'blur(4px)',

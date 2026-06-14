@@ -104,7 +104,7 @@ const CtaLink = ({ to, variant = 'ghost', children, 'aria-label': ariaLabel }: C
     <Link
       to={to}
       aria-label={ariaLabel}
-      className="flex-shrink-0 h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
+      className="flex-shrink-0 h-11 px-5 rounded-md text-[14px] font-medium flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
       style={{
         fontFamily: "'Inter', sans-serif",
         ...styles[variant],
@@ -249,7 +249,7 @@ const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Qamber's GitHub profile (opens in new tab)"
-                className="flex-shrink-0 h-[42px] px-5 rounded-[6px] text-[14px] font-medium flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
+                className="flex-shrink-0 h-11 px-5 rounded-md text-[14px] font-medium flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   background: 'transparent',

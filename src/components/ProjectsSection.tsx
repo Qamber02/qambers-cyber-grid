@@ -213,7 +213,7 @@ const ProjectTerminal = ({ project, onClose, accent }: TerminalProps) => {
 
   return (
     <div
-      className="rounded-lg border font-mono text-xs overflow-hidden flex flex-col mt-4"
+      className="rounded-md border font-mono text-xs overflow-hidden flex flex-col mt-4"
       style={{
         borderColor: `${accent}40`,
         background: 'rgba(3, 3, 12, 0.85)',
@@ -400,7 +400,7 @@ const ProjectGridCard = memo(({ project, index }: CardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-      className="group relative rounded-xl border p-6 overflow-hidden transition-all duration-300"
+      className="group relative rounded-xl border p-6 overflow-hidden transition-all duration-200 hover:-translate-y-1"
       style={{
         borderColor: glowStyle.border,
         background: 'rgba(5, 5, 20, 0.82)',
@@ -719,7 +719,7 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="min-h-screen py-20 px-4 relative"
+      className="min-h-screen py-24 px-4 relative"
       aria-labelledby="projects-heading"
     >
       <div className="max-w-6xl mx-auto">
@@ -770,7 +770,7 @@ const ProjectsSection = () => {
             >
               <button
                 onClick={() => setViewMode('grid')}
-                className="p-1.5 rounded transition-all active:scale-95"
+                className="w-11 h-11 flex items-center justify-center rounded transition-all active:scale-95"
                 style={{
                   background: viewMode === 'grid' ? 'rgba(0, 245, 255, 0.12)' : 'transparent',
                   color: viewMode === 'grid' ? 'var(--cyan-primary)' : 'rgba(255, 255, 255, 0.4)',
@@ -781,7 +781,7 @@ const ProjectsSection = () => {
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className="p-1.5 rounded transition-all active:scale-95"
+                className="w-11 h-11 flex items-center justify-center rounded transition-all active:scale-95"
                 style={{
                   background: viewMode === 'list' ? 'rgba(0, 245, 255, 0.12)' : 'transparent',
                   color: viewMode === 'list' ? 'var(--cyan-primary)' : 'rgba(255, 255, 255, 0.4)',
@@ -806,7 +806,7 @@ const ProjectsSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="text-xs font-mono px-4 py-2 rounded-full border transition-all duration-200 relative flex items-center gap-1.5 whitespace-nowrap active:scale-[0.97]"
+              className="text-xs font-mono px-4 py-2 min-h-[44px] rounded-full border transition-all duration-200 relative flex items-center gap-1.5 whitespace-nowrap active:scale-[0.97]"
               style={{
                 borderColor: activeCategory === cat ? 'rgba(0, 245, 255, 0.4)' : 'rgba(255, 255, 255, 0.08)',
                 color: activeCategory === cat ? 'var(--cyan-primary)' : 'rgba(255, 255, 255, 0.6)',

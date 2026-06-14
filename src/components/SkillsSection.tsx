@@ -2,6 +2,12 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio';
 import { memo } from 'react';
 
+interface SkillsSectionProps {
+  /** Heading level to use for the section title. Defaults to 'h1'.
+   *  Pass 'h2' when SkillsSection is nested under a page that already has an h1. */
+  as?: 'h1' | 'h2';
+}
+
 const skillGroups = [
   { 
     title: 'Languages', 
@@ -61,7 +67,7 @@ const skillGroups = [
 
 const totalSkillsCount = skillGroups.reduce((acc, g) => acc + g.skills.length, 0);
 
-const SkillsSection = () => (
+const SkillsSection = ({ as: Heading = 'h1' }: SkillsSectionProps) => (
   <section
     id="skills"
     className="min-h-screen py-24 px-4 relative z-[3]"
@@ -86,7 +92,7 @@ const SkillsSection = () => (
         >
           // SYSTEM CAPABILITIES
         </span>
-        <h1
+        <Heading
           id="skills-heading"
           className="text-[38px] md:text-[52px] font-bold mb-4 leading-tight"
           style={{
@@ -96,7 +102,7 @@ const SkillsSection = () => (
           }}
         >
           Technical Stack.
-        </h1>
+        </Heading>
         <p
           className="text-[16px] leading-[1.75] font-medium max-w-2xl"
           style={{

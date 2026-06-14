@@ -117,8 +117,8 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="min-h-screen py-20 px-4 relative" aria-labelledby="contact-heading">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="min-h-screen py-24 px-4 relative" aria-labelledby="contact-heading">
+      <div className="max-w-6xl mx-auto">
 
         {/* ── Header ────────────────────────────────────────── */}
         <motion.div
@@ -232,7 +232,7 @@ const ContactSection = () => {
                 </div>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-lg text-sm font-medium font-mono transition-all duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
+                  className="h-11 px-4 rounded-lg text-sm font-medium font-mono transition-all duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cyan-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-base)]"
                   style={{
                     background: 'hsl(var(--primary))',
                     color: '#fff',

@@ -107,7 +107,7 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Footer — hidden on home */}
       {!isHome && (
         <footer className="relative z-[3] border-t border-[var(--glass-border)] py-8 px-4 mt-20">
-          <div className="max-w-7xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             <p className="text-sm font-mono" style={{ color: 'var(--white-muted)' }}>
               © {new Date().getFullYear()} Qamber Muhammad Hanif — React · TypeScript · Tailwind
             </p>
