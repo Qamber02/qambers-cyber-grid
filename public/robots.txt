@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://qamber.dev/sitemap.xml
+Sitemap: https://qambers-cyber-grid.vercel.app/sitemap.xml
