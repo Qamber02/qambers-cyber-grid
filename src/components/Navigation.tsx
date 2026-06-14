@@ -23,6 +23,8 @@ const Navigation = () => {
         backdropFilter: 'blur(18px)',
         WebkitBackdropFilter: 'blur(18px)',
         borderBottom: '1px solid rgba(0, 245, 255, 0.08)',
+        willChange: 'transform',
+        contain: 'paint',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">

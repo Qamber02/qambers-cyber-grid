@@ -15,7 +15,7 @@ import {
   Sparkles,
   Search,
 } from 'lucide-react';
-import { useState, useRef, useEffect, memo } from 'react';
+import { useState, useRef, useEffect, memo, useMemo } from 'react';
 
 type Project = (typeof portfolioData.projects)[0];
 
@@ -400,10 +400,10 @@ const ProjectGridCard = memo(({ project, index }: CardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-      className="group relative rounded-xl border p-6 backdrop-blur-md overflow-hidden transition-all duration-300"
+      className="group relative rounded-xl border p-6 overflow-hidden transition-all duration-300"
       style={{
         borderColor: glowStyle.border,
-        background: 'rgba(5, 5, 20, 0.45)',
+        background: 'rgba(5, 5, 20, 0.82)',
         boxShadow: `0 4px 30px rgba(0,0,0,0.4)`,
       }}
     >
@@ -709,8 +709,11 @@ const ProjectsSection = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   // Filter project arrays based on activeCategory selection
-  const filteredProjects = portfolioData.projects.filter(
-    (project) => activeCategory === 'All' || project.category === activeCategory
+  const filteredProjects = useMemo(
+    () => portfolioData.projects.filter(
+      (project) => activeCategory === 'All' || project.category === activeCategory
+    ),
+    [activeCategory]
   );
 
   return (
@@ -759,7 +762,7 @@ const ProjectsSection = () => {
             className="flex items-center gap-3 self-end md:self-auto"
           >
             <div
-              className="flex border rounded-lg p-0.5 backdrop-blur-md"
+              className="flex border rounded-lg p-0.5"
               style={{
                 borderColor: 'rgba(0, 245, 255, 0.12)',
                 background: 'rgba(255, 255, 255, 0.02)',
@@ -839,7 +842,7 @@ const ProjectsSection = () => {
                   ))}
                 </div>
               ) : (
-                <div className="border border-white/[0.08] rounded-xl bg-rgba(5, 5, 20, 0.25) p-4 flex flex-col backdrop-blur-md">
+                <div className="border border-white/[0.08] rounded-xl p-4 flex flex-col" style={{ background: 'rgba(5, 5, 20, 0.82)' }}>
                   {filteredProjects.map((project, index) => (
                     <ProjectListRow key={project.id} project={project} index={index} />
                   ))}

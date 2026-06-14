@@ -105,13 +105,26 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
       });
     };
 
-    // Animation loop using requestAnimationFrame
+    // Animation loop — capped at ~30fps, paused when tab is hidden
     let rafId: number;
-    const loop = () => {
-      draw();
+    let last = 0;
+    const loop = (now: number) => {
       rafId = requestAnimationFrame(loop);
+      if (now - last < 33) return; // ~30fps
+      last = now;
+      draw();
     };
     rafId = requestAnimationFrame(loop);
+
+    const onVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(rafId);
+      } else {
+        last = 0;
+        rafId = requestAnimationFrame(loop);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     // Resize — reinitialize streams with fresh dimensions
     const handleResize = () => {
@@ -122,6 +135,7 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
 
     return () => {
       cancelAnimationFrame(rafId);
+      document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('resize', handleResize);
     };
   }, [reducedColumns]);

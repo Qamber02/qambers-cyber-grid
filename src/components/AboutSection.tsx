@@ -71,7 +71,7 @@ const AboutSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true }}
-          className="p-6 md:p-8 rounded-[12px] bg-black/50 backdrop-blur-sm border border-white/10"
+          className="p-6 md:p-8 rounded-[12px] border border-white/10" style={{ background: 'rgba(0,0,0,0.75)' }}
         >
           <p className="text-xl md:text-[22px] text-white font-semibold leading-relaxed">
             I'm from Gwadar, Balochistan — a port city most people know only from geopolitics.
@@ -231,7 +231,7 @@ const AboutSection = () => (
             {portfolioData.education.map((edu, index) => (
               <div
                 key={index}
-                className="p-5 rounded-lg border border-[rgba(0,245,255,0.15)] bg-black/50 backdrop-blur-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,245,255,0.15)] hover:border-[rgba(0,245,255,0.3)]"
+                className="p-5 rounded-lg border border-[rgba(0,245,255,0.15)] transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,245,255,0.15)] hover:border-[rgba(0,245,255,0.3)]" style={{ background: 'rgba(0,0,0,0.75)' }}
               >
                 {/* Visual Header */}
                 <div className="flex items-center justify-between text-[9px] font-mono text-[var(--cyan-primary)] opacity-60 mb-3">
@@ -284,7 +284,7 @@ const AboutSection = () => (
             {portfolioData.certifications.map((cert, index) => (
               <div
                 key={index}
-                className="p-4 rounded-lg flex items-center justify-between border border-white/[0.06] bg-black/50 backdrop-blur-sm hover:bg-black/60 transition-all duration-300 hover:border-l-[#ff6b9d] border-l-2 border-l-transparent hover:shadow-[0_4px_16px_rgba(255,107,157,0.08)]"
+                className="p-4 rounded-lg flex items-center justify-between border border-white/[0.06] hover:bg-black/80 transition-all duration-300 hover:border-l-[#ff6b9d] border-l-2 border-l-transparent hover:shadow-[0_4px_16px_rgba(255,107,157,0.08)]" style={{ background: 'rgba(0,0,0,0.75)' }}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-md bg-[#ff6b9d]/10 flex items-center justify-center border border-[#ff6b9d]/20 text-[#ff6b9d]">

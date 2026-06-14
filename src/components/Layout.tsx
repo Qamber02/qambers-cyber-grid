@@ -22,16 +22,29 @@ const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
-  // Cursor glow — one listener for the whole app lifetime
+  // Cursor glow — rAF-coalesced, transform-only (no layout/paint per frame)
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (cursorGlowRef.current) {
-        cursorGlowRef.current.style.left = `${e.clientX}px`;
-        cursorGlowRef.current.style.top = `${e.clientY}px`;
+    let rafId = 0;
+    let cx = 0;
+    let cy = 0;
+    const onMove = (e: MouseEvent) => {
+      cx = e.clientX;
+      cy = e.clientY;
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          rafId = 0;
+          if (cursorGlowRef.current) {
+            cursorGlowRef.current.style.transform =
+              `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+          }
+        });
       }
     };
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -72,11 +85,11 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Audio toggle */}
       <AudioManager />
 
-      {/* Cursor glow — z:2 */}
+      {/* Cursor glow — z:2 — positioned via transform3d for compositor-only update */}
       <div
         ref={cursorGlowRef}
-        className="pointer-events-none fixed w-96 h-96 rounded-full opacity-20 blur-3xl bg-gradient-to-r from-neon-cyan via-electric to-neon-cyan -translate-x-1/2 -translate-y-1/2 z-[2]"
-        style={{ transition: 'left 0.05s, top 0.05s' }}
+        className="pointer-events-none fixed w-96 h-96 rounded-full opacity-20 blur-3xl bg-gradient-to-r from-neon-cyan via-electric to-neon-cyan z-[2]"
+        style={{ top: 0, left: 0, willChange: 'transform' }}
         aria-hidden="true"
       />
 

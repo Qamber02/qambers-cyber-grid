@@ -74,6 +74,20 @@ const CyberGrid = () => {
         renderer.render(scene, camera);
       };
       animate();
+
+      // Pause loop when tab is backgrounded, resume when visible again
+      const onVisibility = () => {
+        if (document.hidden) {
+          cancelAnimationFrame(animationFrameId);
+        } else {
+          animate();
+        }
+      };
+      document.addEventListener('visibilitychange', onVisibility);
+
+      // Store for cleanup
+      (renderer as unknown as { _visibilityCleanup: () => void })._visibilityCleanup = () =>
+        document.removeEventListener('visibilitychange', onVisibility);
     }
 
     // Resize handler
@@ -88,6 +102,7 @@ const CyberGrid = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
+      (renderer as unknown as { _visibilityCleanup?: () => void })._visibilityCleanup?.();
       if (mountRef.current?.contains(renderer.domElement)) {
         mountRef.current.removeChild(renderer.domElement);
       }
