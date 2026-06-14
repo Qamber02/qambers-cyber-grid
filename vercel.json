@@ -1,7 +1,10 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/((?!og-image\\.png|sitemap\\.xml|robots\\.txt|favicon\\.ico|cv\\.pdf|audio/.*).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
