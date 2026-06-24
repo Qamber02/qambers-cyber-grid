@@ -1,47 +1,102 @@
-Project
+# Portfolio Website
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+A modern portfolio website showcasing my projects, technical skills, experience, and professional background. The site is designed with a focus on performance, responsiveness, and user experience.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Overview
 
-Follow these steps:
+This portfolio serves as a central place to highlight my work, demonstrate my technical abilities, and provide information for potential employers, clients, and collaborators.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Features
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+* Responsive design for all screen sizes
+* Project showcase with detailed descriptions
+* Skills and technology stack section
+* Professional experience and background
+* Contact information and social links
+* Fast and optimized performance
+* Clean and modern user interface
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+* Vite
+* TypeScript
+* React
+* shadcn/ui
+* Tailwind CSS
 
+## Getting Started
 
+### Prerequisites
+
+Make sure you have the following installed:
+
+* Node.js
+* npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone <YOUR_REPOSITORY_URL>
+```
+
+Navigate to the project directory:
+
+```bash
+cd <PROJECT_NAME>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:5173
+```
+
+## Production Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+├── components/
+├── pages/
+├── assets/
+├── hooks/
+├── lib/
+└── styles/
+```
+
+## Live Demo
+
+Live Website: https://qambers-cyber-grid.vercel.app/
+
+## License
+
+This project is available under the MIT License.
