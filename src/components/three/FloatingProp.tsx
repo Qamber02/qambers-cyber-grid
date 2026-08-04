@@ -27,8 +27,8 @@ function Model({ kind }: { kind: PropKind }) {
       ? viewportSize.width / viewportSize.height
       : 1.0;
 
-    // Use fitAxis: 'height' with 0.95 for dagger and 0.92 for crystal so models fill the full card height
-    const fillRatio = kind === 'crystal' ? 0.92 : 0.95;
+    // High fill ratios for prominent visual weight: 0.94 for crystal, 0.98 for dagger
+    const fillRatio = kind === 'crystal' ? 0.94 : 0.98;
 
     fitModelToContainer({
       model: clone,
@@ -60,7 +60,7 @@ function Model({ kind }: { kind: PropKind }) {
     if (!group.current) return;
     const time = state.clock.elapsedTime;
     const idleSpeed = kind === 'dagger' ? 0.35 : 0.28;
-    const idleFloat = Math.sin(time * 1.2) * 0.06;
+    const idleFloat = Math.sin(time * 1.2) * 0.04;
 
     const tiltX = state.pointer.y * 0.22;
     const tiltY = state.pointer.x * 0.25;
