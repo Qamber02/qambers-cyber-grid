@@ -1,0 +1,147 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/Layout.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=49946ac6"; const useEffect = __vite__cjsImport3_react["useEffect"]; const useRef = __vite__cjsImport3_react["useRef"];
+import { useLocation } from "/node_modules/.vite/deps/react-router-dom.js?v=2d18321d";
+import Navigation from "/src/components/Navigation.tsx";
+const Layout = ({ children })=>{
+    _s();
+    const cursorGlowRef = useRef(null);
+    const location = useLocation();
+    // Cursor glow ‚Äî one listener for the whole app lifetime
+    useEffect(()=>{
+        const handleMouseMove = (e)=>{
+            if (cursorGlowRef.current) {
+                cursorGlowRef.current.style.left = `${e.clientX}px`;
+                cursorGlowRef.current.style.top = `${e.clientY}px`;
+            }
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return ()=>window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+    const isHome = location.pathname === '/';
+    return /*#__PURE__*/ _jsxDEV("div", {
+        className: "relative min-h-screen overflow-x-hidden z-0",
+        children: [
+            /*#__PURE__*/ _jsxDEV("div", {
+                className: "system-backdrop fixed inset-0 z-0 pointer-events-none"
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                lineNumber: 29,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("div", {
+                ref: cursorGlowRef,
+                className: "pointer-events-none fixed z-[2] h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-700/10 blur-3xl",
+                style: {
+                    transition: 'left 0.1s, top 0.1s'
+                }
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                lineNumber: 32,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV(Navigation, {}, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                lineNumber: 39,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("main", {
+                className: "relative z-[3] px-4 md:px-8 pt-20",
+                children: children
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                lineNumber: 42,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("footer", {
+                className: "relative z-[3] mt-20 border-t border-violet-400/15 px-4 py-8",
+                children: /*#__PURE__*/ _jsxDEV("div", {
+                    className: "max-w-7xl mx-auto text-center",
+                    children: /*#__PURE__*/ _jsxDEV("p", {
+                        className: "font-mono text-sm text-violet-100/40",
+                        children: "¬© 2025 Qamber Muhammad Hanif ‚Äî Built with React, TypeScript & Tailwind CSS"
+                    }, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                        lineNumber: 49,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                    lineNumber: 48,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+                lineNumber: 47,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx",
+        lineNumber: 28,
+        columnNumber: 5
+    }, this);
+};
+_s(Layout, "KF3nYvd5cCoQ9o5aTYGO1YOeypQ=", false, function() {
+    return [
+        useLocation
+    ];
+});
+_c = Layout;
+export default Layout;
+var _c;
+$RefreshReg$(_c, "Layout");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Layout.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkxheW91dC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VSZWYgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyB1c2VMb2NhdGlvbiB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nO1xuaW1wb3J0IE5hdmlnYXRpb24gZnJvbSAnLi9OYXZpZ2F0aW9uJztcblxuaW50ZXJmYWNlIExheW91dFByb3BzIHtcbiAgY2hpbGRyZW46IFJlYWN0LlJlYWN0Tm9kZTtcbn1cblxuY29uc3QgTGF5b3V0ID0gKHsgY2hpbGRyZW4gfTogTGF5b3V0UHJvcHMpID0+IHtcbiAgY29uc3QgY3Vyc29yR2xvd1JlZiA9IHVzZVJlZjxIVE1MRGl2RWxlbWVudD4obnVsbCk7XG4gIGNvbnN0IGxvY2F0aW9uID0gdXNlTG9jYXRpb24oKTtcblxuICAvLyBDdXJzb3IgZ2xvdyDigJQgb25lIGxpc3RlbmVyIGZvciB0aGUgd2hvbGUgYXBwIGxpZmV0aW1lXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgY29uc3QgaGFuZGxlTW91c2VNb3ZlID0gKGU6IE1vdXNlRXZlbnQpID0+IHtcbiAgICAgIGlmIChjdXJzb3JHbG93UmVmLmN1cnJlbnQpIHtcbiAgICAgICAgY3Vyc29yR2xvd1JlZi5jdXJyZW50LnN0eWxlLmxlZnQgPSBgJHtlLmNsaWVudFh9cHhgO1xuICAgICAgICBjdXJzb3JHbG93UmVmLmN1cnJlbnQuc3R5bGUudG9wID0gYCR7ZS5jbGllbnRZfXB4YDtcbiAgICAgIH1cbiAgICB9O1xuICAgIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdtb3VzZW1vdmUnLCBoYW5kbGVNb3VzZU1vdmUpO1xuICAgIHJldHVybiAoKSA9PiB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcignbW91c2Vtb3ZlJywgaGFuZGxlTW91c2VNb3ZlKTtcbiAgfSwgW10pO1xuXG4gIGNvbnN0IGlzSG9tZSA9IGxvY2F0aW9uLnBhdGhuYW1lID09PSAnLyc7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIG1pbi1oLXNjcmVlbiBvdmVyZmxvdy14LWhpZGRlbiB6LTBcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3lzdGVtLWJhY2tkcm9wIGZpeGVkIGluc2V0LTAgei0wIHBvaW50ZXItZXZlbnRzLW5vbmVcIiAvPlxuXG4gICAgICB7LyogQ3Vyc29yIGdsb3cg4oCUIGhpZGRlbiBvbiB0b3VjaCBkZXZpY2VzIGFueXdheSDigJQgei1pbmRleCAyICovfVxuICAgICAgPGRpdlxuICAgICAgICByZWY9e2N1cnNvckdsb3dSZWZ9XG4gICAgICAgIGNsYXNzTmFtZT1cInBvaW50ZXItZXZlbnRzLW5vbmUgZml4ZWQgei1bMl0gaC05NiB3LTk2IC10cmFuc2xhdGUteC0xLzIgLXRyYW5zbGF0ZS15LTEvMiByb3VuZGVkLWZ1bGwgYmctdmlvbGV0LTcwMC8xMCBibHVyLTN4bFwiXG4gICAgICAgIHN0eWxlPXt7IHRyYW5zaXRpb246ICdsZWZ0IDAuMXMsIHRvcCAwLjFzJyB9fVxuICAgICAgLz5cblxuICAgICAgey8qIFBlcnNpc3RlbnQgbmF2IOKAlCB6LWluZGV4IDUwICovfVxuICAgICAgPE5hdmlnYXRpb24gLz5cblxuICAgICAgey8qIFBhZ2UgY29udGVudCDigJQgei1pbmRleCAzICovfVxuICAgICAgPG1haW4gY2xhc3NOYW1lPVwicmVsYXRpdmUgei1bM10gcHgtNCBtZDpweC04IHB0LTIwXCI+XG4gICAgICAgIHtjaGlsZHJlbn1cbiAgICAgIDwvbWFpbj5cblxuICAgICAgey8qIEdsb2JhbCBmb290ZXIgKi99XG4gICAgICA8Zm9vdGVyIGNsYXNzTmFtZT1cInJlbGF0aXZlIHotWzNdIG10LTIwIGJvcmRlci10IGJvcmRlci12aW9sZXQtNDAwLzE1IHB4LTQgcHktOFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1heC13LTd4bCBteC1hdXRvIHRleHQtY2VudGVyXCI+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwiZm9udC1tb25vIHRleHQtc20gdGV4dC12aW9sZXQtMTAwLzQwXCI+XG4gICAgICAgICAgICDCqSAyMDI1IFFhbWJlciBNdWhhbW1hZCBIYW5pZiDigJQgQnVpbHQgd2l0aCBSZWFjdCwgVHlwZVNjcmlwdCAmYW1wOyBUYWlsd2luZCBDU1NcbiAgICAgICAgICA8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9mb290ZXI+XG4gICAgPC9kaXY+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBMYXlvdXQ7XG4iXSwibmFtZXMiOlsidXNlRWZmZWN0IiwidXNlUmVmIiwidXNlTG9jYXRpb24iLCJOYXZpZ2F0aW9uIiwiTGF5b3V0IiwiY2hpbGRyZW4iLCJjdXJzb3JHbG93UmVmIiwibG9jYXRpb24iLCJoYW5kbGVNb3VzZU1vdmUiLCJlIiwiY3VycmVudCIsInN0eWxlIiwibGVmdCIsImNsaWVudFgiLCJ0b3AiLCJjbGllbnRZIiwid2luZG93IiwiYWRkRXZlbnRMaXN0ZW5lciIsInJlbW92ZUV2ZW50TGlzdGVuZXIiLCJpc0hvbWUiLCJwYXRobmFtZSIsImRpdiIsImNsYXNzTmFtZSIsInJlZiIsInRyYW5zaXRpb24iLCJtYWluIiwiZm9vdGVyIiwicCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsU0FBU0EsU0FBUyxFQUFFQyxNQUFNLFFBQVEsUUFBUTtBQUMxQyxTQUFTQyxXQUFXLFFBQVEsbUJBQW1CO0FBQy9DLE9BQU9DLGdCQUFnQixlQUFlO0FBTXRDLE1BQU1DLFNBQVMsQ0FBQyxFQUFFQyxRQUFRLEVBQWU7O0lBQ3ZDLE1BQU1DLGdCQUFnQkwsT0FBdUI7SUFDN0MsTUFBTU0sV0FBV0w7SUFFakIsd0RBQXdEO0lBQ3hERixVQUFVO1FBQ1IsTUFBTVEsa0JBQWtCLENBQUNDO1lBQ3ZCLElBQUlILGNBQWNJLE9BQU8sRUFBRTtnQkFDekJKLGNBQWNJLE9BQU8sQ0FBQ0MsS0FBSyxDQUFDQyxJQUFJLEdBQUcsR0FBR0gsRUFBRUksT0FBTyxDQUFDLEVBQUUsQ0FBQztnQkFDbkRQLGNBQWNJLE9BQU8sQ0FBQ0MsS0FBSyxDQUFDRyxHQUFHLEdBQUcsR0FBR0wsRUFBRU0sT0FBTyxDQUFDLEVBQUUsQ0FBQztZQUNwRDtRQUNGO1FBQ0FDLE9BQU9DLGdCQUFnQixDQUFDLGFBQWFUO1FBQ3JDLE9BQU8sSUFBTVEsT0FBT0UsbUJBQW1CLENBQUMsYUFBYVY7SUFDdkQsR0FBRyxFQUFFO0lBRUwsTUFBTVcsU0FBU1osU0FBU2EsUUFBUSxLQUFLO0lBRXJDLHFCQUNFLFFBQUNDO1FBQUlDLFdBQVU7OzBCQUNiLFFBQUNEO2dCQUFJQyxXQUFVOzs7Ozs7MEJBR2YsUUFBQ0Q7Z0JBQ0NFLEtBQUtqQjtnQkFDTGdCLFdBQVU7Z0JBQ1ZYLE9BQU87b0JBQUVhLFlBQVk7Z0JBQXNCOzs7Ozs7MEJBSTdDLFFBQUNyQjs7Ozs7MEJBR0QsUUFBQ3NCO2dCQUFLSCxXQUFVOzBCQUNiakI7Ozs7OzswQkFJSCxRQUFDcUI7Z0JBQU9KLFdBQVU7MEJBQ2hCLGNBQUEsUUFBQ0Q7b0JBQUlDLFdBQVU7OEJBQ2IsY0FBQSxRQUFDSzt3QkFBRUwsV0FBVTtrQ0FBdUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFPOUQ7R0EvQ01sQjs7UUFFYUY7OztLQUZiRTtBQWlETixlQUFlQSxPQUFPIn0=)ﬁ•!      jq»újq»úI…=       V    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/Layout.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"1840-gc7wCjhSBYyvOkiDSYoiJxlCqqY"
+Content-Length: 10607
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"1840-gc7wCjhSBYyvOkiDSYoiJxlCqqY"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 10607
+ ctid 2 net-response-time-onstart 23 net-response-time-onstop 24   )o

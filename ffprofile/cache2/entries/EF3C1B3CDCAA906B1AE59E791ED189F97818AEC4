@@ -1,0 +1,246 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/Navigation.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import { motion } from "/node_modules/.vite/deps/framer-motion.js?v=f8d44dde";
+import { Link, useLocation, useNavigate } from "/node_modules/.vite/deps/react-router-dom.js?v=2d18321d";
+import { usePortalTransition } from "/src/components/PortalTransition.tsx";
+const navItems = [
+    {
+        label: 'Works',
+        route: '/projects'
+    },
+    {
+        label: 'Qamber',
+        route: '/about'
+    },
+    {
+        label: 'Contact',
+        route: '/contact'
+    }
+];
+const Navigation = ()=>{
+    _s();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { transition } = usePortalTransition();
+    return /*#__PURE__*/ _jsxDEV(motion.nav, {
+        initial: {
+            y: -100
+        },
+        animate: {
+            y: 0
+        },
+        transition: {
+            duration: 0.5
+        },
+        className: "fixed top-0 left-0 right-0 z-[50]",
+        style: {
+            background: 'rgba(10, 10, 15, 0.78)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            borderBottom: '1px solid rgba(167, 139, 250, 0.16)'
+        },
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            className: "max-w-7xl mx-auto px-6 py-4",
+            children: /*#__PURE__*/ _jsxDEV("div", {
+                className: "flex items-center justify-between",
+                children: [
+                    /*#__PURE__*/ _jsxDEV(Link, {
+                        to: "/",
+                        "aria-label": "Home",
+                        children: /*#__PURE__*/ _jsxDEV("div", {
+                            className: "flex h-9 w-9 items-center justify-center rounded-full border-2 border-violet-400 transition-all duration-200 hover:shadow-[0_0_18px_rgba(167,139,250,0.65)]",
+                            children: /*#__PURE__*/ _jsxDEV("span", {
+                                className: "font-sans text-sm font-bold text-violet-300",
+                                children: "Q"
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                lineNumber: 37,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                            lineNumber: 34,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                        lineNumber: 33,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        className: "flex items-center gap-1",
+                        children: navItems.map((item)=>{
+                            const isActive = location.pathname === item.route;
+                            return /*#__PURE__*/ _jsxDEV(Link, {
+                                to: item.route,
+                                onClick: (event)=>{
+                                    if (isActive) return;
+                                    event.preventDefault();
+                                    transition(()=>navigate(item.route));
+                                },
+                                children: /*#__PURE__*/ _jsxDEV("button", {
+                                    className: "px-5 py-2 rounded-lg transition-all duration-200 text-sm font-medium",
+                                    style: {
+                                        fontFamily: "'Inter', sans-serif",
+                                        background: isActive ? 'rgba(124, 58, 237, 0.16)' : 'transparent',
+                                        border: isActive ? '1px solid rgba(167, 139, 250, 0.45)' : '1px solid transparent',
+                                        color: isActive ? '#c4b5fd' : 'rgba(255, 255, 255, 0.7)'
+                                    },
+                                    children: item.label
+                                }, void 0, false, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                    lineNumber: 51,
+                                    columnNumber: 19
+                                }, this)
+                            }, item.label, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                lineNumber: 46,
+                                columnNumber: 17
+                            }, this);
+                        })
+                    }, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                        lineNumber: 42,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        className: "flex items-center gap-2",
+                        children: [
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "relative w-2 h-2 flex items-center justify-center",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        className: "w-2 h-2 bg-[#22c55e] rounded-full"
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                        lineNumber: 70,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(motion.div, {
+                                        animate: {
+                                            scale: [
+                                                1,
+                                                1.4
+                                            ],
+                                            opacity: [
+                                                1,
+                                                0
+                                            ]
+                                        },
+                                        transition: {
+                                            duration: 2,
+                                            repeat: Infinity,
+                                            ease: 'easeOut'
+                                        },
+                                        className: "absolute w-2 h-2 bg-[#22c55e] rounded-full pointer-events-none"
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                        lineNumber: 71,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                lineNumber: 69,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("span", {
+                                className: "text-[12px] font-medium",
+                                style: {
+                                    fontFamily: "'JetBrains Mono', monospace",
+                                    color: 'rgba(255, 255, 255, 0.5)'
+                                },
+                                children: "online"
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                                lineNumber: 77,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                        lineNumber: 68,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+                lineNumber: 30,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+            lineNumber: 29,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx",
+        lineNumber: 17,
+        columnNumber: 5
+    }, this);
+};
+_s(Navigation, "Pt3x1hNZKyHJQEIrey9VZ830NIk=", false, function() {
+    return [
+        useLocation,
+        useNavigate,
+        usePortalTransition
+    ];
+});
+_c = Navigation;
+export default Navigation;
+var _c;
+$RefreshReg$(_c, "Navigation");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/Navigation.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIk5hdmlnYXRpb24udHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IG1vdGlvbiB9IGZyb20gJ2ZyYW1lci1tb3Rpb24nO1xuaW1wb3J0IHsgTGluaywgdXNlTG9jYXRpb24sIHVzZU5hdmlnYXRlIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSc7XG5pbXBvcnQgeyB1c2VQb3J0YWxUcmFuc2l0aW9uIH0gZnJvbSAnLi9Qb3J0YWxUcmFuc2l0aW9uJztcblxuY29uc3QgbmF2SXRlbXMgPSBbXG4gIHsgbGFiZWw6ICdXb3JrcycsIHJvdXRlOiAnL3Byb2plY3RzJyB9LFxuICB7IGxhYmVsOiAnUWFtYmVyJywgcm91dGU6ICcvYWJvdXQnIH0sXG4gIHsgbGFiZWw6ICdDb250YWN0Jywgcm91dGU6ICcvY29udGFjdCcgfSxcbl0gYXMgY29uc3Q7XG5cbmNvbnN0IE5hdmlnYXRpb24gPSAoKSA9PiB7XG4gIGNvbnN0IGxvY2F0aW9uID0gdXNlTG9jYXRpb24oKTtcbiAgY29uc3QgbmF2aWdhdGUgPSB1c2VOYXZpZ2F0ZSgpO1xuICBjb25zdCB7IHRyYW5zaXRpb24gfSA9IHVzZVBvcnRhbFRyYW5zaXRpb24oKTtcblxuICByZXR1cm4gKFxuICAgIDxtb3Rpb24ubmF2XG4gICAgICBpbml0aWFsPXt7IHk6IC0xMDAgfX1cbiAgICAgIGFuaW1hdGU9e3sgeTogMCB9fVxuICAgICAgdHJhbnNpdGlvbj17eyBkdXJhdGlvbjogMC41IH19XG4gICAgICBjbGFzc05hbWU9XCJmaXhlZCB0b3AtMCBsZWZ0LTAgcmlnaHQtMCB6LVs1MF1cIlxuICAgICAgc3R5bGU9e3tcbiAgICAgICAgYmFja2dyb3VuZDogJ3JnYmEoMTAsIDEwLCAxNSwgMC43OCknLFxuICAgICAgICBiYWNrZHJvcEZpbHRlcjogJ2JsdXIoMTZweCknLFxuICAgICAgICBXZWJraXRCYWNrZHJvcEZpbHRlcjogJ2JsdXIoMTZweCknLFxuICAgICAgICBib3JkZXJCb3R0b206ICcxcHggc29saWQgcmdiYSgxNjcsIDEzOSwgMjUwLCAwLjE2KScsXG4gICAgICB9fVxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWF4LXctN3hsIG14LWF1dG8gcHgtNiBweS00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG5cbiAgICAgICAgICB7LyogTG9nbyDigJQgbGlua3MgaG9tZSAobm9uLXJvdGF0aW5nLCBjaXJjdWxhciwgc3VidGxlIGhvdmVyIGdsb3csIE5PIHNjYWxlIHNjYWxlIG9yIHJvdGF0ZSkgKi99XG4gICAgICAgICAgPExpbmsgdG89XCIvXCIgYXJpYS1sYWJlbD1cIkhvbWVcIj5cbiAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleCBoLTkgdy05IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLWZ1bGwgYm9yZGVyLTIgYm9yZGVyLXZpb2xldC00MDAgdHJhbnNpdGlvbi1hbGwgZHVyYXRpb24tMjAwIGhvdmVyOnNoYWRvdy1bMF8wXzE4cHhfcmdiYSgxNjcsMTM5LDI1MCwwLjY1KV1cIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmb250LXNhbnMgdGV4dC1zbSBmb250LWJvbGQgdGV4dC12aW9sZXQtMzAwXCI+UTwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvTGluaz5cblxuICAgICAgICAgIHsvKiBUaHJlZSBuYXYgaXRlbXMgKi99XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiPlxuICAgICAgICAgICAge25hdkl0ZW1zLm1hcCgoaXRlbSkgPT4ge1xuICAgICAgICAgICAgICBjb25zdCBpc0FjdGl2ZSA9IGxvY2F0aW9uLnBhdGhuYW1lID09PSBpdGVtLnJvdXRlO1xuICAgICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICAgIDxMaW5rIGtleT17aXRlbS5sYWJlbH0gdG89e2l0ZW0ucm91dGV9IG9uQ2xpY2s9eyhldmVudCkgPT4ge1xuICAgICAgICAgICAgICAgICAgaWYgKGlzQWN0aXZlKSByZXR1cm47XG4gICAgICAgICAgICAgICAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpO1xuICAgICAgICAgICAgICAgICAgdHJhbnNpdGlvbigoKSA9PiBuYXZpZ2F0ZShpdGVtLnJvdXRlKSk7XG4gICAgICAgICAgICAgICAgfX0+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTUgcHktMiByb3VuZGVkLWxnIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9uLTIwMCB0ZXh0LXNtIGZvbnQtbWVkaXVtXCJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3tcbiAgICAgICAgICAgICAgICAgICAgICBmb250RmFtaWx5OiBcIidJbnRlcicsIHNhbnMtc2VyaWZcIixcbiAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiBpc0FjdGl2ZSA/ICdyZ2JhKDEyNCwgNTgsIDIzNywgMC4xNiknIDogJ3RyYW5zcGFyZW50JyxcbiAgICAgICAgICAgICAgICAgICAgICBib3JkZXI6IGlzQWN0aXZlID8gJzFweCBzb2xpZCByZ2JhKDE2NywgMTM5LCAyNTAsIDAuNDUpJyA6ICcxcHggc29saWQgdHJhbnNwYXJlbnQnLFxuICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBpc0FjdGl2ZSA/ICcjYzRiNWZkJyA6ICdyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNyknLFxuICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICB7aXRlbS5sYWJlbH1cbiAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDwvTGluaz5cbiAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgIH0pfVxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgey8qIFN0YXR1cyBkb3QgKyBvbmxpbmUgdGV4dCAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIHctMiBoLTIgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTIgaC0yIGJnLVsjMjJjNTVlXSByb3VuZGVkLWZ1bGxcIiAvPlxuICAgICAgICAgICAgICA8bW90aW9uLmRpdlxuICAgICAgICAgICAgICAgIGFuaW1hdGU9e3sgc2NhbGU6IFsxLCAxLjRdLCBvcGFjaXR5OiBbMSwgMF0gfX1cbiAgICAgICAgICAgICAgICB0cmFuc2l0aW9uPXt7IGR1cmF0aW9uOiAyLCByZXBlYXQ6IEluZmluaXR5LCBlYXNlOiAnZWFzZU91dCcgfX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJhYnNvbHV0ZSB3LTIgaC0yIGJnLVsjMjJjNTVlXSByb3VuZGVkLWZ1bGwgcG9pbnRlci1ldmVudHMtbm9uZVwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxzcGFuIFxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ0ZXh0LVsxMnB4XSBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgIHN0eWxlPXt7XG4gICAgICAgICAgICAgICAgZm9udEZhbWlseTogXCInSmV0QnJhaW5zIE1vbm8nLCBtb25vc3BhY2VcIixcbiAgICAgICAgICAgICAgICBjb2xvcjogJ3JnYmEoMjU1LCAyNTUsIDI1NSwgMC41KScsXG4gICAgICAgICAgICAgIH19XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIG9ubGluZVxuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvbW90aW9uLm5hdj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IE5hdmlnYXRpb247XG4iXSwibmFtZXMiOlsibW90aW9uIiwiTGluayIsInVzZUxvY2F0aW9uIiwidXNlTmF2aWdhdGUiLCJ1c2VQb3J0YWxUcmFuc2l0aW9uIiwibmF2SXRlbXMiLCJsYWJlbCIsInJvdXRlIiwiTmF2aWdhdGlvbiIsImxvY2F0aW9uIiwibmF2aWdhdGUiLCJ0cmFuc2l0aW9uIiwibmF2IiwiaW5pdGlhbCIsInkiLCJhbmltYXRlIiwiZHVyYXRpb24iLCJjbGFzc05hbWUiLCJzdHlsZSIsImJhY2tncm91bmQiLCJiYWNrZHJvcEZpbHRlciIsIldlYmtpdEJhY2tkcm9wRmlsdGVyIiwiYm9yZGVyQm90dG9tIiwiZGl2IiwidG8iLCJhcmlhLWxhYmVsIiwic3BhbiIsIm1hcCIsIml0ZW0iLCJpc0FjdGl2ZSIsInBhdGhuYW1lIiwib25DbGljayIsImV2ZW50IiwicHJldmVudERlZmF1bHQiLCJidXR0b24iLCJmb250RmFtaWx5IiwiYm9yZGVyIiwiY29sb3IiLCJzY2FsZSIsIm9wYWNpdHkiLCJyZXBlYXQiLCJJbmZpbml0eSIsImVhc2UiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLFNBQVNBLE1BQU0sUUFBUSxnQkFBZ0I7QUFDdkMsU0FBU0MsSUFBSSxFQUFFQyxXQUFXLEVBQUVDLFdBQVcsUUFBUSxtQkFBbUI7QUFDbEUsU0FBU0MsbUJBQW1CLFFBQVEscUJBQXFCO0FBRXpELE1BQU1DLFdBQVc7SUFDZjtRQUFFQyxPQUFPO1FBQVNDLE9BQU87SUFBWTtJQUNyQztRQUFFRCxPQUFPO1FBQVVDLE9BQU87SUFBUztJQUNuQztRQUFFRCxPQUFPO1FBQVdDLE9BQU87SUFBVztDQUN2QztBQUVELE1BQU1DLGFBQWE7O0lBQ2pCLE1BQU1DLFdBQVdQO0lBQ2pCLE1BQU1RLFdBQVdQO0lBQ2pCLE1BQU0sRUFBRVEsVUFBVSxFQUFFLEdBQUdQO0lBRXZCLHFCQUNFLFFBQUNKLE9BQU9ZLEdBQUc7UUFDVEMsU0FBUztZQUFFQyxHQUFHLENBQUM7UUFBSTtRQUNuQkMsU0FBUztZQUFFRCxHQUFHO1FBQUU7UUFDaEJILFlBQVk7WUFBRUssVUFBVTtRQUFJO1FBQzVCQyxXQUFVO1FBQ1ZDLE9BQU87WUFDTEMsWUFBWTtZQUNaQyxnQkFBZ0I7WUFDaEJDLHNCQUFzQjtZQUN0QkMsY0FBYztRQUNoQjtrQkFFQSxjQUFBLFFBQUNDO1lBQUlOLFdBQVU7c0JBQ2IsY0FBQSxRQUFDTTtnQkFBSU4sV0FBVTs7a0NBR2IsUUFBQ2hCO3dCQUFLdUIsSUFBRzt3QkFBSUMsY0FBVztrQ0FDdEIsY0FBQSxRQUFDRjs0QkFDQ04sV0FBVTtzQ0FFVixjQUFBLFFBQUNTO2dDQUFLVCxXQUFVOzBDQUE4Qzs7Ozs7Ozs7Ozs7Ozs7OztrQ0FLbEUsUUFBQ007d0JBQUlOLFdBQVU7a0NBQ1paLFNBQVNzQixHQUFHLENBQUMsQ0FBQ0M7NEJBQ2IsTUFBTUMsV0FBV3BCLFNBQVNxQixRQUFRLEtBQUtGLEtBQUtyQixLQUFLOzRCQUNqRCxxQkFDRSxRQUFDTjtnQ0FBc0J1QixJQUFJSSxLQUFLckIsS0FBSztnQ0FBRXdCLFNBQVMsQ0FBQ0M7b0NBQy9DLElBQUlILFVBQVU7b0NBQ2RHLE1BQU1DLGNBQWM7b0NBQ3BCdEIsV0FBVyxJQUFNRCxTQUFTa0IsS0FBS3JCLEtBQUs7Z0NBQ3RDOzBDQUNFLGNBQUEsUUFBQzJCO29DQUNDakIsV0FBVTtvQ0FDVkMsT0FBTzt3Q0FDTGlCLFlBQVk7d0NBQ1poQixZQUFZVSxXQUFXLDZCQUE2Qjt3Q0FDcERPLFFBQVFQLFdBQVcsd0NBQXdDO3dDQUMzRFEsT0FBT1IsV0FBVyxZQUFZO29DQUNoQzs4Q0FFQ0QsS0FBS3RCLEtBQUs7Ozs7OzsrQkFkSnNCLEtBQUt0QixLQUFLOzs7Ozt3QkFrQnpCOzs7Ozs7a0NBSUYsUUFBQ2lCO3dCQUFJTixXQUFVOzswQ0FDYixRQUFDTTtnQ0FBSU4sV0FBVTs7a0RBQ2IsUUFBQ007d0NBQUlOLFdBQVU7Ozs7OztrREFDZixRQUFDakIsT0FBT3VCLEdBQUc7d0NBQ1RSLFNBQVM7NENBQUV1QixPQUFPO2dEQUFDO2dEQUFHOzZDQUFJOzRDQUFFQyxTQUFTO2dEQUFDO2dEQUFHOzZDQUFFO3dDQUFDO3dDQUM1QzVCLFlBQVk7NENBQUVLLFVBQVU7NENBQUd3QixRQUFRQzs0Q0FBVUMsTUFBTTt3Q0FBVTt3Q0FDN0R6QixXQUFVOzs7Ozs7Ozs7Ozs7MENBR2QsUUFBQ1M7Z0NBQ0NULFdBQVU7Z0NBQ1ZDLE9BQU87b0NBQ0xpQixZQUFZO29DQUNaRSxPQUFPO2dDQUNUOzBDQUNEOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBUWI7R0FoRk03Qjs7UUFDYU47UUFDQUM7UUFDTUM7OztLQUhuQkk7QUFrRk4sZUFBZUEsV0FBVyJ9-ãY#êã      jq»újq»úI…=       Z    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/Navigation.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"2d78-864eAfZsRgTgomo6NyNCH12FbBA"
+Content-Length: 19339
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"2d78-864eAfZsRgTgomo6NyNCH12FbBA"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 19339
+ ctid 2 net-response-time-onstart 124 net-response-time-onstop 124   Kã

@@ -1,0 +1,152 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/BootSequence.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=49946ac6"; const useEffect = __vite__cjsImport3_react["useEffect"]; const useState = __vite__cjsImport3_react["useState"];
+const STORAGE_KEY = 'arise-boot-seen';
+const messages = [
+    '[System] Player has been recognized.',
+    'Arise, Qamber Muhammad Hanif.'
+];
+const BootSequence = ()=>{
+    _s();
+    const [visible, setVisible] = useState(()=>localStorage.getItem(STORAGE_KEY) !== 'true');
+    const [messageIndex, setMessageIndex] = useState(0);
+    const [characters, setCharacters] = useState(0);
+    useEffect(()=>{
+        if (!visible) return;
+        const message = messages[messageIndex];
+        if (characters < message.length) {
+            const timeout = window.setTimeout(()=>setCharacters((value)=>value + 1), 27);
+            return ()=>window.clearTimeout(timeout);
+        }
+        if (messageIndex < messages.length - 1) {
+            const timeout = window.setTimeout(()=>{
+                setMessageIndex((value)=>value + 1);
+                setCharacters(0);
+            }, 460);
+            return ()=>window.clearTimeout(timeout);
+        }
+        const timeout = window.setTimeout(()=>dismiss(), 1100);
+        return ()=>window.clearTimeout(timeout);
+    }, [
+        characters,
+        messageIndex,
+        visible
+    ]);
+    const dismiss = ()=>{
+        localStorage.setItem(STORAGE_KEY, 'true');
+        setVisible(false);
+    };
+    if (!visible) return null;
+    return /*#__PURE__*/ _jsxDEV("button", {
+        type: "button",
+        onClick: dismiss,
+        className: "boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center bg-[#050507] px-6 text-left",
+        "aria-label": "Dismiss introduction",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            className: "max-w-xl",
+            children: [
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "system-label mb-5 text-violet-300/70",
+                    children: "SYSTEM // INITIALIZATION"
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx",
+                    lineNumber: 45,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "font-mono text-xl leading-relaxed text-violet-100 md:text-3xl",
+                    children: [
+                        messages[messageIndex].slice(0, characters),
+                        /*#__PURE__*/ _jsxDEV("span", {
+                            className: "boot-caret",
+                            children: "‚ñã"
+                        }, void 0, false, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx",
+                            lineNumber: 47,
+                            columnNumber: 56
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx",
+                    lineNumber: 46,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "mt-10 font-mono text-xs tracking-[0.2em] text-white/35",
+                    children: "TAP ANYWHERE TO CONTINUE"
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx",
+                    lineNumber: 49,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx",
+            lineNumber: 44,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx",
+        lineNumber: 38,
+        columnNumber: 5
+    }, this);
+};
+_s(BootSequence, "Mub+TlJRF+yJOGIBcww3gJosqQE=");
+_c = BootSequence;
+export default BootSequence;
+var _c;
+$RefreshReg$(_c, "BootSequence");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/BootSequence.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJvb3RTZXF1ZW5jZS50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcblxuY29uc3QgU1RPUkFHRV9LRVkgPSAnYXJpc2UtYm9vdC1zZWVuJztcbmNvbnN0IG1lc3NhZ2VzID0gWydbU3lzdGVtXSBQbGF5ZXIgaGFzIGJlZW4gcmVjb2duaXplZC4nLCAnQXJpc2UsIFFhbWJlciBNdWhhbW1hZCBIYW5pZi4nXTtcblxuY29uc3QgQm9vdFNlcXVlbmNlID0gKCkgPT4ge1xuICBjb25zdCBbdmlzaWJsZSwgc2V0VmlzaWJsZV0gPSB1c2VTdGF0ZSgoKSA9PiBsb2NhbFN0b3JhZ2UuZ2V0SXRlbShTVE9SQUdFX0tFWSkgIT09ICd0cnVlJyk7XG4gIGNvbnN0IFttZXNzYWdlSW5kZXgsIHNldE1lc3NhZ2VJbmRleF0gPSB1c2VTdGF0ZSgwKTtcbiAgY29uc3QgW2NoYXJhY3RlcnMsIHNldENoYXJhY3RlcnNdID0gdXNlU3RhdGUoMCk7XG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBpZiAoIXZpc2libGUpIHJldHVybjtcblxuICAgIGNvbnN0IG1lc3NhZ2UgPSBtZXNzYWdlc1ttZXNzYWdlSW5kZXhdO1xuICAgIGlmIChjaGFyYWN0ZXJzIDwgbWVzc2FnZS5sZW5ndGgpIHtcbiAgICAgIGNvbnN0IHRpbWVvdXQgPSB3aW5kb3cuc2V0VGltZW91dCgoKSA9PiBzZXRDaGFyYWN0ZXJzKCh2YWx1ZSkgPT4gdmFsdWUgKyAxKSwgMjcpO1xuICAgICAgcmV0dXJuICgpID0+IHdpbmRvdy5jbGVhclRpbWVvdXQodGltZW91dCk7XG4gICAgfVxuICAgIGlmIChtZXNzYWdlSW5kZXggPCBtZXNzYWdlcy5sZW5ndGggLSAxKSB7XG4gICAgICBjb25zdCB0aW1lb3V0ID0gd2luZG93LnNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgICBzZXRNZXNzYWdlSW5kZXgoKHZhbHVlKSA9PiB2YWx1ZSArIDEpO1xuICAgICAgICBzZXRDaGFyYWN0ZXJzKDApO1xuICAgICAgfSwgNDYwKTtcbiAgICAgIHJldHVybiAoKSA9PiB3aW5kb3cuY2xlYXJUaW1lb3V0KHRpbWVvdXQpO1xuICAgIH1cbiAgICBjb25zdCB0aW1lb3V0ID0gd2luZG93LnNldFRpbWVvdXQoKCkgPT4gZGlzbWlzcygpLCAxMTAwKTtcbiAgICByZXR1cm4gKCkgPT4gd2luZG93LmNsZWFyVGltZW91dCh0aW1lb3V0KTtcbiAgfSwgW2NoYXJhY3RlcnMsIG1lc3NhZ2VJbmRleCwgdmlzaWJsZV0pO1xuXG4gIGNvbnN0IGRpc21pc3MgPSAoKSA9PiB7XG4gICAgbG9jYWxTdG9yYWdlLnNldEl0ZW0oU1RPUkFHRV9LRVksICd0cnVlJyk7XG4gICAgc2V0VmlzaWJsZShmYWxzZSk7XG4gIH07XG5cbiAgaWYgKCF2aXNpYmxlKSByZXR1cm4gbnVsbDtcblxuICByZXR1cm4gKFxuICAgIDxidXR0b25cbiAgICAgIHR5cGU9XCJidXR0b25cIlxuICAgICAgb25DbGljaz17ZGlzbWlzc31cbiAgICAgIGNsYXNzTmFtZT1cImJvb3Qtc2VxdWVuY2UgZml4ZWQgaW5zZXQtMCB6LVsxMDBdIGdyaWQgY3Vyc29yLXBvaW50ZXIgcGxhY2UtaXRlbXMtY2VudGVyIGJnLVsjMDUwNTA3XSBweC02IHRleHQtbGVmdFwiXG4gICAgICBhcmlhLWxhYmVsPVwiRGlzbWlzcyBpbnRyb2R1Y3Rpb25cIlxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWF4LXcteGxcIj5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwic3lzdGVtLWxhYmVsIG1iLTUgdGV4dC12aW9sZXQtMzAwLzcwXCI+U1lTVEVNIC8vIElOSVRJQUxJWkFUSU9OPC9wPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJmb250LW1vbm8gdGV4dC14bCBsZWFkaW5nLXJlbGF4ZWQgdGV4dC12aW9sZXQtMTAwIG1kOnRleHQtM3hsXCI+XG4gICAgICAgICAge21lc3NhZ2VzW21lc3NhZ2VJbmRleF0uc2xpY2UoMCwgY2hhcmFjdGVycyl9PHNwYW4gY2xhc3NOYW1lPVwiYm9vdC1jYXJldFwiPuKWizwvc3Bhbj5cbiAgICAgICAgPC9wPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJtdC0xMCBmb250LW1vbm8gdGV4dC14cyB0cmFja2luZy1bMC4yZW1dIHRleHQtd2hpdGUvMzVcIj5UQVAgQU5ZV0hFUkUgVE8gQ09OVElOVUU8L3A+XG4gICAgICA8L2Rpdj5cbiAgICA8L2J1dHRvbj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEJvb3RTZXF1ZW5jZTtcbiJdLCJuYW1lcyI6WyJ1c2VFZmZlY3QiLCJ1c2VTdGF0ZSIsIlNUT1JBR0VfS0VZIiwibWVzc2FnZXMiLCJCb290U2VxdWVuY2UiLCJ2aXNpYmxlIiwic2V0VmlzaWJsZSIsImxvY2FsU3RvcmFnZSIsImdldEl0ZW0iLCJtZXNzYWdlSW5kZXgiLCJzZXRNZXNzYWdlSW5kZXgiLCJjaGFyYWN0ZXJzIiwic2V0Q2hhcmFjdGVycyIsIm1lc3NhZ2UiLCJsZW5ndGgiLCJ0aW1lb3V0Iiwid2luZG93Iiwic2V0VGltZW91dCIsInZhbHVlIiwiY2xlYXJUaW1lb3V0IiwiZGlzbWlzcyIsInNldEl0ZW0iLCJidXR0b24iLCJ0eXBlIiwib25DbGljayIsImNsYXNzTmFtZSIsImFyaWEtbGFiZWwiLCJkaXYiLCJwIiwic2xpY2UiLCJzcGFuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxTQUFTQSxTQUFTLEVBQUVDLFFBQVEsUUFBUSxRQUFRO0FBRTVDLE1BQU1DLGNBQWM7QUFDcEIsTUFBTUMsV0FBVztJQUFDO0lBQXdDO0NBQWdDO0FBRTFGLE1BQU1DLGVBQWU7O0lBQ25CLE1BQU0sQ0FBQ0MsU0FBU0MsV0FBVyxHQUFHTCxTQUFTLElBQU1NLGFBQWFDLE9BQU8sQ0FBQ04saUJBQWlCO0lBQ25GLE1BQU0sQ0FBQ08sY0FBY0MsZ0JBQWdCLEdBQUdULFNBQVM7SUFDakQsTUFBTSxDQUFDVSxZQUFZQyxjQUFjLEdBQUdYLFNBQVM7SUFFN0NELFVBQVU7UUFDUixJQUFJLENBQUNLLFNBQVM7UUFFZCxNQUFNUSxVQUFVVixRQUFRLENBQUNNLGFBQWE7UUFDdEMsSUFBSUUsYUFBYUUsUUFBUUMsTUFBTSxFQUFFO1lBQy9CLE1BQU1DLFVBQVVDLE9BQU9DLFVBQVUsQ0FBQyxJQUFNTCxjQUFjLENBQUNNLFFBQVVBLFFBQVEsSUFBSTtZQUM3RSxPQUFPLElBQU1GLE9BQU9HLFlBQVksQ0FBQ0o7UUFDbkM7UUFDQSxJQUFJTixlQUFlTixTQUFTVyxNQUFNLEdBQUcsR0FBRztZQUN0QyxNQUFNQyxVQUFVQyxPQUFPQyxVQUFVLENBQUM7Z0JBQ2hDUCxnQkFBZ0IsQ0FBQ1EsUUFBVUEsUUFBUTtnQkFDbkNOLGNBQWM7WUFDaEIsR0FBRztZQUNILE9BQU8sSUFBTUksT0FBT0csWUFBWSxDQUFDSjtRQUNuQztRQUNBLE1BQU1BLFVBQVVDLE9BQU9DLFVBQVUsQ0FBQyxJQUFNRyxXQUFXO1FBQ25ELE9BQU8sSUFBTUosT0FBT0csWUFBWSxDQUFDSjtJQUNuQyxHQUFHO1FBQUNKO1FBQVlGO1FBQWNKO0tBQVE7SUFFdEMsTUFBTWUsVUFBVTtRQUNkYixhQUFhYyxPQUFPLENBQUNuQixhQUFhO1FBQ2xDSSxXQUFXO0lBQ2I7SUFFQSxJQUFJLENBQUNELFNBQVMsT0FBTztJQUVyQixxQkFDRSxRQUFDaUI7UUFDQ0MsTUFBSztRQUNMQyxTQUFTSjtRQUNUSyxXQUFVO1FBQ1ZDLGNBQVc7a0JBRVgsY0FBQSxRQUFDQztZQUFJRixXQUFVOzs4QkFDYixRQUFDRztvQkFBRUgsV0FBVTs4QkFBdUM7Ozs7Ozs4QkFDcEQsUUFBQ0c7b0JBQUVILFdBQVU7O3dCQUNWdEIsUUFBUSxDQUFDTSxhQUFhLENBQUNvQixLQUFLLENBQUMsR0FBR2xCO3NDQUFZLFFBQUNtQjs0QkFBS0wsV0FBVTtzQ0FBYTs7Ozs7Ozs7Ozs7OzhCQUU1RSxRQUFDRztvQkFBRUgsV0FBVTs4QkFBeUQ7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSTlFO0dBL0NNckI7S0FBQUE7QUFpRE4sZUFBZUEsYUFBYSJ9p1{.•      jq»újq»úI…=       \    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/BootSequence.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"1825-wXDoFLBYH0dEkMwdHU1lBe5Ca7E"
+Content-Length: 11044
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"1825-wXDoFLBYH0dEkMwdHU1lBe5Ca7E"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 11044
+ ctid 2 net-response-time-onstart 31 net-response-time-onstop 31   +$

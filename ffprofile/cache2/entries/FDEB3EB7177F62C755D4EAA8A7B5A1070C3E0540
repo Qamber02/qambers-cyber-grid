@@ -1,0 +1,221 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/StatSheet.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=49946ac6"; const useEffect = __vite__cjsImport3_react["useEffect"]; const useRef = __vite__cjsImport3_react["useRef"]; const useState = __vite__cjsImport3_react["useState"];
+import gsap from "/node_modules/.vite/deps/gsap.js?v=24b10a6c";
+const stats = [
+    [
+        'STR',
+        'Full-stack delivery',
+        88
+    ],
+    [
+        'INT',
+        'AI / ML systems',
+        92
+    ],
+    [
+        'AGI',
+        'Product iteration',
+        84
+    ],
+    [
+        'VIT',
+        'Reliability & uptime',
+        86
+    ],
+    [
+        'PER',
+        'UX & problem discovery',
+        80
+    ]
+];
+export default function StatSheet() {
+    _s();
+    const root = useRef(null);
+    const [active, setActive] = useState(false);
+    useEffect(()=>{
+        const element = root.current;
+        if (!element) return;
+        const observer = new IntersectionObserver(([entry])=>{
+            if (entry.isIntersecting) setActive(true);
+        }, {
+            threshold: 0.25
+        });
+        observer.observe(element);
+        return ()=>observer.disconnect();
+    }, []);
+    useEffect(()=>{
+        if (!active || !root.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const context = gsap.context(()=>gsap.to('[data-stat-fill]', {
+                width: (index)=>`${stats[index][2]}%`,
+                duration: 1,
+                ease: 'power3.out',
+                stagger: 0.12
+            }), root);
+        return ()=>context.revert();
+    }, [
+        active
+    ]);
+    return /*#__PURE__*/ _jsxDEV("div", {
+        ref: root,
+        className: "system-panel mt-12 overflow-hidden p-6 md:p-8",
+        children: [
+            /*#__PURE__*/ _jsxDEV("div", {
+                className: "mb-7 flex items-center justify-between border-b border-violet-300/15 pb-4",
+                children: [
+                    /*#__PURE__*/ _jsxDEV("p", {
+                        className: "system-label text-violet-300",
+                        children: "PLAYER STATUS"
+                    }, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                        lineNumber: 24,
+                        columnNumber: 96
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("span", {
+                        className: "font-mono text-xs text-violet-100/45",
+                        children: "LEVEL 01"
+                    }, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                        lineNumber: 24,
+                        columnNumber: 157
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                lineNumber: 24,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ _jsxDEV("div", {
+                className: "space-y-5",
+                children: stats.map(([label, description, value])=>/*#__PURE__*/ _jsxDEV("div", {
+                        children: [
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "mb-2 flex justify-between font-mono text-xs",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("span", {
+                                        className: "text-violet-200",
+                                        children: [
+                                            label,
+                                            " ",
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "ml-2 text-white/40",
+                                                children: description
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                                                lineNumber: 26,
+                                                columnNumber: 110
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                                        lineNumber: 26,
+                                        columnNumber: 68
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("span", {
+                                        className: "text-violet-300",
+                                        children: value
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                                        lineNumber: 26,
+                                        columnNumber: 174
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                                lineNumber: 26,
+                                columnNumber: 7
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "h-1.5 bg-white/5",
+                                children: /*#__PURE__*/ _jsxDEV("div", {
+                                    "data-stat-fill": true,
+                                    className: "h-full bg-gradient-to-r from-violet-700 to-violet-300",
+                                    style: {
+                                        width: active && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? `${value}%` : '0%'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                                    lineNumber: 27,
+                                    columnNumber: 41
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                                lineNumber: 27,
+                                columnNumber: 7
+                            }, this)
+                        ]
+                    }, label, true, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                        lineNumber: 25,
+                        columnNumber: 76
+                    }, this))
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+                lineNumber: 25,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx",
+        lineNumber: 23,
+        columnNumber: 10
+    }, this);
+}
+_s(StatSheet, "u+xZ2kSFFm0IygjMhPYMV0wi33s=");
+_c = StatSheet;
+var _c;
+$RefreshReg$(_c, "StatSheet");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/StatSheet.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlN0YXRTaGVldC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VSZWYsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IGdzYXAgZnJvbSAnZ3NhcCc7XG5cbmNvbnN0IHN0YXRzID0gW1xuICBbJ1NUUicsICdGdWxsLXN0YWNrIGRlbGl2ZXJ5JywgODhdLCBbJ0lOVCcsICdBSSAvIE1MIHN5c3RlbXMnLCA5Ml0sIFsnQUdJJywgJ1Byb2R1Y3QgaXRlcmF0aW9uJywgODRdLCBbJ1ZJVCcsICdSZWxpYWJpbGl0eSAmIHVwdGltZScsIDg2XSwgWydQRVInLCAnVVggJiBwcm9ibGVtIGRpc2NvdmVyeScsIDgwXSxcbl0gYXMgY29uc3Q7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFN0YXRTaGVldCgpIHtcbiAgY29uc3Qgcm9vdCA9IHVzZVJlZjxIVE1MRGl2RWxlbWVudD4obnVsbCk7XG4gIGNvbnN0IFthY3RpdmUsIHNldEFjdGl2ZV0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgY29uc3QgZWxlbWVudCA9IHJvb3QuY3VycmVudDtcbiAgICBpZiAoIWVsZW1lbnQpIHJldHVybjtcbiAgICBjb25zdCBvYnNlcnZlciA9IG5ldyBJbnRlcnNlY3Rpb25PYnNlcnZlcigoW2VudHJ5XSkgPT4geyBpZiAoZW50cnkuaXNJbnRlcnNlY3RpbmcpIHNldEFjdGl2ZSh0cnVlKTsgfSwgeyB0aHJlc2hvbGQ6IDAuMjUgfSk7XG4gICAgb2JzZXJ2ZXIub2JzZXJ2ZShlbGVtZW50KTtcbiAgICByZXR1cm4gKCkgPT4gb2JzZXJ2ZXIuZGlzY29ubmVjdCgpO1xuICB9LCBbXSk7XG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgaWYgKCFhY3RpdmUgfHwgIXJvb3QuY3VycmVudCB8fCB3aW5kb3cubWF0Y2hNZWRpYSgnKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSknKS5tYXRjaGVzKSByZXR1cm47XG4gICAgY29uc3QgY29udGV4dCA9IGdzYXAuY29udGV4dCgoKSA9PiBnc2FwLnRvKCdbZGF0YS1zdGF0LWZpbGxdJywgeyB3aWR0aDogKGluZGV4KSA9PiBgJHtzdGF0c1tpbmRleF1bMl19JWAsIGR1cmF0aW9uOiAxLCBlYXNlOiAncG93ZXIzLm91dCcsIHN0YWdnZXI6IDAuMTIgfSksIHJvb3QpO1xuICAgIHJldHVybiAoKSA9PiBjb250ZXh0LnJldmVydCgpO1xuICB9LCBbYWN0aXZlXSk7XG4gIHJldHVybiA8ZGl2IHJlZj17cm9vdH0gY2xhc3NOYW1lPVwic3lzdGVtLXBhbmVsIG10LTEyIG92ZXJmbG93LWhpZGRlbiBwLTYgbWQ6cC04XCI+XG4gICAgPGRpdiBjbGFzc05hbWU9XCJtYi03IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBib3JkZXItYiBib3JkZXItdmlvbGV0LTMwMC8xNSBwYi00XCI+PHAgY2xhc3NOYW1lPVwic3lzdGVtLWxhYmVsIHRleHQtdmlvbGV0LTMwMFwiPlBMQVlFUiBTVEFUVVM8L3A+PHNwYW4gY2xhc3NOYW1lPVwiZm9udC1tb25vIHRleHQteHMgdGV4dC12aW9sZXQtMTAwLzQ1XCI+TEVWRUwgMDE8L3NwYW4+PC9kaXY+XG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTVcIj57c3RhdHMubWFwKChbbGFiZWwsIGRlc2NyaXB0aW9uLCB2YWx1ZV0pID0+IDxkaXYga2V5PXtsYWJlbH0+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTIgZmxleCBqdXN0aWZ5LWJldHdlZW4gZm9udC1tb25vIHRleHQteHNcIj48c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXZpb2xldC0yMDBcIj57bGFiZWx9IDxzcGFuIGNsYXNzTmFtZT1cIm1sLTIgdGV4dC13aGl0ZS80MFwiPntkZXNjcmlwdGlvbn08L3NwYW4+PC9zcGFuPjxzcGFuIGNsYXNzTmFtZT1cInRleHQtdmlvbGV0LTMwMFwiPnt2YWx1ZX08L3NwYW4+PC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtMS41IGJnLXdoaXRlLzVcIj48ZGl2IGRhdGEtc3RhdC1maWxsIGNsYXNzTmFtZT1cImgtZnVsbCBiZy1ncmFkaWVudC10by1yIGZyb20tdmlvbGV0LTcwMCB0by12aW9sZXQtMzAwXCIgc3R5bGU9e3sgd2lkdGg6IGFjdGl2ZSAmJiB3aW5kb3cubWF0Y2hNZWRpYSgnKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSknKS5tYXRjaGVzID8gYCR7dmFsdWV9JWAgOiAnMCUnIH19IC8+PC9kaXY+XG4gICAgPC9kaXY+KX08L2Rpdj5cbiAgPC9kaXY+O1xufVxuIl0sIm5hbWVzIjpbInVzZUVmZmVjdCIsInVzZVJlZiIsInVzZVN0YXRlIiwiZ3NhcCIsInN0YXRzIiwiU3RhdFNoZWV0Iiwicm9vdCIsImFjdGl2ZSIsInNldEFjdGl2ZSIsImVsZW1lbnQiLCJjdXJyZW50Iiwib2JzZXJ2ZXIiLCJJbnRlcnNlY3Rpb25PYnNlcnZlciIsImVudHJ5IiwiaXNJbnRlcnNlY3RpbmciLCJ0aHJlc2hvbGQiLCJvYnNlcnZlIiwiZGlzY29ubmVjdCIsIndpbmRvdyIsIm1hdGNoTWVkaWEiLCJtYXRjaGVzIiwiY29udGV4dCIsInRvIiwid2lkdGgiLCJpbmRleCIsImR1cmF0aW9uIiwiZWFzZSIsInN0YWdnZXIiLCJyZXZlcnQiLCJkaXYiLCJyZWYiLCJjbGFzc05hbWUiLCJwIiwic3BhbiIsIm1hcCIsImxhYmVsIiwiZGVzY3JpcHRpb24iLCJ2YWx1ZSIsImRhdGEtc3RhdC1maWxsIiwic3R5bGUiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLFNBQVNBLFNBQVMsRUFBRUMsTUFBTSxFQUFFQyxRQUFRLFFBQVEsUUFBUTtBQUNwRCxPQUFPQyxVQUFVLE9BQU87QUFFeEIsTUFBTUMsUUFBUTtJQUNaO1FBQUM7UUFBTztRQUF1QjtLQUFHO0lBQUU7UUFBQztRQUFPO1FBQW1CO0tBQUc7SUFBRTtRQUFDO1FBQU87UUFBcUI7S0FBRztJQUFFO1FBQUM7UUFBTztRQUF3QjtLQUFHO0lBQUU7UUFBQztRQUFPO1FBQTBCO0tBQUc7Q0FDakw7QUFFRCxlQUFlLFNBQVNDOztJQUN0QixNQUFNQyxPQUFPTCxPQUF1QjtJQUNwQyxNQUFNLENBQUNNLFFBQVFDLFVBQVUsR0FBR04sU0FBUztJQUNyQ0YsVUFBVTtRQUNSLE1BQU1TLFVBQVVILEtBQUtJLE9BQU87UUFDNUIsSUFBSSxDQUFDRCxTQUFTO1FBQ2QsTUFBTUUsV0FBVyxJQUFJQyxxQkFBcUIsQ0FBQyxDQUFDQyxNQUFNO1lBQU8sSUFBSUEsTUFBTUMsY0FBYyxFQUFFTixVQUFVO1FBQU8sR0FBRztZQUFFTyxXQUFXO1FBQUs7UUFDekhKLFNBQVNLLE9BQU8sQ0FBQ1A7UUFDakIsT0FBTyxJQUFNRSxTQUFTTSxVQUFVO0lBQ2xDLEdBQUcsRUFBRTtJQUNMakIsVUFBVTtRQUNSLElBQUksQ0FBQ08sVUFBVSxDQUFDRCxLQUFLSSxPQUFPLElBQUlRLE9BQU9DLFVBQVUsQ0FBQyxvQ0FBb0NDLE9BQU8sRUFBRTtRQUMvRixNQUFNQyxVQUFVbEIsS0FBS2tCLE9BQU8sQ0FBQyxJQUFNbEIsS0FBS21CLEVBQUUsQ0FBQyxvQkFBb0I7Z0JBQUVDLE9BQU8sQ0FBQ0MsUUFBVSxHQUFHcEIsS0FBSyxDQUFDb0IsTUFBTSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7Z0JBQUVDLFVBQVU7Z0JBQUdDLE1BQU07Z0JBQWNDLFNBQVM7WUFBSyxJQUFJckI7UUFDN0osT0FBTyxJQUFNZSxRQUFRTyxNQUFNO0lBQzdCLEdBQUc7UUFBQ3JCO0tBQU87SUFDWCxxQkFBTyxRQUFDc0I7UUFBSUMsS0FBS3hCO1FBQU15QixXQUFVOzswQkFDL0IsUUFBQ0Y7Z0JBQUlFLFdBQVU7O2tDQUE0RSxRQUFDQzt3QkFBRUQsV0FBVTtrQ0FBK0I7Ozs7OztrQ0FBaUIsUUFBQ0U7d0JBQUtGLFdBQVU7a0NBQXVDOzs7Ozs7Ozs7Ozs7MEJBQy9NLFFBQUNGO2dCQUFJRSxXQUFVOzBCQUFhM0IsTUFBTThCLEdBQUcsQ0FBQyxDQUFDLENBQUNDLE9BQU9DLGFBQWFDLE1BQU0saUJBQUssUUFBQ1I7OzBDQUN0RSxRQUFDQTtnQ0FBSUUsV0FBVTs7a0RBQThDLFFBQUNFO3dDQUFLRixXQUFVOzs0Q0FBbUJJOzRDQUFNOzBEQUFDLFFBQUNGO2dEQUFLRixXQUFVOzBEQUFzQks7Ozs7Ozs7Ozs7OztrREFBMEIsUUFBQ0g7d0NBQUtGLFdBQVU7a0RBQW1CTTs7Ozs7Ozs7Ozs7OzBDQUMxTSxRQUFDUjtnQ0FBSUUsV0FBVTswQ0FBbUIsY0FBQSxRQUFDRjtvQ0FBSVMsZ0JBQWM7b0NBQUNQLFdBQVU7b0NBQXdEUSxPQUFPO3dDQUFFaEIsT0FBT2hCLFVBQVVXLE9BQU9DLFVBQVUsQ0FBQyxvQ0FBb0NDLE9BQU8sR0FBRyxHQUFHaUIsTUFBTSxDQUFDLENBQUMsR0FBRztvQ0FBSzs7Ozs7Ozs7Ozs7O3VCQUZ0SkY7Ozs7Ozs7Ozs7Ozs7Ozs7QUFLckY7R0F0QndCOUI7S0FBQUEifQ==¥îR$      jqÈœjqÈœIÉ>       Y    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/StatSheet.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"25f1-50j2LIBnwOH+hoBAsPV4cxIOyns"
+Content-Length: 15112
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"25f1-50j2LIBnwOH+hoBAsPV4cxIOyns"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 15112
+ ctid 2 net-response-time-onstart 82 net-response-time-onstop 82   ;

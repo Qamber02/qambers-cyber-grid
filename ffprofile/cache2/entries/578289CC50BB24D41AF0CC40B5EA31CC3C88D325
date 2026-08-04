@@ -1,0 +1,287 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/three/PortalScene.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$(), _s1 = $RefreshSig$(), _s2 = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=49946ac6"; const Suspense = __vite__cjsImport3_react["Suspense"]; const useEffect = __vite__cjsImport3_react["useEffect"]; const useMemo = __vite__cjsImport3_react["useMemo"]; const useRef = __vite__cjsImport3_react["useRef"]; const useState = __vite__cjsImport3_react["useState"];
+import { Canvas, useFrame } from "/node_modules/.vite/deps/@react-three_fiber.js?v=a8d96474";
+import { useGLTF } from "/node_modules/.vite/deps/@react-three_drei.js?v=3f0d5306";
+import * as THREE from "/node_modules/.vite/deps/three.js?v=384e03f8";
+import { supportsWebGL } from "/src/lib/webgl.ts";
+const PORTAL_MODEL = '/models/optimized/portal-ring.glb';
+useGLTF.setDecoderPath('/draco/');
+useGLTF.preload(PORTAL_MODEL);
+function PortalModel({ emissiveIntensity = 1.35 }) {
+    _s();
+    const { scene } = useGLTF(PORTAL_MODEL);
+    const model = useMemo(()=>{
+        const clone = scene.clone(true);
+        clone.traverse((child)=>{
+            if (!(child instanceof THREE.Mesh)) return;
+            const original = Array.isArray(child.material) ? child.material[0] : child.material;
+            const material = original.clone();
+            material.emissive = new THREE.Color('#7c3aed');
+            material.emissiveMap = material.map;
+            material.emissiveIntensity = emissiveIntensity;
+            material.metalness = Math.max(material.metalness, 0.55);
+            material.roughness = 0.35;
+            child.material = material;
+        });
+        return clone;
+    }, [
+        emissiveIntensity,
+        scene
+    ]);
+    const group = useRef(null);
+    useFrame((state, delta)=>{
+        if (!group.current) return;
+        group.current.rotation.z += delta * 0.16;
+        group.current.position.y = Math.sin(state.clock.elapsedTime * 0.7) * 0.07;
+    });
+    return /*#__PURE__*/ _jsxDEV("primitive", {
+        ref: group,
+        object: model,
+        scale: 1.55,
+        rotation: [
+            0.05,
+            0,
+            0.2
+        ]
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+        lineNumber: 34,
+        columnNumber: 10
+    }, this);
+}
+_s(PortalModel, "qYTe7i/VGoWS6PnXHJ/zIOWKri0=", false, function() {
+    return [
+        useGLTF,
+        useFrame
+    ];
+});
+_c = PortalModel;
+function Swirl() {
+    _s1();
+    const material = useRef(null);
+    useFrame(({ clock })=>{
+        if (material.current) material.current.uniforms.uTime.value = clock.elapsedTime;
+    });
+    return /*#__PURE__*/ _jsxDEV("mesh", {
+        position: [
+            0,
+            0,
+            0.04
+        ],
+        children: [
+            /*#__PURE__*/ _jsxDEV("circleGeometry", {
+                args: [
+                    0.72,
+                    64
+                ]
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 44,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("shaderMaterial", {
+                ref: material,
+                transparent: true,
+                uniforms: {
+                    uTime: {
+                        value: 0
+                    }
+                },
+                vertexShader: "varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }",
+                fragmentShader: "uniform float uTime; varying vec2 vUv; void main(){ vec2 p=vUv-.5; float r=length(p); float a=atan(p.y,p.x); float wave=sin(a*7.0-r*18.0-uTime*2.4)+sin(a*3.0+r*12.0+uTime); float glow=smoothstep(.62,.04,r)*(0.52+0.48*wave); vec3 core=vec3(.486,.227,.93); vec3 edge=vec3(.655,.545,.98); gl_FragColor=vec4(mix(core,edge,r*1.5)*glow, glow); }"
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 45,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+        lineNumber: 43,
+        columnNumber: 5
+    }, this);
+}
+_s1(Swirl, "gbLAKoFLni0JhxVZtBUE06R4M0U=", false, function() {
+    return [
+        useFrame
+    ];
+});
+_c1 = Swirl;
+function PortalFallback() {
+    return /*#__PURE__*/ _jsxDEV("div", {
+        className: "portal-fallback",
+        "aria-hidden": "true",
+        children: /*#__PURE__*/ _jsxDEV("span", {
+            children: "âŒ¬"
+        }, void 0, false, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+            lineNumber: 57,
+            columnNumber: 62
+        }, this)
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+        lineNumber: 57,
+        columnNumber: 10
+    }, this);
+}
+_c2 = PortalFallback;
+export default function PortalScene() {
+    _s2();
+    const [webgl, setWebgl] = useState(false);
+    useEffect(()=>setWebgl(supportsWebGL()), []);
+    if (!webgl) return /*#__PURE__*/ _jsxDEV(PortalFallback, {}, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+        lineNumber: 63,
+        columnNumber: 22
+    }, this);
+    return /*#__PURE__*/ _jsxDEV(Canvas, {
+        className: "portal-canvas",
+        dpr: [
+            1,
+            1.5
+        ],
+        camera: {
+            position: [
+                0,
+                0,
+                4.6
+            ],
+            fov: 40
+        },
+        gl: {
+            antialias: false,
+            powerPreference: 'high-performance'
+        },
+        children: [
+            /*#__PURE__*/ _jsxDEV("color", {
+                attach: "background",
+                args: [
+                    '#000000'
+                ]
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 66,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("ambientLight", {
+                intensity: 0.35
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 68,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("directionalLight", {
+                position: [
+                    3,
+                    4,
+                    5
+                ],
+                intensity: 3.2,
+                color: "#c4b5fd"
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 70,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("pointLight", {
+                color: "#a78bfa",
+                intensity: 12,
+                distance: 8,
+                position: [
+                    -2,
+                    -2,
+                    2
+                ]
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 72,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV(Suspense, {
+                fallback: null,
+                children: [
+                    /*#__PURE__*/ _jsxDEV(PortalModel, {}, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                        lineNumber: 74,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Swirl, {}, void 0, false, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                        lineNumber: 75,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+                lineNumber: 73,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx",
+        lineNumber: 65,
+        columnNumber: 5
+    }, this);
+}
+_s2(PortalScene, "SU/8bAce0de9fLfK5jLB+zy3ujs=");
+_c3 = PortalScene;
+var _c, _c1, _c2, _c3;
+$RefreshReg$(_c, "PortalModel");
+$RefreshReg$(_c1, "Swirl");
+$RefreshReg$(_c2, "PortalFallback");
+$RefreshReg$(_c3, "PortalScene");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/three/PortalScene.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlBvcnRhbFNjZW5lLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBTdXNwZW5zZSwgdXNlRWZmZWN0LCB1c2VNZW1vLCB1c2VSZWYsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgQ2FudmFzLCB1c2VGcmFtZSB9IGZyb20gJ0ByZWFjdC10aHJlZS9maWJlcic7XG5pbXBvcnQgeyB1c2VHTFRGIH0gZnJvbSAnQHJlYWN0LXRocmVlL2RyZWknO1xuaW1wb3J0ICogYXMgVEhSRUUgZnJvbSAndGhyZWUnO1xuaW1wb3J0IHsgc3VwcG9ydHNXZWJHTCB9IGZyb20gJ0AvbGliL3dlYmdsJztcblxuY29uc3QgUE9SVEFMX01PREVMID0gJy9tb2RlbHMvb3B0aW1pemVkL3BvcnRhbC1yaW5nLmdsYic7XG51c2VHTFRGLnNldERlY29kZXJQYXRoKCcvZHJhY28vJyk7XG51c2VHTFRGLnByZWxvYWQoUE9SVEFMX01PREVMKTtcblxuZnVuY3Rpb24gUG9ydGFsTW9kZWwoeyBlbWlzc2l2ZUludGVuc2l0eSA9IDEuMzUgfTogeyBlbWlzc2l2ZUludGVuc2l0eT86IG51bWJlciB9KSB7XG4gIGNvbnN0IHsgc2NlbmUgfSA9IHVzZUdMVEYoUE9SVEFMX01PREVMKTtcbiAgY29uc3QgbW9kZWwgPSB1c2VNZW1vKCgpID0+IHtcbiAgICBjb25zdCBjbG9uZSA9IHNjZW5lLmNsb25lKHRydWUpO1xuICAgIGNsb25lLnRyYXZlcnNlKChjaGlsZCkgPT4ge1xuICAgICAgaWYgKCEoY2hpbGQgaW5zdGFuY2VvZiBUSFJFRS5NZXNoKSkgcmV0dXJuO1xuICAgICAgY29uc3Qgb3JpZ2luYWwgPSBBcnJheS5pc0FycmF5KGNoaWxkLm1hdGVyaWFsKSA/IGNoaWxkLm1hdGVyaWFsWzBdIDogY2hpbGQubWF0ZXJpYWw7XG4gICAgICBjb25zdCBtYXRlcmlhbCA9IG9yaWdpbmFsLmNsb25lKCk7XG4gICAgICBtYXRlcmlhbC5lbWlzc2l2ZSA9IG5ldyBUSFJFRS5Db2xvcignIzdjM2FlZCcpO1xuICAgICAgbWF0ZXJpYWwuZW1pc3NpdmVNYXAgPSBtYXRlcmlhbC5tYXA7XG4gICAgICBtYXRlcmlhbC5lbWlzc2l2ZUludGVuc2l0eSA9IGVtaXNzaXZlSW50ZW5zaXR5O1xuICAgICAgbWF0ZXJpYWwubWV0YWxuZXNzID0gTWF0aC5tYXgobWF0ZXJpYWwubWV0YWxuZXNzLCAwLjU1KTtcbiAgICAgIG1hdGVyaWFsLnJvdWdobmVzcyA9IDAuMzU7XG4gICAgICBjaGlsZC5tYXRlcmlhbCA9IG1hdGVyaWFsO1xuICAgIH0pO1xuICAgIHJldHVybiBjbG9uZTtcbiAgfSwgW2VtaXNzaXZlSW50ZW5zaXR5LCBzY2VuZV0pO1xuICBjb25zdCBncm91cCA9IHVzZVJlZjxUSFJFRS5Hcm91cD4obnVsbCk7XG4gIHVzZUZyYW1lKChzdGF0ZSwgZGVsdGEpID0+IHtcbiAgICBpZiAoIWdyb3VwLmN1cnJlbnQpIHJldHVybjtcbiAgICBncm91cC5jdXJyZW50LnJvdGF0aW9uLnogKz0gZGVsdGEgKiAwLjE2O1xuICAgIGdyb3VwLmN1cnJlbnQucG9zaXRpb24ueSA9IE1hdGguc2luKHN0YXRlLmNsb2NrLmVsYXBzZWRUaW1lICogMC43KSAqIDAuMDc7XG4gIH0pO1xuICByZXR1cm4gPHByaW1pdGl2ZSByZWY9e2dyb3VwfSBvYmplY3Q9e21vZGVsfSBzY2FsZT17MS41NX0gcm90YXRpb249e1swLjA1LCAwLCAwLjJdfSAvPjtcbn1cblxuZnVuY3Rpb24gU3dpcmwoKSB7XG4gIGNvbnN0IG1hdGVyaWFsID0gdXNlUmVmPFRIUkVFLlNoYWRlck1hdGVyaWFsPihudWxsKTtcbiAgdXNlRnJhbWUoKHsgY2xvY2sgfSkgPT4ge1xuICAgIGlmIChtYXRlcmlhbC5jdXJyZW50KSBtYXRlcmlhbC5jdXJyZW50LnVuaWZvcm1zLnVUaW1lLnZhbHVlID0gY2xvY2suZWxhcHNlZFRpbWU7XG4gIH0pO1xuICByZXR1cm4gKFxuICAgIDxtZXNoIHBvc2l0aW9uPXtbMCwgMCwgMC4wNF19PlxuICAgICAgPGNpcmNsZUdlb21ldHJ5IGFyZ3M9e1swLjcyLCA2NF19IC8+XG4gICAgICA8c2hhZGVyTWF0ZXJpYWxcbiAgICAgICAgcmVmPXttYXRlcmlhbH1cbiAgICAgICAgdHJhbnNwYXJlbnRcbiAgICAgICAgdW5pZm9ybXM9e3sgdVRpbWU6IHsgdmFsdWU6IDAgfSB9fVxuICAgICAgICB2ZXJ0ZXhTaGFkZXI9XCJ2YXJ5aW5nIHZlYzIgdlV2OyB2b2lkIG1haW4oKXsgdlV2PXV2OyBnbF9Qb3NpdGlvbj1wcm9qZWN0aW9uTWF0cml4Km1vZGVsVmlld01hdHJpeCp2ZWM0KHBvc2l0aW9uLDEuMCk7IH1cIlxuICAgICAgICBmcmFnbWVudFNoYWRlcj1cInVuaWZvcm0gZmxvYXQgdVRpbWU7IHZhcnlpbmcgdmVjMiB2VXY7IHZvaWQgbWFpbigpeyB2ZWMyIHA9dlV2LS41OyBmbG9hdCByPWxlbmd0aChwKTsgZmxvYXQgYT1hdGFuKHAueSxwLngpOyBmbG9hdCB3YXZlPXNpbihhKjcuMC1yKjE4LjAtdVRpbWUqMi40KStzaW4oYSozLjArcioxMi4wK3VUaW1lKTsgZmxvYXQgZ2xvdz1zbW9vdGhzdGVwKC42MiwuMDQscikqKDAuNTIrMC40OCp3YXZlKTsgdmVjMyBjb3JlPXZlYzMoLjQ4NiwuMjI3LC45Myk7IHZlYzMgZWRnZT12ZWMzKC42NTUsLjU0NSwuOTgpOyBnbF9GcmFnQ29sb3I9dmVjNChtaXgoY29yZSxlZGdlLHIqMS41KSpnbG93LCBnbG93KTsgfVwiXG4gICAgICAvPlxuICAgIDwvbWVzaD5cbiAgKTtcbn1cblxuZnVuY3Rpb24gUG9ydGFsRmFsbGJhY2soKSB7XG4gIHJldHVybiA8ZGl2IGNsYXNzTmFtZT1cInBvcnRhbC1mYWxsYmFja1wiIGFyaWEtaGlkZGVuPVwidHJ1ZVwiPjxzcGFuPuKMrDwvc3Bhbj48L2Rpdj47XG59XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFBvcnRhbFNjZW5lKCkge1xuICBjb25zdCBbd2ViZ2wsIHNldFdlYmdsXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgdXNlRWZmZWN0KCgpID0+IHNldFdlYmdsKHN1cHBvcnRzV2ViR0woKSksIFtdKTtcbiAgaWYgKCF3ZWJnbCkgcmV0dXJuIDxQb3J0YWxGYWxsYmFjayAvPjtcbiAgcmV0dXJuIChcbiAgICA8Q2FudmFzIGNsYXNzTmFtZT1cInBvcnRhbC1jYW52YXNcIiBkcHI9e1sxLCAxLjVdfSBjYW1lcmE9e3sgcG9zaXRpb246IFswLCAwLCA0LjZdLCBmb3Y6IDQwIH19IGdsPXt7IGFudGlhbGlhczogZmFsc2UsIHBvd2VyUHJlZmVyZW5jZTogJ2hpZ2gtcGVyZm9ybWFuY2UnIH19PlxuICAgICAgPGNvbG9yIGF0dGFjaD1cImJhY2tncm91bmRcIiBhcmdzPXtbJyMwMDAwMDAnXX0gLz5cbiAgICAgIHsvKiBBbWJpZW50IGluIDAuMy0wLjQgcmFuZ2UgdG8gcHJlc2VydmUgc2hhZG93cyAmIGRhcmsgU29sbyBMZXZlbGluZyBhZXN0aGV0aWMgKi99XG4gICAgICA8YW1iaWVudExpZ2h0IGludGVuc2l0eT17MC4zNX0gLz5cbiAgICAgIHsvKiBEaXJlY3Rpb25hbCBLZXkgTGlnaHQgdG8gcmV2ZWFsIHN1cmZhY2UgZ2VvbWV0cnkgJiBzcGVjdWxhciBoaWdobGlnaHRzICovfVxuICAgICAgPGRpcmVjdGlvbmFsTGlnaHQgcG9zaXRpb249e1szLCA0LCA1XX0gaW50ZW5zaXR5PXszLjJ9IGNvbG9yPVwiI2M0YjVmZFwiIC8+XG4gICAgICB7LyogUmltIExpZ2h0IGZyb20gYmVoaW5kIHRvIGNhdGNoIG1ldGFsbGljIGVkZ2VzICovfVxuICAgICAgPHBvaW50TGlnaHQgY29sb3I9XCIjYTc4YmZhXCIgaW50ZW5zaXR5PXsxMn0gZGlzdGFuY2U9ezh9IHBvc2l0aW9uPXtbLTIsIC0yLCAyXX0gLz5cbiAgICAgIDxTdXNwZW5zZSBmYWxsYmFjaz17bnVsbH0+XG4gICAgICAgIDxQb3J0YWxNb2RlbCAvPlxuICAgICAgICA8U3dpcmwgLz5cbiAgICAgIDwvU3VzcGVuc2U+XG4gICAgPC9DYW52YXM+XG4gICk7XG59XG4iXSwibmFtZXMiOlsiU3VzcGVuc2UiLCJ1c2VFZmZlY3QiLCJ1c2VNZW1vIiwidXNlUmVmIiwidXNlU3RhdGUiLCJDYW52YXMiLCJ1c2VGcmFtZSIsInVzZUdMVEYiLCJUSFJFRSIsInN1cHBvcnRzV2ViR0wiLCJQT1JUQUxfTU9ERUwiLCJzZXREZWNvZGVyUGF0aCIsInByZWxvYWQiLCJQb3J0YWxNb2RlbCIsImVtaXNzaXZlSW50ZW5zaXR5Iiwic2NlbmUiLCJtb2RlbCIsImNsb25lIiwidHJhdmVyc2UiLCJjaGlsZCIsIk1lc2giLCJvcmlnaW5hbCIsIkFycmF5IiwiaXNBcnJheSIsIm1hdGVyaWFsIiwiZW1pc3NpdmUiLCJDb2xvciIsImVtaXNzaXZlTWFwIiwibWFwIiwibWV0YWxuZXNzIiwiTWF0aCIsIm1heCIsInJvdWdobmVzcyIsImdyb3VwIiwic3RhdGUiLCJkZWx0YSIsImN1cnJlbnQiLCJyb3RhdGlvbiIsInoiLCJwb3NpdGlvbiIsInkiLCJzaW4iLCJjbG9jayIsImVsYXBzZWRUaW1lIiwicHJpbWl0aXZlIiwicmVmIiwib2JqZWN0Iiwic2NhbGUiLCJTd2lybCIsInVuaWZvcm1zIiwidVRpbWUiLCJ2YWx1ZSIsIm1lc2giLCJjaXJjbGVHZW9tZXRyeSIsImFyZ3MiLCJzaGFkZXJNYXRlcmlhbCIsInRyYW5zcGFyZW50IiwidmVydGV4U2hhZGVyIiwiZnJhZ21lbnRTaGFkZXIiLCJQb3J0YWxGYWxsYmFjayIsImRpdiIsImNsYXNzTmFtZSIsImFyaWEtaGlkZGVuIiwic3BhbiIsIlBvcnRhbFNjZW5lIiwid2ViZ2wiLCJzZXRXZWJnbCIsImRwciIsImNhbWVyYSIsImZvdiIsImdsIiwiYW50aWFsaWFzIiwicG93ZXJQcmVmZXJlbmNlIiwiY29sb3IiLCJhdHRhY2giLCJhbWJpZW50TGlnaHQiLCJpbnRlbnNpdHkiLCJkaXJlY3Rpb25hbExpZ2h0IiwicG9pbnRMaWdodCIsImRpc3RhbmNlIiwiZmFsbGJhY2siXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFB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( Æ Ÿ      jqÈœjqÈœIÉ>       a    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/three/PortalScene.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"2b77-QsyBTevb5xZt4fyR5MC9LUXcz4A"
+Content-Length: 20358
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"2b77-QsyBTevb5xZt4fyR5MC9LUXcz4A"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 20358
+ ctid 2 net-response-time-onstart 7 net-response-time-onstop 7   O†

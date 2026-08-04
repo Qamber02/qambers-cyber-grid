@@ -1,0 +1,532 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/HeroSection.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+function _define_property(obj, key, value) {
+    if (key in obj) {
+        Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    } else {
+        obj[key] = value;
+    }
+    return obj;
+}
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+import { ArrowUpRight, Github, Shield } from "/node_modules/.vite/deps/lucide-react.js?v=afe34100";
+import __vite__cjsImport4_react from "/node_modules/.vite/deps/react.js?v=49946ac6"; const Component = __vite__cjsImport4_react["Component"]; const lazy = __vite__cjsImport4_react["lazy"]; const Suspense = __vite__cjsImport4_react["Suspense"];
+import { Link } from "/node_modules/.vite/deps/react-router-dom.js?v=2d18321d";
+import { portfolioData } from "/src/data/portfolio.ts";
+const PortalScene = /*#__PURE__*/ lazy(()=>import("/src/components/three/PortalScene.tsx"));
+_c = PortalScene;
+class PortalErrorBoundary extends Component {
+    static getDerivedStateFromError() {
+        return {
+            hasError: true
+        };
+    }
+    render() {
+        if (this.state.hasError) return /*#__PURE__*/ _jsxDEV("div", {
+            className: "portal-fallback",
+            "aria-hidden": "true",
+            children: /*#__PURE__*/ _jsxDEV("span", {
+                children: "‚å¨"
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                lineNumber: 16,
+                columnNumber: 89
+            }, this)
+        }, void 0, false, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+            lineNumber: 16,
+            columnNumber: 37
+        }, this);
+        return this.props.children;
+    }
+    constructor(...args){
+        super(...args), _define_property(this, "state", {
+            hasError: false
+        });
+    }
+}
+const HeroSection = ()=>/*#__PURE__*/ _jsxDEV("section", {
+        className: "relative flex min-h-screen items-center justify-center overflow-hidden py-16 md:py-24",
+        children: [
+            /*#__PURE__*/ _jsxDEV("div", {
+                className: "pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px]"
+            }, void 0, false, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                lineNumber: 24,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ _jsxDEV("div", {
+                className: "mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16",
+                children: [
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        className: "relative z-10",
+                        children: [
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "inline-flex items-center gap-2 rounded-full border border-violet-400/25 bg-violet-950/40 px-3.5 py-1.5 backdrop-blur-md mb-6",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("span", {
+                                        className: "relative flex h-2 w-2",
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 32,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "relative inline-flex rounded-full h-2 w-2 bg-violet-500"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 33,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 31,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("span", {
+                                        className: "system-label text-[11px] font-semibold text-violet-300 tracking-[0.22em]",
+                                        children: "SYSTEM ACTIVE // SHADOW MONARCH"
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 35,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 30,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("p", {
+                                className: "mb-3 font-mono text-xs tracking-wider text-violet-300/70",
+                                children: "[System] Player status recognized. Class: Full-Stack Architect."
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 40,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("h1", {
+                                className: "max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl",
+                                children: [
+                                    "Arise,",
+                                    /*#__PURE__*/ _jsxDEV("br", {}, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 45,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("span", {
+                                        className: "bg-gradient-to-r from-violet-300 via-violet-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(167,139,250,0.4)]",
+                                        children: "Qamber."
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 46,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 44,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("p", {
+                                className: "mt-6 max-w-xl text-base leading-7 text-white/80 sm:text-lg sm:leading-8",
+                                children: "I build things that actually get used ‚Äî resilient backends that don't break under load, and sleek web applications for real-world operations."
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 51,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("p", {
+                                className: "mt-3 max-w-xl text-sm leading-6 text-violet-200/70",
+                                children: "CS student at University of Turbat, engineering production payment architecture at Unhire & developing local tech infrastructure."
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 55,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "mt-8 grid max-w-lg grid-cols-3 gap-3 rounded-lg border border-violet-500/20 bg-violet-950/20 p-3 backdrop-blur-sm",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "block font-mono text-[10px] uppercase text-violet-300/60",
+                                                children: "CLASS"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 62,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "font-mono text-xs font-semibold text-white",
+                                                children: "Shadow Dev"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 63,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 61,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "block font-mono text-[10px] uppercase text-violet-300/60",
+                                                children: "TITLE"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 66,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "font-mono text-xs font-semibold text-violet-300",
+                                                children: "Level 01"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 67,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 65,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "block font-mono text-[10px] uppercase text-violet-300/60",
+                                                children: "STATUS"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 70,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "font-mono text-xs font-semibold text-emerald-400",
+                                                children: "READY"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 71,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 69,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 60,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "mt-8 flex flex-wrap items-center gap-4",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV(Link, {
+                                        to: "/projects",
+                                        className: "system-button system-button--solid group",
+                                        children: [
+                                            "Enter the gates ",
+                                            /*#__PURE__*/ _jsxDEV(ArrowUpRight, {
+                                                size: 16,
+                                                className: "transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 78,
+                                                columnNumber: 29
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 77,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Link, {
+                                        to: "/about",
+                                        className: "system-button",
+                                        children: "View stat sheet"
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 80,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("a", {
+                                        href: portfolioData.github,
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        className: "system-icon-button",
+                                        "aria-label": "GitHub",
+                                        children: /*#__PURE__*/ _jsxDEV(Github, {
+                                            size: 18
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                            lineNumber: 90,
+                                            columnNumber: 13
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 83,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 76,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "mt-10 flex items-center gap-3 font-mono text-xs text-violet-200/50",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV(Shield, {
+                                        size: 15,
+                                        className: "text-violet-400"
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 95,
+                                        columnNumber: 11
+                                    }, this),
+                                    "SYSTEM VERIFIED // NOBARA LINUX DEV ENVIRONMENT"
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 94,
+                                columnNumber: 9
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                        lineNumber: 28,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        className: "relative mx-auto w-full max-w-[500px]",
+                        children: [
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "pointer-events-none absolute -inset-2 rounded-2xl border border-violet-500/20 bg-gradient-to-b from-violet-500/10 via-transparent to-purple-900/10 backdrop-blur-3xl"
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 103,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("div", {
+                                className: "portal-shell relative h-[380px] w-full overflow-hidden rounded-xl border border-violet-400/30 bg-[#07070c]/80 shadow-[0_0_50px_rgba(124,58,237,0.25)] md:h-[480px]",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        className: "absolute top-0 inset-x-0 z-20 flex items-center justify-between border-b border-violet-400/15 bg-[#0a0a0f]/80 px-4 py-2.5 font-mono text-[10px] text-violet-200/70 backdrop-blur-md",
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "flex items-center gap-2",
+                                                children: [
+                                                    /*#__PURE__*/ _jsxDEV("span", {
+                                                        className: "h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse"
+                                                    }, void 0, false, {
+                                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                        lineNumber: 109,
+                                                        columnNumber: 15
+                                                    }, this),
+                                                    "DIMENSIONAL GATE // S-01"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 108,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("span", {
+                                                className: "text-violet-300 font-semibold",
+                                                children: "STABILITY 99.8%"
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 112,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 107,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(PortalErrorBoundary, {
+                                        children: /*#__PURE__*/ _jsxDEV(Suspense, {
+                                            fallback: /*#__PURE__*/ _jsxDEV("div", {
+                                                className: "portal-fallback",
+                                                "aria-hidden": "true",
+                                                children: /*#__PURE__*/ _jsxDEV("span", {
+                                                    children: "‚å¨"
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                    lineNumber: 116,
+                                                    columnNumber: 85
+                                                }, void 0)
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 116,
+                                                columnNumber: 33
+                                            }, void 0),
+                                            children: /*#__PURE__*/ _jsxDEV(PortalScene, {}, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 117,
+                                                columnNumber: 15
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                            lineNumber: 116,
+                                            columnNumber: 13
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 115,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        className: "pointer-events-none absolute inset-x-4 bottom-4 z-20 rounded-lg border border-violet-400/25 bg-[#0a0a0f]/85 p-3.5 font-mono text-[10px] tracking-wider text-violet-100/70 backdrop-blur-md shadow-lg",
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("div", {
+                                                className: "flex items-center justify-between mb-1.5",
+                                                children: [
+                                                    /*#__PURE__*/ _jsxDEV("span", {
+                                                        className: "text-violet-300 font-semibold uppercase",
+                                                        children: "GATE STATUS"
+                                                    }, void 0, false, {
+                                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                        lineNumber: 124,
+                                                        columnNumber: 15
+                                                    }, this),
+                                                    /*#__PURE__*/ _jsxDEV("span", {
+                                                        className: "rounded bg-violet-500/20 px-2 py-0.5 text-[9px] text-violet-200 border border-violet-400/30",
+                                                        children: "ACTIVE"
+                                                    }, void 0, false, {
+                                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                        lineNumber: 125,
+                                                        columnNumber: 15
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 123,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("div", {
+                                                className: "flex items-center justify-between text-white/50 text-[9px]",
+                                                children: [
+                                                    /*#__PURE__*/ _jsxDEV("span", {
+                                                        children: "THREAT LEVEL: HIGH"
+                                                    }, void 0, false, {
+                                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                        lineNumber: 130,
+                                                        columnNumber: 15
+                                                    }, this),
+                                                    /*#__PURE__*/ _jsxDEV("span", {
+                                                        children: "COORDINATES: GWADAR/TURBAT"
+                                                    }, void 0, false, {
+                                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                        lineNumber: 131,
+                                                        columnNumber: 15
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                                lineNumber: 129,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                        lineNumber: 122,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                                lineNumber: 105,
+                                columnNumber: 9
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                        lineNumber: 101,
+                        columnNumber: 7
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+                lineNumber: 26,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx",
+        lineNumber: 22,
+        columnNumber: 3
+    }, this);
+_c1 = HeroSection;
+export default HeroSection;
+var _c, _c1;
+$RefreshReg$(_c, "PortalScene");
+$RefreshReg$(_c1, "HeroSection");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/HeroSection.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkhlcm9TZWN0aW9uLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBcnJvd1VwUmlnaHQsIEdpdGh1YiwgU2hpZWxkIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IENvbXBvbmVudCwgbGF6eSwgU3VzcGVuc2UsIHR5cGUgUmVhY3ROb2RlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgTGluayB9IGZyb20gJ3JlYWN0LXJvdXRlci1kb20nO1xuaW1wb3J0IHsgcG9ydGZvbGlvRGF0YSB9IGZyb20gJ0AvZGF0YS9wb3J0Zm9saW8nO1xuXG5jb25zdCBQb3J0YWxTY2VuZSA9IGxhenkoKCkgPT4gaW1wb3J0KCcuL3RocmVlL1BvcnRhbFNjZW5lJykpO1xuXG5jbGFzcyBQb3J0YWxFcnJvckJvdW5kYXJ5IGV4dGVuZHMgQ29tcG9uZW50PHsgY2hpbGRyZW46IFJlYWN0Tm9kZSB9LCB7IGhhc0Vycm9yOiBib29sZWFuIH0+IHtcbiAgc3RhdGUgPSB7IGhhc0Vycm9yOiBmYWxzZSB9O1xuXG4gIHN0YXRpYyBnZXREZXJpdmVkU3RhdGVGcm9tRXJyb3IoKTogeyBoYXNFcnJvcjogYm9vbGVhbiB9IHtcbiAgICByZXR1cm4geyBoYXNFcnJvcjogdHJ1ZSB9O1xuICB9XG5cbiAgcmVuZGVyKCkge1xuICAgIGlmICh0aGlzLnN0YXRlLmhhc0Vycm9yKSByZXR1cm4gPGRpdiBjbGFzc05hbWU9XCJwb3J0YWwtZmFsbGJhY2tcIiBhcmlhLWhpZGRlbj1cInRydWVcIj48c3Bhbj7ijKw8L3NwYW4+PC9kaXY+O1xuICAgIHJldHVybiB0aGlzLnByb3BzLmNoaWxkcmVuO1xuICB9XG59XG5cbmNvbnN0IEhlcm9TZWN0aW9uID0gKCkgPT4gKFxuICA8c2VjdGlvbiBjbGFzc05hbWU9XCJyZWxhdGl2ZSBmbGV4IG1pbi1oLXNjcmVlbiBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgb3ZlcmZsb3ctaGlkZGVuIHB5LTE2IG1kOnB5LTI0XCI+XG4gICAgey8qIEFtYmllbnQgYmFja2dyb3VuZCBnbG93ICovfVxuICAgIDxkaXYgY2xhc3NOYW1lPVwicG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSB0b3AtMS8yIGxlZnQtMS8yIC10cmFuc2xhdGUteC0xLzIgLXRyYW5zbGF0ZS15LTEvMiB3LVs2MDBweF0gaC1bNjAwcHhdIGJnLXZpb2xldC02MDAvMTAgcm91bmRlZC1mdWxsIGJsdXItWzE0MHB4XVwiIC8+XG5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cIm14LWF1dG8gZ3JpZCB3LWZ1bGwgbWF4LXctN3hsIGl0ZW1zLWNlbnRlciBnYXAtMTIgcHgtNiBweS0xMiBsZzpncmlkLWNvbHMtWzEuMWZyXy45ZnJdIGxnOmdhcC0xNlwiPlxuICAgICAgey8qIExlZnQgQ29sdW1uOiBQbGF5ZXIgSW5mbyAmIFN5c3RlbSBIVUQgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIHotMTBcIj5cbiAgICAgICAgey8qIFN5c3RlbSBIZWFkZXIgQmFkZ2UgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaW5saW5lLWZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHJvdW5kZWQtZnVsbCBib3JkZXIgYm9yZGVyLXZpb2xldC00MDAvMjUgYmctdmlvbGV0LTk1MC80MCBweC0zLjUgcHktMS41IGJhY2tkcm9wLWJsdXItbWQgbWItNlwiPlxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInJlbGF0aXZlIGZsZXggaC0yIHctMlwiPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYW5pbWF0ZS1waW5nIGFic29sdXRlIGlubGluZS1mbGV4IGgtZnVsbCB3LWZ1bGwgcm91bmRlZC1mdWxsIGJnLXZpb2xldC00MDAgb3BhY2l0eS03NVwiPjwvc3Bhbj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInJlbGF0aXZlIGlubGluZS1mbGV4IHJvdW5kZWQtZnVsbCBoLTIgdy0yIGJnLXZpb2xldC01MDBcIj48L3NwYW4+XG4gICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInN5c3RlbS1sYWJlbCB0ZXh0LVsxMXB4XSBmb250LXNlbWlib2xkIHRleHQtdmlvbGV0LTMwMCB0cmFja2luZy1bMC4yMmVtXVwiPlxuICAgICAgICAgICAgU1lTVEVNIEFDVElWRSAvLyBTSEFET1cgTU9OQVJDSFxuICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwibWItMyBmb250LW1vbm8gdGV4dC14cyB0cmFja2luZy13aWRlciB0ZXh0LXZpb2xldC0zMDAvNzBcIj5cbiAgICAgICAgICBbU3lzdGVtXSBQbGF5ZXIgc3RhdHVzIHJlY29nbml6ZWQuIENsYXNzOiBGdWxsLVN0YWNrIEFyY2hpdGVjdC5cbiAgICAgICAgPC9wPlxuXG4gICAgICAgIDxoMSBjbGFzc05hbWU9XCJtYXgtdy0zeGwgdGV4dC01eGwgZm9udC1leHRyYWJvbGQgbGVhZGluZy1bMC45OF0gdHJhY2tpbmctdGlnaHQgdGV4dC13aGl0ZSBzbTp0ZXh0LTZ4bCBtZDp0ZXh0LTd4bFwiPlxuICAgICAgICAgIEFyaXNlLDxiciAvPlxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImJnLWdyYWRpZW50LXRvLXIgZnJvbS12aW9sZXQtMzAwIHZpYS12aW9sZXQtNDAwIHRvLXB1cnBsZS01MDAgYmctY2xpcC10ZXh0IHRleHQtdHJhbnNwYXJlbnQgZHJvcC1zaGFkb3ctWzBfMF8yNXB4X3JnYmEoMTY3LDEzOSwyNTAsMC40KV1cIj5cbiAgICAgICAgICAgIFFhbWJlci5cbiAgICAgICAgICA8L3NwYW4+XG4gICAgICAgIDwvaDE+XG5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtNiBtYXgtdy14bCB0ZXh0LWJhc2UgbGVhZGluZy03IHRleHQtd2hpdGUvODAgc206dGV4dC1sZyBzbTpsZWFkaW5nLThcIj5cbiAgICAgICAgICBJIGJ1aWxkIHRoaW5ncyB0aGF0IGFjdHVhbGx5IGdldCB1c2VkIOKAlCByZXNpbGllbnQgYmFja2VuZHMgdGhhdCBkb24ndCBicmVhayB1bmRlciBsb2FkLCBhbmQgc2xlZWsgd2ViIGFwcGxpY2F0aW9ucyBmb3IgcmVhbC13b3JsZCBvcGVyYXRpb25zLlxuICAgICAgICA8L3A+XG5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtMyBtYXgtdy14bCB0ZXh0LXNtIGxlYWRpbmctNiB0ZXh0LXZpb2xldC0yMDAvNzBcIj5cbiAgICAgICAgICBDUyBzdHVkZW50IGF0IFVuaXZlcnNpdHkgb2YgVHVyYmF0LCBlbmdpbmVlcmluZyBwcm9kdWN0aW9uIHBheW1lbnQgYXJjaGl0ZWN0dXJlIGF0IFVuaGlyZSAmIGRldmVsb3BpbmcgbG9jYWwgdGVjaCBpbmZyYXN0cnVjdHVyZS5cbiAgICAgICAgPC9wPlxuXG4gICAgICAgIHsvKiBQbGF5ZXIgU3RhdHMgSFVEIFN0cmlwICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTggZ3JpZCBtYXgtdy1sZyBncmlkLWNvbHMtMyBnYXAtMyByb3VuZGVkLWxnIGJvcmRlciBib3JkZXItdmlvbGV0LTUwMC8yMCBiZy12aW9sZXQtOTUwLzIwIHAtMyBiYWNrZHJvcC1ibHVyLXNtXCI+XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImJsb2NrIGZvbnQtbW9ubyB0ZXh0LVsxMHB4XSB1cHBlcmNhc2UgdGV4dC12aW9sZXQtMzAwLzYwXCI+Q0xBU1M8L3NwYW4+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmb250LW1vbm8gdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj5TaGFkb3cgRGV2PC9zcGFuPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJibG9jayBmb250LW1vbm8gdGV4dC1bMTBweF0gdXBwZXJjYXNlIHRleHQtdmlvbGV0LTMwMC82MFwiPlRJVExFPC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiZm9udC1tb25vIHRleHQteHMgZm9udC1zZW1pYm9sZCB0ZXh0LXZpb2xldC0zMDBcIj5MZXZlbCAwMTwvc3Bhbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYmxvY2sgZm9udC1tb25vIHRleHQtWzEwcHhdIHVwcGVyY2FzZSB0ZXh0LXZpb2xldC0zMDAvNjBcIj5TVEFUVVM8L3NwYW4+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmb250LW1vbm8gdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtZW1lcmFsZC00MDBcIj5SRUFEWTwvc3Bhbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIEFjdGlvbiBCdXR0b25zICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTggZmxleCBmbGV4LXdyYXAgaXRlbXMtY2VudGVyIGdhcC00XCI+XG4gICAgICAgICAgPExpbmsgdG89XCIvcHJvamVjdHNcIiBjbGFzc05hbWU9XCJzeXN0ZW0tYnV0dG9uIHN5c3RlbS1idXR0b24tLXNvbGlkIGdyb3VwXCI+XG4gICAgICAgICAgICBFbnRlciB0aGUgZ2F0ZXMgPEFycm93VXBSaWdodCBzaXplPXsxNn0gY2xhc3NOYW1lPVwidHJhbnNpdGlvbi10cmFuc2Zvcm0gZ3JvdXAtaG92ZXI6dHJhbnNsYXRlLXgtMC41IGdyb3VwLWhvdmVyOi10cmFuc2xhdGUteS0wLjVcIiAvPlxuICAgICAgICAgIDwvTGluaz5cbiAgICAgICAgICA8TGluayB0bz1cIi9hYm91dFwiIGNsYXNzTmFtZT1cInN5c3RlbS1idXR0b25cIj5cbiAgICAgICAgICAgIFZpZXcgc3RhdCBzaGVldFxuICAgICAgICAgIDwvTGluaz5cbiAgICAgICAgICA8YVxuICAgICAgICAgICAgaHJlZj17cG9ydGZvbGlvRGF0YS5naXRodWJ9XG4gICAgICAgICAgICB0YXJnZXQ9XCJfYmxhbmtcIlxuICAgICAgICAgICAgcmVsPVwibm9vcGVuZXIgbm9yZWZlcnJlclwiXG4gICAgICAgICAgICBjbGFzc05hbWU9XCJzeXN0ZW0taWNvbi1idXR0b25cIlxuICAgICAgICAgICAgYXJpYS1sYWJlbD1cIkdpdEh1YlwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgPEdpdGh1YiBzaXplPXsxOH0gLz5cbiAgICAgICAgICA8L2E+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtMTAgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTMgZm9udC1tb25vIHRleHQteHMgdGV4dC12aW9sZXQtMjAwLzUwXCI+XG4gICAgICAgICAgPFNoaWVsZCBzaXplPXsxNX0gY2xhc3NOYW1lPVwidGV4dC12aW9sZXQtNDAwXCIgLz5cbiAgICAgICAgICBTWVNURU0gVkVSSUZJRUQgLy8gTk9CQVJBIExJTlVYIERFViBFTlZJUk9OTUVOVFxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogUmlnaHQgQ29sdW1uOiAzRCBQb3J0YWwgRnJhbWUgJiBEaWFnbm9zdGljcyBIVUQgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIG14LWF1dG8gdy1mdWxsIG1heC13LVs1MDBweF1cIj5cbiAgICAgICAgey8qIERlY29yYXRpdmUgY29ybmVyIGJvcmRlcnMgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSAtaW5zZXQtMiByb3VuZGVkLTJ4bCBib3JkZXIgYm9yZGVyLXZpb2xldC01MDAvMjAgYmctZ3JhZGllbnQtdG8tYiBmcm9tLXZpb2xldC01MDAvMTAgdmlhLXRyYW5zcGFyZW50IHRvLXB1cnBsZS05MDAvMTAgYmFja2Ryb3AtYmx1ci0zeGxcIiAvPlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicG9ydGFsLXNoZWxsIHJlbGF0aXZlIGgtWzM4MHB4XSB3LWZ1bGwgb3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQteGwgYm9yZGVyIGJvcmRlci12aW9sZXQtNDAwLzMwIGJnLVsjMDcwNzBjXS84MCBzaGFkb3ctWzBfMF81MHB4X3JnYmEoMTI0LDU4LDIzNywwLjI1KV0gbWQ6aC1bNDgwcHhdXCI+XG4gICAgICAgICAgey8qIFRvcCBGcmFtZSBTdGF0dXMgQmFyICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgdG9wLTAgaW5zZXQteC0wIHotMjAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIGJvcmRlci1iIGJvcmRlci12aW9sZXQtNDAwLzE1IGJnLVsjMGEwYTBmXS84MCBweC00IHB5LTIuNSBmb250LW1vbm8gdGV4dC1bMTBweF0gdGV4dC12aW9sZXQtMjAwLzcwIGJhY2tkcm9wLWJsdXItbWRcIj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImgtMS41IHctMS41IHJvdW5kZWQtZnVsbCBiZy12aW9sZXQtNDAwIGFuaW1hdGUtcHVsc2VcIiAvPlxuICAgICAgICAgICAgICBESU1FTlNJT05BTCBHQVRFIC8vIFMtMDFcbiAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtdmlvbGV0LTMwMCBmb250LXNlbWlib2xkXCI+U1RBQklMSVRZIDk5LjglPC9zcGFuPlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPFBvcnRhbEVycm9yQm91bmRhcnk+XG4gICAgICAgICAgICA8U3VzcGVuc2UgZmFsbGJhY2s9ezxkaXYgY2xhc3NOYW1lPVwicG9ydGFsLWZhbGxiYWNrXCIgYXJpYS1oaWRkZW49XCJ0cnVlXCI+PHNwYW4+4oysPC9zcGFuPjwvZGl2Pn0+XG4gICAgICAgICAgICAgIDxQb3J0YWxTY2VuZSAvPlxuICAgICAgICAgICAgPC9TdXNwZW5zZT5cbiAgICAgICAgICA8L1BvcnRhbEVycm9yQm91bmRhcnk+XG5cbiAgICAgICAgICB7LyogQm90dG9tIEZyYW1lIFN0YXR1cyBPdmVybGF5ICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSBpbnNldC14LTQgYm90dG9tLTQgei0yMCByb3VuZGVkLWxnIGJvcmRlciBib3JkZXItdmlvbGV0LTQwMC8yNSBiZy1bIzBhMGEwZl0vODUgcC0zLjUgZm9udC1tb25vIHRleHQtWzEwcHhdIHRyYWNraW5nLXdpZGVyIHRleHQtdmlvbGV0LTEwMC83MCBiYWNrZHJvcC1ibHVyLW1kIHNoYWRvdy1sZ1wiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMS41XCI+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtdmlvbGV0LTMwMCBmb250LXNlbWlib2xkIHVwcGVyY2FzZVwiPkdBVEUgU1RBVFVTPC9zcGFuPlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJyb3VuZGVkIGJnLXZpb2xldC01MDAvMjAgcHgtMiBweS0wLjUgdGV4dC1bOXB4XSB0ZXh0LXZpb2xldC0yMDAgYm9yZGVyIGJvcmRlci12aW9sZXQtNDAwLzMwXCI+XG4gICAgICAgICAgICAgICAgQUNUSVZFXG4gICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gdGV4dC13aGl0ZS81MCB0ZXh0LVs5cHhdXCI+XG4gICAgICAgICAgICAgIDxzcGFuPlRIUkVBVCBMRVZFTDogSElHSDwvc3Bhbj5cbiAgICAgICAgICAgICAgPHNwYW4+Q09PUkRJTkFURVM6IEdXQURBUi9UVVJCQVQ8L3NwYW4+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgPC9zZWN0aW9uPlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgSGVyb1NlY3Rpb247XG4iXSwibmFtZXMiOlsiQXJyb3dVcFJpZ2h0IiwiR2l0aHViIiwiU2hpZWxkIiwiQ29tcG9uZW50IiwibGF6eSIsIlN1c3BlbnNlIiwiTGluayIsInBvcnRmb2xpb0RhdGEiLCJQb3J0YWxTY2VuZSIsIlBvcnRhbEVycm9yQm91bmRhcnkiLCJnZXREZXJpdmVkU3RhdGVGcm9tRXJyb3IiLCJoYXNFcnJvciIsInJlbmRlciIsInN0YXRlIiwiZGl2IiwiY2xhc3NOYW1lIiwiYXJpYS1oaWRkZW4iLCJzcGFuIiwicHJvcHMiLCJjaGlsZHJlbiIsIkhlcm9TZWN0aW9uIiwic2VjdGlvbiIsInAiLCJoMSIsImJyIiwidG8iLCJzaXplIiwiYSIsImhyZWYiLCJnaXRodWIiLCJ0YXJnZXQiLCJyZWwiLCJhcmlhLWxhYmVsIiwiZmFsbGJhY2siXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLFNBQVNBLFlBQVksRUFBRUMsTUFBTSxFQUFFQyxNQUFNLFFBQVEsZUFBZTtBQUM1RCxTQUFTQyxTQUFTLEVBQUVDLElBQUksRUFBRUMsUUFBUSxRQUF3QixRQUFRO0FBQ2xFLFNBQVNDLElBQUksUUFBUSxtQkFBbUI7QUFDeEMsU0FBU0MsYUFBYSxRQUFRLG1CQUFtQjtBQUVqRCxNQUFNQyw0QkFBY0osS0FBSyxJQUFNLE1BQU0sQ0FBQztLQUFoQ0k7QUFFTixNQUFNQyw0QkFBNEJOO0lBR2hDLE9BQU9PLDJCQUFrRDtRQUN2RCxPQUFPO1lBQUVDLFVBQVU7UUFBSztJQUMxQjtJQUVBQyxTQUFTO1FBQ1AsSUFBSSxJQUFJLENBQUNDLEtBQUssQ0FBQ0YsUUFBUSxFQUFFLHFCQUFPLFFBQUNHO1lBQUlDLFdBQVU7WUFBa0JDLGVBQVk7c0JBQU8sY0FBQSxRQUFDQzswQkFBSzs7Ozs7Ozs7Ozs7UUFDMUYsT0FBTyxJQUFJ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êhÜ˙      jq»újq»úI…=       [    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/HeroSection.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"8c11-cJVVmxmuebUrryX60dBnnv2Tq/g"
+Content-Length: 49216
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"8c11-cJVVmxmuebUrryX60dBnnv2Tq/g"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 49216
+ ctid 2 net-response-time-onstart 132 net-response-time-onstop 133   ¿@

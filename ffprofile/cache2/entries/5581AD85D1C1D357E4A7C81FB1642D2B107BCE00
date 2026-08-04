@@ -1,0 +1,271 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ProjectsSection.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import { motion } from "/node_modules/.vite/deps/framer-motion.js?v=f8d44dde";
+import { ArrowUpRight, Github } from "/node_modules/.vite/deps/lucide-react.js?v=afe34100";
+import { portfolioData } from "/src/data/portfolio.ts";
+import { usePortalTransition } from "/src/components/PortalTransition.tsx";
+const ranks = [
+    'S',
+    'A',
+    'S',
+    'B'
+];
+const ProjectsSection = ()=>{
+    _s();
+    const { transition } = usePortalTransition();
+    return /*#__PURE__*/ _jsxDEV("section", {
+        id: "projects",
+        className: "min-h-screen px-4 py-20",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            className: "mx-auto max-w-6xl",
+            children: [
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "system-label text-violet-300",
+                    children: "INSTANCE DIRECTORY // GATES"
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                    lineNumber: 11,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ _jsxDEV("h1", {
+                    className: "system-heading mt-4",
+                    children: "Choose a gate."
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                    lineNumber: 12,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "mt-4 max-w-2xl text-white/65",
+                    children: "Each project is a completed instance: practical software, clear constraints, and systems that make a measurable difference."
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                    lineNumber: 13,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ _jsxDEV("div", {
+                    className: "mt-12 grid gap-5 md:grid-cols-2",
+                    children: portfolioData.projects.map((project, index)=>/*#__PURE__*/ _jsxDEV(motion.article, {
+                            initial: {
+                                opacity: 0,
+                                y: 22
+                            },
+                            whileInView: {
+                                opacity: 1,
+                                y: 0
+                            },
+                            viewport: {
+                                once: true
+                            },
+                            transition: {
+                                delay: index * .08
+                            },
+                            className: "gate-card system-panel group relative overflow-hidden p-7",
+                            children: [
+                                /*#__PURE__*/ _jsxDEV("div", {
+                                    className: "flex items-start justify-between gap-6",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV("div", {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDEV("p", {
+                                                    className: "font-mono text-xs tracking-[.2em] text-violet-300/70",
+                                                    children: [
+                                                        "GATE 0",
+                                                        index + 1
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                                    lineNumber: 16,
+                                                    columnNumber: 70
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("h2", {
+                                                    className: "mt-3 text-2xl font-bold text-white",
+                                                    children: project.title
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                                    lineNumber: 16,
+                                                    columnNumber: 159
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("p", {
+                                                    className: "mt-1 text-sm text-violet-200/65",
+                                                    children: project.subtitle
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                                    lineNumber: 16,
+                                                    columnNumber: 230
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                            lineNumber: 16,
+                                            columnNumber: 65
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            className: "rank-badge",
+                                            children: ranks[index]
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                            lineNumber: 16,
+                                            columnNumber: 305
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                    lineNumber: 16,
+                                    columnNumber: 9
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("p", {
+                                    className: "mt-6 text-sm leading-7 text-white/65",
+                                    children: project.description
+                                }, void 0, false, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                    lineNumber: 17,
+                                    columnNumber: 9
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("div", {
+                                    className: "mt-6 flex flex-wrap gap-2",
+                                    children: project.techStack.map((tech)=>/*#__PURE__*/ _jsxDEV("span", {
+                                            className: "inventory-item",
+                                            children: tech
+                                        }, tech, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                            lineNumber: 18,
+                                            columnNumber: 85
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                    lineNumber: 18,
+                                    columnNumber: 9
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("div", {
+                                    className: "mt-7 flex items-center gap-3",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV("button", {
+                                            type: "button",
+                                            onClick: ()=>transition(),
+                                            className: "system-button text-xs",
+                                            children: [
+                                                "Enter instance ",
+                                                /*#__PURE__*/ _jsxDEV(ArrowUpRight, {
+                                                    size: 14
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                                    lineNumber: 19,
+                                                    columnNumber: 155
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                            lineNumber: 19,
+                                            columnNumber: 55
+                                        }, this),
+                                        project.sourceLink && /*#__PURE__*/ _jsxDEV("a", {
+                                            href: project.sourceLink,
+                                            target: "_blank",
+                                            rel: "noopener noreferrer",
+                                            className: "system-icon-button",
+                                            "aria-label": `View ${project.title} source`,
+                                            children: /*#__PURE__*/ _jsxDEV(Github, {
+                                                size: 16
+                                            }, void 0, false, {
+                                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                                lineNumber: 19,
+                                                columnNumber: 359
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                            lineNumber: 19,
+                                            columnNumber: 213
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                                    lineNumber: 19,
+                                    columnNumber: 9
+                                }, this)
+                            ]
+                        }, project.id, true, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                            lineNumber: 15,
+                            columnNumber: 55
+                        }, this))
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+                    lineNumber: 14,
+                    columnNumber: 5
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+            lineNumber: 10,
+            columnNumber: 69
+        }, this)
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx",
+        lineNumber: 10,
+        columnNumber: 10
+    }, this);
+};
+_s(ProjectsSection, "WvnqIF3RjcEbbucKUdOZ9jCK9lE=", false, function() {
+    return [
+        usePortalTransition
+    ];
+});
+_c = ProjectsSection;
+export default ProjectsSection;
+var _c;
+$RefreshReg$(_c, "ProjectsSection");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ProjectsSection.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlByb2plY3RzU2VjdGlvbi50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgbW90aW9uIH0gZnJvbSAnZnJhbWVyLW1vdGlvbic7XG5pbXBvcnQgeyBBcnJvd1VwUmlnaHQsIEdpdGh1YiB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyBwb3J0Zm9saW9EYXRhIH0gZnJvbSAnQC9kYXRhL3BvcnRmb2xpbyc7XG5pbXBvcnQgeyB1c2VQb3J0YWxUcmFuc2l0aW9uIH0gZnJvbSAnLi9Qb3J0YWxUcmFuc2l0aW9uJztcblxuY29uc3QgcmFua3MgPSBbJ1MnLCAnQScsICdTJywgJ0InXSBhcyBjb25zdDtcblxuY29uc3QgUHJvamVjdHNTZWN0aW9uID0gKCkgPT4ge1xuICBjb25zdCB7IHRyYW5zaXRpb24gfSA9IHVzZVBvcnRhbFRyYW5zaXRpb24oKTtcbiAgcmV0dXJuIDxzZWN0aW9uIGlkPVwicHJvamVjdHNcIiBjbGFzc05hbWU9XCJtaW4taC1zY3JlZW4gcHgtNCBweS0yMFwiPjxkaXYgY2xhc3NOYW1lPVwibXgtYXV0byBtYXgtdy02eGxcIj5cbiAgICA8cCBjbGFzc05hbWU9XCJzeXN0ZW0tbGFiZWwgdGV4dC12aW9sZXQtMzAwXCI+SU5TVEFOQ0UgRElSRUNUT1JZIC8vIEdBVEVTPC9wPlxuICAgIDxoMSBjbGFzc05hbWU9XCJzeXN0ZW0taGVhZGluZyBtdC00XCI+Q2hvb3NlIGEgZ2F0ZS48L2gxPlxuICAgIDxwIGNsYXNzTmFtZT1cIm10LTQgbWF4LXctMnhsIHRleHQtd2hpdGUvNjVcIj5FYWNoIHByb2plY3QgaXMgYSBjb21wbGV0ZWQgaW5zdGFuY2U6IHByYWN0aWNhbCBzb2Z0d2FyZSwgY2xlYXIgY29uc3RyYWludHMsIGFuZCBzeXN0ZW1zIHRoYXQgbWFrZSBhIG1lYXN1cmFibGUgZGlmZmVyZW5jZS48L3A+XG4gICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xMiBncmlkIGdhcC01IG1kOmdyaWQtY29scy0yXCI+XG4gICAgICB7cG9ydGZvbGlvRGF0YS5wcm9qZWN0cy5tYXAoKHByb2plY3QsIGluZGV4KSA9PiA8bW90aW9uLmFydGljbGUga2V5PXtwcm9qZWN0LmlkfSBpbml0aWFsPXt7IG9wYWNpdHk6IDAsIHk6IDIyIH19IHdoaWxlSW5WaWV3PXt7IG9wYWNpdHk6IDEsIHk6IDAgfX0gdmlld3BvcnQ9e3sgb25jZTogdHJ1ZSB9fSB0cmFuc2l0aW9uPXt7IGRlbGF5OiBpbmRleCAqIC4wOCB9fSBjbGFzc05hbWU9XCJnYXRlLWNhcmQgc3lzdGVtLXBhbmVsIGdyb3VwIHJlbGF0aXZlIG92ZXJmbG93LWhpZGRlbiBwLTdcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGp1c3RpZnktYmV0d2VlbiBnYXAtNlwiPjxkaXY+PHAgY2xhc3NOYW1lPVwiZm9udC1tb25vIHRleHQteHMgdHJhY2tpbmctWy4yZW1dIHRleHQtdmlvbGV0LTMwMC83MFwiPkdBVEUgMHtpbmRleCArIDF9PC9wPjxoMiBjbGFzc05hbWU9XCJtdC0zIHRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+e3Byb2plY3QudGl0bGV9PC9oMj48cCBjbGFzc05hbWU9XCJtdC0xIHRleHQtc20gdGV4dC12aW9sZXQtMjAwLzY1XCI+e3Byb2plY3Quc3VidGl0bGV9PC9wPjwvZGl2PjxzcGFuIGNsYXNzTmFtZT1cInJhbmstYmFkZ2VcIj57cmFua3NbaW5kZXhdfTwvc3Bhbj48L2Rpdj5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtNiB0ZXh0LXNtIGxlYWRpbmctNyB0ZXh0LXdoaXRlLzY1XCI+e3Byb2plY3QuZGVzY3JpcHRpb259PC9wPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTYgZmxleCBmbGV4LXdyYXAgZ2FwLTJcIj57cHJvamVjdC50ZWNoU3RhY2subWFwKCh0ZWNoKSA9PiA8c3BhbiBrZXk9e3RlY2h9IGNsYXNzTmFtZT1cImludmVudG9yeS1pdGVtXCI+e3RlY2h9PC9zcGFuPil9PC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtNyBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPjxidXR0b24gdHlwZT1cImJ1dHRvblwiIG9uQ2xpY2s9eygpID0+IHRyYW5zaXRpb24oKX0gY2xhc3NOYW1lPVwic3lzdGVtLWJ1dHRvbiB0ZXh0LXhzXCI+RW50ZXIgaW5zdGFuY2UgPEFycm93VXBSaWdodCBzaXplPXsxNH0gLz48L2J1dHRvbj57cHJvamVjdC5zb3VyY2VMaW5rICYmIDxhIGhyZWY9e3Byb2plY3Quc291cmNlTGlua30gdGFyZ2V0PVwiX2JsYW5rXCIgcmVsPVwibm9vcGVuZXIgbm9yZWZlcnJlclwiIGNsYXNzTmFtZT1cInN5c3RlbS1pY29uLWJ1dHRvblwiIGFyaWEtbGFiZWw9e2BWaWV3ICR7cHJvamVjdC50aXRsZX0gc291cmNlYH0+PEdpdGh1YiBzaXplPXsxNn0gLz48L2E+fTwvZGl2PlxuICAgICAgPC9tb3Rpb24uYXJ0aWNsZT4pfVxuICAgIDwvZGl2PlxuICA8L2Rpdj48L3NlY3Rpb24+O1xufTtcblxuZXhwb3J0IGRlZmF1bHQgUHJvamVjdHNTZWN0aW9uO1xuIl0sIm5hbWVzIjpbIm1vdGlvbiIsIkFycm93VXBSaWdodCIsIkdpdGh1YiIsInBvcnRmb2xpb0RhdGEiLCJ1c2VQb3J0YWxUcmFuc2l0aW9uIiwicmFua3MiLCJQcm9qZWN0c1NlY3Rpb24iLCJ0cmFuc2l0aW9uIiwic2VjdGlvbiIsImlkIiwiY2xhc3NOYW1lIiwiZGl2IiwicCIsImgxIiwicHJvamVjdHMiLCJtYXAiLCJwcm9qZWN0IiwiaW5kZXgiLCJhcnRpY2xlIiwiaW5pdGlhbCIsIm9wYWNpdHkiLCJ5Iiwid2hpbGVJblZpZXciLCJ2aWV3cG9ydCIsIm9uY2UiLCJkZWxheSIsImgyIiwidGl0bGUiLCJzdWJ0aXRsZSIsInNwYW4iLCJkZXNjcmlwdGlvbiIsInRlY2hTdGFjayIsInRlY2giLCJidXR0b24iLCJ0eXBlIiwib25DbGljayIsInNpemUiLCJzb3VyY2VMaW5rIiwiYSIsImhyZWYiLCJ0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–à«š      jqÈœjqÈœIÉ=       _    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/ProjectsSection.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"3b89-MRrPUaeNsIdWO22Xr4guj9Ntqo4"
+Content-Length: 20980
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"3b89-MRrPUaeNsIdWO22Xr4guj9Ntqo4"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 20980
+ ctid 2 net-response-time-onstart 132 net-response-time-onstop 132   Qô

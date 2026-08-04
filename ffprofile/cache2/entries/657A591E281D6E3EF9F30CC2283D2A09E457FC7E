@@ -1,0 +1,280 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ContactSection.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+import { Download, Github, Mail, ShieldCheck } from "/node_modules/.vite/deps/lucide-react.js?v=afe34100";
+import { portfolioData } from "/src/data/portfolio.ts";
+const ContactSection = ()=>/*#__PURE__*/ _jsxDEV("section", {
+        id: "contact",
+        className: "min-h-screen px-4 py-20",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            className: "mx-auto max-w-4xl",
+            children: [
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "system-label text-violet-300",
+                    children: "GUILD REGISTRATION // OPEN CHANNEL"
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                    lineNumber: 5,
+                    columnNumber: 3
+                }, this),
+                /*#__PURE__*/ _jsxDEV("h1", {
+                    className: "system-heading mt-4",
+                    children: "Join the guild."
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                    lineNumber: 6,
+                    columnNumber: 3
+                }, this),
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "mt-5 max-w-xl text-lg leading-8 text-white/70",
+                    children: "Have a difficult problem worth solving? Send a signal. Iâ€™m available for thoughtful engineering work and collaboration."
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                    lineNumber: 7,
+                    columnNumber: 3
+                }, this),
+                /*#__PURE__*/ _jsxDEV("div", {
+                    className: "system-panel mt-12 p-6 md:p-9",
+                    children: [
+                        /*#__PURE__*/ _jsxDEV("div", {
+                            className: "mb-7 flex items-center gap-3 border-b border-violet-300/15 pb-5",
+                            children: [
+                                /*#__PURE__*/ _jsxDEV(ShieldCheck, {
+                                    className: "text-violet-300"
+                                }, void 0, false, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                    lineNumber: 8,
+                                    columnNumber: 131
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("div", {
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV("p", {
+                                            className: "font-mono text-sm text-violet-100",
+                                            children: "REGISTRATION ACCEPTED"
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 8,
+                                            columnNumber: 179
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("p", {
+                                            className: "mt-1 text-xs text-white/40",
+                                            children: "SELECT A SECURE CHANNEL"
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 8,
+                                            columnNumber: 253
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                    lineNumber: 8,
+                                    columnNumber: 174
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                            lineNumber: 8,
+                            columnNumber: 50
+                        }, this),
+                        /*#__PURE__*/ _jsxDEV("div", {
+                            className: "grid gap-3 sm:grid-cols-3",
+                            children: [
+                                /*#__PURE__*/ _jsxDEV("a", {
+                                    className: "contact-channel",
+                                    href: `mailto:${portfolioData.email}`,
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV(Mail, {
+                                            size: 18
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 9,
+                                            columnNumber: 118
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDEV("b", {
+                                                    children: "Email"
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                                    lineNumber: 9,
+                                                    columnNumber: 142
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("small", {
+                                                    children: portfolioData.email
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                                    lineNumber: 9,
+                                                    columnNumber: 154
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 9,
+                                            columnNumber: 136
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                    lineNumber: 9,
+                                    columnNumber: 48
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("a", {
+                                    className: "contact-channel",
+                                    href: portfolioData.github,
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV(Github, {
+                                            size: 18
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 9,
+                                            columnNumber: 302
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDEV("b", {
+                                                    children: "GitHub"
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                                    lineNumber: 9,
+                                                    columnNumber: 328
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("small", {
+                                                    children: "@Qamber02"
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                                    lineNumber: 9,
+                                                    columnNumber: 341
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 9,
+                                            columnNumber: 322
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                    lineNumber: 9,
+                                    columnNumber: 201
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("a", {
+                                    className: "contact-channel",
+                                    href: "/cv.pdf",
+                                    download: "Qamber_CV.pdf",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV(Download, {
+                                            size: 18
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 9,
+                                            columnNumber: 447
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDEV("b", {
+                                                    children: "Curriculum vitae"
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                                    lineNumber: 9,
+                                                    columnNumber: 475
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("small", {
+                                                    children: "Download file"
+                                                }, void 0, false, {
+                                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                                    lineNumber: 9,
+                                                    columnNumber: 498
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                            lineNumber: 9,
+                                            columnNumber: 469
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                                    lineNumber: 9,
+                                    columnNumber: 376
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                            lineNumber: 9,
+                            columnNumber: 5
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+                    lineNumber: 8,
+                    columnNumber: 3
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+            lineNumber: 4,
+            columnNumber: 88
+        }, this)
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx",
+        lineNumber: 4,
+        columnNumber: 30
+    }, this);
+_c = ContactSection;
+export default ContactSection;
+var _c;
+$RefreshReg$(_c, "ContactSection");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/ContactSection.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNvbnRhY3RTZWN0aW9uLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBEb3dubG9hZCwgR2l0aHViLCBNYWlsLCBTaGllbGRDaGVjayB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyBwb3J0Zm9saW9EYXRhIH0gZnJvbSAnQC9kYXRhL3BvcnRmb2xpbyc7XG5cbmNvbnN0IENvbnRhY3RTZWN0aW9uID0gKCkgPT4gPHNlY3Rpb24gaWQ9XCJjb250YWN0XCIgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIHB4LTQgcHktMjBcIj48ZGl2IGNsYXNzTmFtZT1cIm14LWF1dG8gbWF4LXctNHhsXCI+XG4gIDxwIGNsYXNzTmFtZT1cInN5c3RlbS1sYWJlbCB0ZXh0LXZpb2xldC0zMDBcIj5HVUlMRCBSRUdJU1RSQVRJT04gLy8gT1BFTiBDSEFOTkVMPC9wPlxuICA8aDEgY2xhc3NOYW1lPVwic3lzdGVtLWhlYWRpbmcgbXQtNFwiPkpvaW4gdGhlIGd1aWxkLjwvaDE+XG4gIDxwIGNsYXNzTmFtZT1cIm10LTUgbWF4LXcteGwgdGV4dC1sZyBsZWFkaW5nLTggdGV4dC13aGl0ZS83MFwiPkhhdmUgYSBkaWZmaWN1bHQgcHJvYmxlbSB3b3J0aCBzb2x2aW5nPyBTZW5kIGEgc2lnbmFsLiBJ4oCZbSBhdmFpbGFibGUgZm9yIHRob3VnaHRmdWwgZW5naW5lZXJpbmcgd29yayBhbmQgY29sbGFib3JhdGlvbi48L3A+XG4gIDxkaXYgY2xhc3NOYW1lPVwic3lzdGVtLXBhbmVsIG10LTEyIHAtNiBtZDpwLTlcIj48ZGl2IGNsYXNzTmFtZT1cIm1iLTcgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTMgYm9yZGVyLWIgYm9yZGVyLXZpb2xldC0zMDAvMTUgcGItNVwiPjxTaGllbGRDaGVjayBjbGFzc05hbWU9XCJ0ZXh0LXZpb2xldC0zMDBcIiAvPjxkaXY+PHAgY2xhc3NOYW1lPVwiZm9udC1tb25vIHRleHQtc20gdGV4dC12aW9sZXQtMTAwXCI+UkVHSVNUUkFUSU9OIEFDQ0VQVEVEPC9wPjxwIGNsYXNzTmFtZT1cIm10LTEgdGV4dC14cyB0ZXh0LXdoaXRlLzQwXCI+U0VMRUNUIEEgU0VDVVJFIENIQU5ORUw8L3A+PC9kaXY+PC9kaXY+XG4gICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdhcC0zIHNtOmdyaWQtY29scy0zXCI+PGEgY2xhc3NOYW1lPVwiY29udGFjdC1jaGFubmVsXCIgaHJlZj17YG1haWx0bzoke3BvcnRmb2xpb0RhdGEuZW1haWx9YH0+PE1haWwgc2l6ZT17MTh9IC8+PHNwYW4+PGI+RW1haWw8L2I+PHNtYWxsPntwb3J0Zm9saW9EYXRhLmVtYWlsfTwvc21hbGw+PC9zcGFuPjwvYT48YSBjbGFzc05hbWU9XCJjb250YWN0LWNoYW5uZWxcIiBocmVmPXtwb3J0Zm9saW9EYXRhLmdpdGh1Yn0gdGFyZ2V0PVwiX2JsYW5rXCIgcmVsPVwibm9vcGVuZXIgbm9yZWZlcnJlclwiPjxHaXRodWIgc2l6ZT17MTh9IC8+PHNwYW4+PGI+R2l0SHViPC9iPjxzbWFsbD5AUWFtYmVyMDI8L3NtYWxsPjwvc3Bhbj48L2E+PGEgY2xhc3NOYW1lPVwiY29udGFjdC1jaGFubmVsXCIgaHJlZj1cIi9jdi5wZGZcIiBkb3dubG9hZD1cIlFhbWJlcl9DVi5wZGZcIj48RG93bmxvYWQgc2l6ZT17MTh9IC8+PHNwYW4+PGI+Q3VycmljdWx1bSB2aXRhZTwvYj48c21hbGw+RG93bmxvYWQgZmlsZTwvc21hbGw+PC9zcGFuPjwvYT48L2Rpdj5cbiAgPC9kaXY+XG48L2Rpdj48L3NlY3Rpb24+O1xuXG5leHBvcnQgZGVmYXVsdCBDb250YWN0U2VjdGlvbjtcbiJdLCJuYW1lcyI6WyJEb3dubG9hZCIsIkdpdGh1YiIsIk1haWwiLCJTaGllbGRDaGVjayIsInBvcnRmb2xpb0RhdGEiLCJDb250YWN0U2VjdGlvbiIsInNlY3Rpb24iLCJpZCIsImNsYXNzTmFtZSIsImRpdiIsInAiLCJoMSIsImEiLCJocmVmIiwiZW1haWwiLCJzaXplIiwic3BhbiIsImIiLCJzbWFsbCIsImdpdGh1YiIsInRhcmdldCIsInJlbCIsImRvd25sb2FkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLFNBQVNBLFFBQVEsRUFBRUMsTUFBTSxFQUFFQyxJQUFJLEVBQUVDLFdBQVcsUUFBUSxlQUFlO0FBQ25FLFNBQVNDLGFBQWEsUUFBUSxtQkFBbUI7QUFFakQsTUFBTUMsaUJBQWlCLGtCQUFNLFFBQUNDO1FBQVFDLElBQUc7UUFBVUMsV0FBVTtrQkFBMEIsY0FBQSxRQUFDQztZQUFJRCxXQUFVOzs4QkFDcEcsUUFBQ0U7b0JBQUVGLFdBQVU7OEJBQStCOzs7Ozs7OEJBQzVDLFFBQUNHO29CQUFHSCxXQUFVOzhCQUFzQjs7Ozs7OzhCQUNwQyxRQUFDRTtvQkFBRUYsV0FBVTs4QkFBZ0Q7Ozs7Ozs4QkFDN0QsUUFBQ0M7b0JBQUlELFdBQVU7O3NDQUFnQyxRQUFDQzs0QkFBSUQsV0FBVTs7OENBQWtFLFFBQUNMO29DQUFZSyxXQUFVOzs7Ozs7OENBQW9CLFFBQUNDOztzREFBSSxRQUFDQzs0Q0FBRUYsV0FBVTtzREFBb0M7Ozs7OztzREFBeUIsUUFBQ0U7NENBQUVGLFdBQVU7c0RBQTZCOzs7Ozs7Ozs7Ozs7Ozs7Ozs7c0NBQ2xTLFFBQUNDOzRCQUFJRCxXQUFVOzs4Q0FBNEIsUUFBQ0k7b0NBQUVKLFdBQVU7b0NBQWtCSyxNQUFNLENBQUMsT0FBTyxFQUFFVCxjQUFjVSxLQUFLLEVBQUU7O3NEQUFFLFFBQUNaOzRDQUFLYSxNQUFNOzs7Ozs7c0RBQU0sUUFBQ0M7OzhEQUFLLFFBQUNDOzhEQUFFOzs7Ozs7OERBQVMsUUFBQ0M7OERBQU9kLGNBQWNVLEtBQUs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs4Q0FBb0IsUUFBQ0Y7b0NBQUVKLFdBQVU7b0NBQWtCSyxNQUFNVCxjQUFjZSxNQUFNO29DQUFFQyxRQUFPO29DQUFTQyxLQUFJOztzREFBc0IsUUFBQ3BCOzRDQUFPYyxNQUFNOzs7Ozs7c0RBQU0sUUFBQ0M7OzhEQUFLLFFBQUNDOzhEQUFFOzs7Ozs7OERBQVUsUUFBQ0M7OERBQU07Ozs7Ozs7Ozs7Ozs7Ozs7Ozs4Q0FBNEIsUUFBQ047b0NBQUVKLFdBQVU7b0NBQWtCSyxNQUFLO29DQUFVUyxVQUFTOztzREFBZ0IsUUFBQ3RCOzRDQUFTZSxNQUFNOzs7Ozs7c0RBQU0sUUFBQ0M7OzhEQUFLLFFBQUNDOzhEQUFFOzs7Ozs7OERBQW9CLFFBQUNDOzhEQUFNOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztLQUxsZmI7QUFTTixlQUFlQSxlQUFlIn0='ÍZðl      jqÈœjqÈœIÉ=       ^    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/ContactSection.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"414f-SefhcqrXusCTRgVn2b+GjgrCK2o"
+Content-Length: 20662
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"414f-SefhcqrXusCTRgVn2b+GjgrCK2o"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 20662
+ ctid 2 net-response-time-onstart 131 net-response-time-onstop 131   P¶

@@ -1,0 +1,211 @@
+// Qamber's Portfolio Data extracted from CV
+export const portfolioData = {
+    name: "Qamber Muhammad Hanif",
+    title: "Developer & UI/UX Enthusiast",
+    location: "Sohrabi Ward Gwader Balochistan",
+    email: "qamberhanif11@gmail.com",
+    github: "https://github.com/Qamber02",
+    education: [
+        {
+            institution: "University Of Turbat",
+            location: "Kech, Balochistan",
+            degree: "Bachelor Of Computer Science (In Progress)",
+            gpa: "3.44 CGPA",
+            graduationDate: "Dec 2027"
+        },
+        {
+            institution: "Gwader Degree College",
+            location: "Gwader, Balochistan",
+            degree: "FSC in Pre Engineering",
+            score: "63%",
+            graduationDate: "Jul 2023"
+        },
+        {
+            institution: "Gwader Grammar School",
+            location: "Gwader, Balochistan",
+            degree: "Matric",
+            score: "73%",
+            graduationDate: "Aug 2021"
+        }
+    ],
+    projects: [
+        {
+            id: 1,
+            title: "DSA Visualizer",
+            subtitle: "Interactive Web Application",
+            description: "Engineered an interactive visualization tool that dynamically illustrates complex data structures and algorithms, boosting user comprehension by over 40% as measured through usability testing metrics.",
+            techStack: [
+                "TypeScript",
+                "Next.js",
+                "Tailwind CSS"
+            ],
+            highlights: [
+                "40% increase in user comprehension",
+                "15+ visualizer modules",
+                "25% reduction in deployment errors",
+                "Modular UI components with React hooks"
+            ],
+            color: "primary",
+            sourceLink: "https://github.com/Qamber02/dsa-visualizer"
+        },
+        {
+            id: 2,
+            title: "POS Shopping System",
+            subtitle: "Modern Point of Sale",
+            description: "Developed a full-featured, offline-first POS system using React, TypeScript, and Electron, ensuring full functionality without an internet connection.",
+            techStack: [
+                "React 18",
+                "TypeScript",
+                "Supabase",
+                "Dexie",
+                "Electron"
+            ],
+            highlights: [
+                "Full PWA support with service workers",
+                "Offline-first architecture with IndexedDB",
+                "Auto-sync with Supabase when online",
+                "90% faster search performance",
+                "40% bundle size reduction"
+            ],
+            color: "secondary",
+            sourceLink: "https://github.com/Qamber02/pos-system"
+        },
+        {
+            id: 3,
+            title: "CherÃ¡g",
+            subtitle: "AI Learning Tool for Low Connectivity",
+            description: "Developed CherÃ¡g, an AI-powered study assistant designed for students with limited internet connectivity. Enables students to extract key information from educational materials, generate summaries, and perform offline-first/low-bandwidth content querying.",
+            techStack: [
+                "Node.js (v18+)",
+                "Python 3.10+",
+                "Supabase Project",
+                "Google Gemini LLM"
+            ],
+            highlights: [
+                "Specifically optimized for students with low-bandwidth internet",
+                "Integrated Supabase backend for secure and persistent cloud storage",
+                "Engineered Node.js (v18+) and Python (3.10+) hybrid runtime environment",
+                "Implemented active recall and smart content-based querying algorithms"
+            ],
+            color: "accent",
+            sourceLink: "https://github.com/Qamber02/cherag"
+        },
+        {
+            id: 4,
+            title: "URL Health Checker",
+            subtitle: "Streamlit-based URL Validation",
+            description: "Developed an interactive web application that automates URL extraction and validation from various input formats, processing over 10,000 URLs monthly.",
+            techStack: [
+                "Python",
+                "Streamlit"
+            ],
+            highlights: [
+                "40% reduction in manual checking time",
+                "65% increase in data filtering efficiency",
+                "Processes 10,000+ URLs monthly",
+                "100% link verification coverage"
+            ],
+            color: "electric",
+            sourceLink: "https://github.com/Qamber02/url-health-checker"
+        }
+    ],
+    skills: {
+        languages: [
+            {
+                name: "Python",
+                icon: "python-logo.jpeg"
+            },
+            {
+                name: "JavaScript",
+                icon: "javascript-logo.jpeg"
+            },
+            {
+                name: "TypeScript",
+                icon: "typescript-logo.jpeg"
+            },
+            {
+                name: "Dart"
+            }
+        ],
+        frontend: [
+            {
+                name: "React"
+            },
+            {
+                name: "Vite"
+            },
+            {
+                name: "TailwindCSS"
+            },
+            {
+                name: "Flutter"
+            }
+        ],
+        backend: [
+            {
+                name: "FastAPI"
+            },
+            {
+                name: "Node.js"
+            },
+            {
+                name: "Express"
+            }
+        ],
+        databases: [
+            {
+                name: "PostgreSQL"
+            },
+            {
+                name: "MongoDB"
+            },
+            {
+                name: "Supabase"
+            }
+        ],
+        toolsDevOps: [
+            {
+                name: "Git"
+            },
+            {
+                name: "Docker"
+            },
+            {
+                name: "Stripe API"
+            },
+            {
+                name: "Linux (Ubuntu/Debian/Fedora)"
+            }
+        ]
+    },
+    certifications: [
+        "Google CyberSecurity Certificate",
+        "Nvidia Networking Certificate",
+        "WordPress Web Development Certificate",
+        "OOP and GUI with Python Certificate - Arizona University",
+        "Fast API Certificate"
+    ],
+    interests: [
+        "Reading books",
+        "Exploring emerging technologies",
+        "Building interactive experiences",
+        "3D visualization"
+    ]
+};
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcnRmb2xpby50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBRYW1iZXIncyBQb3J0Zm9saW8gRGF0YSBleHRyYWN0ZWQgZnJvbSBDVlxuXG5leHBvcnQgY29uc3QgcG9ydGZvbGlvRGF0YSA9IHtcbiAgbmFtZTogXCJRYW1iZXIgTXVoYW1tYWQgSGFuaWZcIixcbiAgdGl0bGU6IFwiRGV2ZWxvcGVyICYgVUkvVVggRW50aHVzaWFzdFwiLFxuICBsb2NhdGlvbjogXCJTb2hyYWJpIFdhcmQgR3dhZGVyIEJhbG9jaGlzdGFuXCIsXG4gIGVtYWlsOiBcInFhbWJlcmhhbmlmMTFAZ21haWwuY29tXCIsXG4gIGdpdGh1YjogXCJodHRwczovL2dpdGh1Yi5jb20vUWFtYmVyMDJcIixcbiAgXG4gIGVkdWNhdGlvbjogW1xuICAgIHtcbiAgICAgIGluc3RpdHV0aW9uOiBcIlVuaXZlcnNpdHkgT2YgVHVyYmF0XCIsXG4gICAgICBsb2NhdGlvbjogXCJLZWNoLCBCYWxvY2hpc3RhblwiLFxuICAgICAgZGVncmVlOiBcIkJhY2hlbG9yIE9mIENvbXB1dGVyIFNjaWVuY2UgKEluIFByb2dyZXNzKVwiLFxuICAgICAgZ3BhOiBcIjMuNDQgQ0dQQVwiLFxuICAgICAgZ3JhZHVhdGlvbkRhdGU6IFwiRGVjIDIwMjdcIixcbiAgICB9LFxuICAgIHtcbiAgICAgIGluc3RpdHV0aW9uOiBcIkd3YWRlciBEZWdyZWUgQ29sbGVnZVwiLFxuICAgICAgbG9jYXRpb246IFwiR3dhZGVyLCBCYWxvY2hpc3RhblwiLFxuICAgICAgZGVncmVlOiBcIkZTQyBpbiBQcmUgRW5naW5lZXJpbmdcIixcbiAgICAgIHNjb3JlOiBcIjYzJVwiLFxuICAgICAgZ3JhZHVhdGlvbkRhdGU6IFwiSnVsIDIwMjNcIixcbiAgICB9LFxuICAgIHtcbiAgICAgIGluc3RpdHV0aW9uOiBcIkd3YWRlciBHcmFtbWFyIFNjaG9vbFwiLFxuICAgICAgbG9jYXRpb246IFwiR3dhZGVyLCBCYWxvY2hpc3RhblwiLFxuICAgICAgZGVncmVlOiBcIk1hdHJpY1wiLFxuICAgICAgc2NvcmU6IFwiNzMlXCIsXG4gICAgICBncmFkdWF0aW9uRGF0ZTogXCJBdWcgMjAyMVwiLFxuICAgIH0sXG4gIF0sXG5cbiAgcHJvamVjdHM6IFtcbiAgICB7XG4gICAgICBpZDogMSxcbiAgICAgIHRpdGxlOiBcIkRTQSBWaXN1YWxpemVyXCIsXG4gICAgICBzdWJ0aXRsZTogXCJJbnRlcmFjdGl2ZSBXZWIgQXBwbGljYXRpb25cIixcbiAgICAgIGRlc2NyaXB0aW9uOiBcIkVuZ2luZWVyZWQgYW4gaW50ZXJhY3RpdmUgdmlzdWFsaXphdGlvbiB0b29sIHRoYXQgZHluYW1pY2FsbHkgaWxsdXN0cmF0ZXMgY29tcGxleCBkYXRhIHN0cnVjdHVyZXMgYW5kIGFsZ29yaXRobXMsIGJvb3N0aW5nIHVzZXIgY29tcHJlaGVuc2lvbiBieSBvdmVyIDQwJSBhcyBtZWFzdXJlZCB0aHJvdWdoIHVzYWJpbGl0eSB0ZXN0aW5nIG1ldHJpY3MuXCIsXG4gICAgICB0ZWNoU3RhY2s6IFtcIlR5cGVTY3JpcHRcIiwgXCJOZXh0LmpzXCIsIFwiVGFpbHdpbmQgQ1NTXCJdLFxuICAgICAgaGlnaGxpZ2h0czogW1xuICAgICAgICBcIjQwJSBpbmNyZWFzZSBpbiB1c2VyIGNvbXByZWhlbnNpb25cIixcbiAgICAgICAgXCIxNSsgdmlzdWFsaXplciBtb2R1bGVzXCIsXG4gICAgICAgIFwiMjUlIHJlZHVjdGlvbiBpbiBkZXBsb3ltZW50IGVycm9yc1wiLFxuICAgICAgICBcIk1vZHVsYXIgVUkgY29tcG9uZW50cyB3aXRoIFJlYWN0IGhvb2tzXCIsXG4gICAgICBdLFxuICAgICAgY29sb3I6IFwicHJpbWFyeVwiLFxuICAgICAgc291cmNlTGluazogXCJodHRwczovL2dpdGh1Yi5jb20vUWFtYmVyMDIvZHNhLXZpc3VhbGl6ZXJcIiwgLy8gPC0tIEFEREVEXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogMixcbiAgICAgIHRpdGxlOiBcIlBPUyBTaG9wcGluZyBTeXN0ZW1cIixcbiAgICAgIHN1YnRpdGxlOiBcIk1vZGVybiBQb2ludCBvZiBTYWxlXCIsXG4gICAgICBkZXNjcmlwdGlvbjogXCJEZXZlbG9wZWQgYSBmdWxsLWZlYXR1cmVkLCBvZmZsaW5lLWZpcnN0IFBPUyBzeXN0ZW0gdXNpbmcgUmVhY3QsIFR5cGVTY3JpcHQsIGFuZCBFbGVjdHJvbiwgZW5zdXJpbmcgZnVsbCBmdW5jdGlvbmFsaXR5IHdpdGhvdXQgYW4gaW50ZXJuZXQgY29ubmVjdGlvbi5cIixcbiAgICAgIHRlY2hTdGFjazogW1wiUmVhY3QgMThcIiwgXCJUeXBlU2NyaXB0XCIsIFwiU3VwYWJhc2VcIiwgXCJEZXhpZVwiLCBcIkVsZWN0cm9uXCJdLFxuICAgICAgaGlnaGxpZ2h0czogW1xuICAgICAgICBcIkZ1bGwgUFdBIHN1cHBvcnQgd2l0aCBzZXJ2aWNlIHdvcmtlcnNcIixcbiAgICAgICAgXCJPZmZsaW5lLWZpcnN0IGFyY2hpdGVjdHVyZSB3aXRoIEluZGV4ZWREQlwiLFxuICAgICAgICBcIkF1dG8tc3luYyB3aXRoIFN1cGFiYXNlIHdoZW4gb25saW5lXCIsXG4gICAgICAgIFwiOTAlIGZhc3RlciBzZWFyY2ggcGVyZm9ybWFuY2VcIixcbiAgICAgICAgXCI0MCUgYnVuZGxlIHNpemUgcmVkdWN0aW9uXCIsXG4gICAgICBdLFxuICAgICAgY29sb3I6IFwic2Vjb25kYXJ5XCIsXG4gICAgICBzb3VyY2VMaW5rOiBcImh0dHBzOi8vZ2l0aHViLmNvbS9RYW1iZXIwMi9wb3Mtc3lzdGVtXCIsIC8vIDwtLSBBRERFRFxuICAgIH0sXG4gICAge1xuICAgICAgaWQ6IDMsXG4gICAgICB0aXRsZTogXCJDaGVyw6FnXCIsXG4gICAgICBzdWJ0aXRsZTogXCJBSSBMZWFybmluZyBUb29sIGZvciBMb3cgQ29ubmVjdGl2aXR5XCIsXG4gICAgICBkZXNjcmlwdGlvbjogXCJEZXZlbG9wZWQgQ2hlcsOhZywgYW4gQUktcG93ZXJlZCBzdHVkeSBhc3Npc3RhbnQgZGVzaWduZWQgZm9yIHN0dWRlbnRzIHdpdGggbGltaXRlZCBpbnRlcm5ldCBjb25uZWN0aXZpdHkuIEVuYWJsZXMgc3R1ZGVudHMgdG8gZXh0cmFjdCBrZXkgaW5mb3JtYXRpb24gZnJvbSBlZHVjYXRpb25hbCBtYXRlcmlhbHMsIGdlbmVyYXRlIHN1bW1hcmllcywgYW5kIHBlcmZvcm0gb2ZmbGluZS1maXJzdC9sb3ctYmFuZHdpZHRoIGNvbnRlbnQgcXVlcnlpbmcuXCIsXG4gICAgICB0ZWNoU3RhY2s6IFtcIk5vZGUuanMgKHYxOCspXCIsIFwiUHl0aG9uIDMuMTArXCIsIFwiU3VwYWJhc2UgUHJvamVjdFwiLCBcIkdvb2dsZSBHZW1pbmkgTExNXCJdLFxuICAgICAgaGlnaGxpZ2h0czogW1xuICAgICAgICBcIlNwZWNpZmljYWxseSBvcHRpbWl6ZWQgZm9yIHN0dWRlbnRzIHdpdGggbG93LWJhbmR3aWR0aCBpbnRlcm5ldFwiLFxuICAgICAgICBcIkludGVncmF0ZWQgU3VwYWJhc2UgYmFja2VuZCBmb3Igc2VjdXJlIGFuZCBwZXJzaXN0ZW50IGNsb3VkIHN0b3JhZ2VcIixcbiAgICAgICAgXCJFbmdpbmVlcmVkIE5vZGUuanMgKHYxOCspIGFuZCBQeXRob24gKDMuMTArKSBoeWJyaWQgcnVudGltZSBlbnZpcm9ubWVudFwiLFxuICAgICAgICBcIkltcGxlbWVudGVkIGFjdGl2ZSByZWNhbGwgYW5kIHNtYXJ0IGNvbnRlbnQtYmFzZWQgcXVlcnlpbmcgYWxnb3JpdGhtc1wiLFxuICAgICAgXSxcbiAgICAgIGNvbG9yOiBcImFjY2VudFwiLFxuICAgICAgc291cmNlTGluazogXCJodHRwczovL2dpdGh1Yi5jb20vUWFtYmVyMDIvY2hlcmFnXCIsXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogNCxcbiAgICAgIHRpdGxlOiBcIlVSTCBIZWFsdGggQ2hlY2tlclwiLFxuICAgICAgc3VidGl0bGU6IFwiU3RyZWFtbGl0LWJhc2VkIFVSTCBWYWxpZGF0aW9uXCIsXG4gICAgICBkZXNjcmlwdGlvbjogXCJEZXZlbG9wZWQgYW4gaW50ZXJhY3RpdmUgd2ViIGFwcGxpY2F0aW9uIHRoYXQgYXV0b21hdGVzIFVSTCBleHRyYWN0aW9uIGFuZCB2YWxpZGF0aW9uIGZyb20gdmFyaW91cyBpbnB1dCBmb3JtYXRzLCBwcm9jZXNzaW5nIG92ZXIgMTAsMDAwIFVSTHMgbW9udGhseS5cIixcbiAgICAgIHRlY2hTdGFjazogW1wiUHl0aG9uXCIsIFwiU3RyZWFtbGl0XCJdLFxuICAgICAgaGlnaGxpZ2h0czogW1xuICAgICAgICBcIjQwJSByZWR1Y3Rpb24gaW4gbWFudWFsIGNoZWNraW5nIHRpbWVcIixcbiAgICAgICAgXCI2NSUgaW5jcmVhc2UgaW4gZGF0YSBmaWx0ZXJpbmcgZWZmaWNpZW5jeVwiLFxuICAgICAgICBcIlByb2Nlc3NlcyAxMCwwMDArIFVSTHMgbW9udGhseVwiLFxuICAgICAgICBcIjEwMCUgbGluayB2ZXJpZmljYXRpb24gY292ZXJhZ2VcIixcbiAgICAgIF0sXG4gICAgICBjb2xvcjogXCJlbGVjdHJpY1wiLFxuICAgICAgc291cmNlTGluazogXCJodHRwczovL2dpdGh1Yi5jb20vUWFtYmVyMDIvdXJsLWhlYWx0aC1jaGVja2VyXCIsIC8vIDwtLSBBRERFRFxuICAgIH0sXG4gIF0sXG5cbiAgc2tpbGxzOiB7XG4gICAgbGFuZ3VhZ2VzOiBbXG4gICAgICB7IG5hbWU6IFwiUHl0aG9uXCIsIGljb246IFwicHl0aG9uLWxvZ28uanBlZ1wiIGFzIGNvbnN0IH0sXG4gICAgICB7IG5hbWU6IFwiSmF2YVNjcmlwdFwiLCBpY29uOiBcImphdmFzY3JpcHQtbG9nby5qcGVnXCIgYXMgY29uc3QgfSxcbiAgICAgIHsgbmFtZTogXCJUeXBlU2NyaXB0XCIsIGljb246IFwidHlwZXNjcmlwdC1sb2dvLmpwZWdcIiBhcyBjb25zdCB9LFxuICAgICAgeyBuYW1lOiBcIkRhcnRcIiB9LFxuICAgIF0sXG4gICAgZnJvbnRlbmQ6IFtcbiAgICAgIHsgbmFtZTogXCJSZWFjdFwiIH0sXG4gICAgICB7IG5hbWU6IFwiVml0ZVwiIH0sXG4gICAgICB7IG5hbWU6IFwiVGFpbHdpbmRDU1NcIiB9LFxuICAgICAgeyBuYW1lOiBcIkZsdXR0ZXJcIiB9LFxuICAgIF0sXG4gICAgYmFja2VuZDogW1xuICAgICAgeyBuYW1lOiBcIkZhc3RBUElcIiB9LFxuICAgICAgeyBuYW1lOiBcIk5vZGUuanNcIiB9LFxuICAgICAgeyBuYW1lOiBcIkV4cHJlc3NcIiB9LFxuICAgIF0sXG4gICAgZGF0YWJhc2VzOiBbXG4gICAgICB7IG5hbWU6IFwiUG9zdGdyZVNRTFwiIH0sXG4gICAgICB7IG5hbWU6IFwiTW9uZ29EQlwiIH0sXG4gICAgICB7IG5hbWU6IFwiU3VwYWJhc2VcIiB9LFxuICAgIF0sXG4gICAgdG9vbHNEZXZPcHM6IFtcbiAgICAgIHsgbmFtZTogXCJHaXRcIiB9LFxuICAgICAgeyBuYW1lOiBcIkRvY2tlclwiIH0sXG4gICAgICB7IG5hbWU6IFwiU3RyaXBlIEFQSVwiIH0sXG4gICAgICB7IG5hbWU6IFwiTGludXggKFVidW50dS9EZWJpYW4vRmVkb3JhKVwiIH0sXG4gICAgXSxcbiAgfSxcblxuICBjZXJ0aWZpY2F0aW9uczogW1xuICAgIFwiR29vZ2xlIEN5YmVyU2VjdXJpdHkgQ2VydGlmaWNhdGVcIixcbiAgICBcIk52aWRpYSBOZXR3b3JraW5nIENlcnRpZmljYXRlXCIsXG4gICAgXCJXb3JkUHJlc3MgV2ViIERldmVsb3BtZW50IENlcnRpZmljYXRlXCIsXG4gICAgXCJPT1AgYW5kIEdVSSB3aXRoIFB5dGhvbiBDZXJ0aWZpY2F0ZSAtIEFyaXpvbmEgVW5pdmVyc2l0eVwiLFxuICAgIFwiRmFzdCBBUEkgQ2VydGlmaWNhdGVcIixcbiAgXSxcblxuICBpbnRlcmVzdHM6IFtcbiAgICBcIlJlYWRpbmcgYm9va3NcIixcbiAgICBcIkV4cGxvcmluZyBlbWVyZ2luZyB0ZWNobm9sb2dpZXNcIixcbiAgICBcIkJ1aWxkaW5nIGludGVyYWN0aXZlIGV4cGVyaWVuY2VzXCIsXG4gICAgXCIzRCB2aXN1YWxpemF0aW9uXCIsXG4gIF0sXG59OyJdLCJuYW1lcyI6WyJwb3J0Zm9saW9EYXRhIiwibmFtZSIsInRpdGxlIiwibG9jYXRpb24iLCJlbWFpbCIsImdpdGh1YiIsImVkdWNhdGlvbiIsImluc3RpdHV0aW9uIiwiZGVncmVlIiwiZ3BhIiwiZ3JhZHVhdGlvbkRhdGUiLCJzY29yZSIsInByb2plY3RzIiwiaWQiLCJzdWJ0aXRsZSIsImRlc2NyaXB0aW9uIiwidGVjaFN0YWNrIiwiaGlnaGxpZ2h0cyIsImNvbG9yIiwic291cmNlTGluayIsInNraWxscyIsImxhbmd1YWdlcyIsImljb24iLCJmcm9udGVuZCIsImJhY2tlbmQiLCJkYXRhYmFzZXMiLCJ0b29sc0Rldk9wcyIsImNlcnRpZmljYXRpb25zIiwiaW50ZXJlc3RzIl0sIm1hcHBpbmdzIjoiQUFBQSw0Q0FBNEM7QUFFNUMsT0FBTyxNQUFNQSxnQkFBZ0I7SUFDM0JDLE1BQU07SUFDTkMsT0FBTztJQUNQQyxVQUFVO0lBQ1ZDLE9BQU87SUFDUEMsUUFBUTtJQUVSQyxXQUFXO1FBQ1Q7WUFDRUMsYUFBYTtZQUNiSixVQUFVO1lBQ1ZLLFFBQVE7WUFDUkMsS0FBSztZQUNMQyxnQkFBZ0I7UUFDbEI7UUFDQTtZQUNFSCxhQUFhO1lBQ2JKLFVBQVU7WUFDVkssUUFBUTtZQUNSRyxPQUFPO1lBQ1BELGdCQUFnQjtRQUNsQjtRQUNBO1lBQ0VILGFBQWE7WUFDYkosVUFBVTtZQUNWSyxRQUFRO1lBQ1JHLE9BQU87WUFDUEQsZ0JBQWdCO1FBQ2xCO0tBQ0Q7SUFFREUsVUFBVTtRQUNSO1lBQ0VDLElBQUk7WUFDSlgsT0FBTztZQUNQWSxVQUFVO1lBQ1ZDLGFBQWE7WUFDYkMsV0FBVztnQkFBQztnQkFBYztnQkFBVzthQUFlO1lBQ3BEQyxZQUFZO2dCQUNWO2dCQUNBO2dCQUNBO2dCQUNBO2FBQ0Q7WUFDREMsT0FBTztZQUNQQyxZQUFZO1FBQ2Q7UUFDQTtZQUNFTixJQUFJO1lBQ0pYLE9BQU87WUFDUFksVUFBVTtZQUNWQyxhQUFhO1lBQ2JDLFdBQVc7Z0JBQUM7Z0JBQVk7Z0JBQWM7Z0JBQVk7Z0JBQVM7YUFBVztZQUN0RUMsWUFBWTtnQkFDVjtnQkFDQTtnQkFDQTtnQkFDQTtnQkFDQTthQUNEO1lBQ0RDLE9BQU87WUFDUEMsWUFBWTtRQUNkO1FBQ0E7WUFDRU4sSUFBSTtZQUNKWCxPQUFPO1lBQ1BZLFVBQVU7WUFDVkMsYUFBYTtZQUNiQyxXQUFXO2dCQUFDO2dCQUFrQjtnQkFBZ0I7Z0JBQW9CO2FBQW9CO1lBQ3RGQyxZQUFZO2dCQUNWO2dCQUNBO2dCQUNBO2dCQUNBO2FBQ0Q7WUFDREMsT0FBTztZQUNQQyxZQUFZO1FBQ2Q7UUFDQTtZQUNFTixJQUFJO1lBQ0pYLE9BQU87WUFDUFksVUFBVTtZQUNWQyxhQUFhO1lBQ2JDLFdBQVc7Z0JBQUM7Z0JBQVU7YUFBWTtZQUNsQ0MsWUFBWTtnQkFDVjtnQkFDQTtnQkFDQTtnQkFDQTthQUNEO1lBQ0RDLE9BQU87WUFDUEMsWUFBWTtRQUNkO0tBQ0Q7SUFFREMsUUFBUTtRQUNOQyxXQUFXO1lBQ1Q7Z0JBQUVwQixNQUFNO2dCQUFVcUIsTUFBTTtZQUE0QjtZQUNwRDtnQkFBRXJCLE1BQU07Z0JBQWNxQixNQUFNO1lBQWdDO1lBQzVEO2dCQUFFckIsTUFBTTtnQkFBY3FCLE1BQU07WUFBZ0M7WUFDNUQ7Z0JBQUVyQixNQUFNO1lBQU87U0FDaEI7UUFDRHNCLFVBQVU7WUFDUjtnQkFBRXRCLE1BQU07WUFBUTtZQUNoQjtnQkFBRUEsTUFBTTtZQUFPO1lBQ2Y7Z0JBQUVBLE1BQU07WUFBYztZQUN0QjtnQkFBRUEsTUFBTTtZQUFVO1NBQ25CO1FBQ0R1QixTQUFTO1lBQ1A7Z0JBQUV2QixNQUFNO1lBQVU7WUFDbEI7Z0JBQUVBLE1BQU07WUFBVTtZQUNsQjtnQkFBRUEsTUFBTTtZQUFVO1NBQ25CO1FBQ0R3QixXQUFXO1lBQ1Q7Z0JBQUV4QixNQUFNO1lBQWE7WUFDckI7Z0JBQUVBLE1BQU07WUFBVTtZQUNsQjtnQkFBRUEsTUFBTTtZQUFXO1NBQ3BCO1FBQ0R5QixhQUFhO1lBQ1g7Z0JBQUV6QixNQUFNO1lBQU07WUFDZDtnQkFBRUEsTUFBTTtZQUFTO1lBQ2pCO2dCQUFFQSxNQUFNO1lBQWE7WUFDckI7Z0JBQUVBLE1BQU07WUFBK0I7U0FDeEM7SUFDSDtJQUVBMEIsZ0JBQWdCO1FBQ2Q7UUFDQTtRQUNBO1FBQ0E7UUFDQTtLQUNEO0lBRURDLFdBQVc7UUFDVDtRQUNBO1FBQ0E7UUFDQTtLQUNEO0FBQ0gsRUFBRSJ9þâu€_…      jqÈœjqÈœIÉ>       R    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/data/portfolio.ts strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"192c-qgW7lF1pKutd0HYt88HILH1rt/8"
+Content-Length: 16291
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"192c-qgW7lF1pKutd0HYt88HILH1rt/8"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 16291
+ ctid 2 net-response-time-onstart 82 net-response-time-onstop 82   ?£

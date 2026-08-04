@@ -1,0 +1,245 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/SkillsSection.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=b155bf0c"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];
+import { motion } from "/node_modules/.vite/deps/framer-motion.js?v=f8d44dde";
+import __vite__cjsImport4_react from "/node_modules/.vite/deps/react.js?v=49946ac6"; const lazy = __vite__cjsImport4_react["lazy"]; const Suspense = __vite__cjsImport4_react["Suspense"];
+import { portfolioData } from "/src/data/portfolio.ts";
+const FloatingProp = /*#__PURE__*/ lazy(()=>import("/src/components/three/FloatingProp.tsx"));
+_c = FloatingProp;
+const SkillsSection = ()=>{
+    const groups = [
+        [
+            'Languages',
+            portfolioData.skills.languages
+        ],
+        [
+            'Frontend',
+            portfolioData.skills.frontend
+        ],
+        [
+            'Backend',
+            portfolioData.skills.backend
+        ],
+        [
+            'Databases',
+            portfolioData.skills.databases
+        ],
+        [
+            'Tools & DevOps',
+            portfolioData.skills.toolsDevOps
+        ]
+    ];
+    const count = groups.reduce((total, [, skills])=>total + skills.length, 0);
+    return /*#__PURE__*/ _jsxDEV("section", {
+        id: "skills",
+        className: "min-h-screen px-4 py-24",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            className: "mx-auto max-w-6xl",
+            children: [
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "system-label text-violet-300",
+                    children: "INVENTORY // EQUIPPED GEAR"
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("h2", {
+                    className: "system-heading mt-4",
+                    children: "Technical stack."
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("p", {
+                    className: "mt-4 max-w-2xl text-white/65",
+                    children: "A categorized index of languages, libraries, databases, and workflows I use to build robust software."
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                    lineNumber: 19,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("div", {
+                    className: "mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3",
+                    children: groups.map(([title, skills], index)=>/*#__PURE__*/ _jsxDEV(motion.article, {
+                            initial: {
+                                opacity: 0,
+                                y: 16
+                            },
+                            whileInView: {
+                                opacity: 1,
+                                y: 0
+                            },
+                            viewport: {
+                                once: true
+                            },
+                            transition: {
+                                delay: index * 0.06
+                            },
+                            className: "system-panel p-6",
+                            children: [
+                                /*#__PURE__*/ _jsxDEV("div", {
+                                    className: "mb-6 flex items-center justify-between",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV("h3", {
+                                            className: "font-mono text-sm uppercase tracking-[.18em] text-violet-200",
+                                            children: title
+                                        }, void 0, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                            lineNumber: 23,
+                                            columnNumber: 71
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            className: "text-xs text-violet-400/60",
+                                            children: [
+                                                "0",
+                                                index + 1
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                            lineNumber: 23,
+                                            columnNumber: 160
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                    lineNumber: 23,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("div", {
+                                    className: "flex flex-wrap gap-2",
+                                    children: skills.map((skill)=>/*#__PURE__*/ _jsxDEV("span", {
+                                            className: "inventory-item",
+                                            children: skill.name
+                                        }, skill.name, false, {
+                                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                            lineNumber: 24,
+                                            columnNumber: 76
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                    lineNumber: 24,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, title, true, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                            lineNumber: 22,
+                            columnNumber: 13
+                        }, this))
+                }, void 0, false, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                    lineNumber: 20,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("div", {
+                    className: "mt-10 flex flex-col items-center gap-2",
+                    children: [
+                        /*#__PURE__*/ _jsxDEV(Suspense, {
+                            fallback: /*#__PURE__*/ _jsxDEV("div", {
+                                className: "prop-fallback",
+                                children: "‚óá"
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                lineNumber: 28,
+                                columnNumber: 85
+                            }, void 0),
+                            children: /*#__PURE__*/ _jsxDEV(FloatingProp, {
+                                kind: "dagger"
+                            }, void 0, false, {
+                                fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                                lineNumber: 28,
+                                columnNumber: 125
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                            lineNumber: 28,
+                            columnNumber: 65
+                        }, this),
+                        /*#__PURE__*/ _jsxDEV("p", {
+                            className: "text-center font-mono text-xs tracking-widest text-white/35",
+                            children: [
+                                count,
+                                " CAPABILITIES EQUIPPED"
+                            ]
+                        }, void 0, true, {
+                            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                            lineNumber: 28,
+                            columnNumber: 166
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+                    lineNumber: 28,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+            lineNumber: 16,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx",
+        lineNumber: 15,
+        columnNumber: 5
+    }, this);
+};
+_c1 = SkillsSection;
+export default SkillsSection;
+var _c, _c1;
+$RefreshReg$(_c, "FloatingProp");
+$RefreshReg$(_c1, "SkillsSection");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/home/qamber/Desktop/qambers-cyber-grid-main/qambers-cyber-grid-main/src/components/SkillsSection.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNraWxsc1NlY3Rpb24udHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IG1vdGlvbiB9IGZyb20gJ2ZyYW1lci1tb3Rpb24nO1xuaW1wb3J0IHsgbGF6eSwgU3VzcGVuc2UgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBwb3J0Zm9saW9EYXRhIH0gZnJvbSAnQC9kYXRhL3BvcnRmb2xpbyc7XG5cbmNvbnN0IEZsb2F0aW5nUHJvcCA9IGxhenkoKCkgPT4gaW1wb3J0KCcuL3RocmVlL0Zsb2F0aW5nUHJvcCcpKTtcblxuY29uc3QgU2tpbGxzU2VjdGlvbiA9ICgpID0+IHtcbiAgY29uc3QgZ3JvdXBzID0gW1xuICAgIFsnTGFuZ3VhZ2VzJywgcG9ydGZvbGlvRGF0YS5za2lsbHMubGFuZ3VhZ2VzXSwgWydGcm9udGVuZCcsIHBvcnRmb2xpb0RhdGEuc2tpbGxzLmZyb250ZW5kXSxcbiAgICBbJ0JhY2tlbmQnLCBwb3J0Zm9saW9EYXRhLnNraWxscy5iYWNrZW5kXSwgWydEYXRhYmFzZXMnLCBwb3J0Zm9saW9EYXRhLnNraWxscy5kYXRhYmFzZXNdLFxuICAgIFsnVG9vbHMgJiBEZXZPcHMnLCBwb3J0Zm9saW9EYXRhLnNraWxscy50b29sc0Rldk9wc10sXG4gIF0gYXMgY29uc3Q7XG4gIGNvbnN0IGNvdW50ID0gZ3JvdXBzLnJlZHVjZSgodG90YWwsIFssIHNraWxsc10pID0+IHRvdGFsICsgc2tpbGxzLmxlbmd0aCwgMCk7XG4gIHJldHVybiAoXG4gICAgPHNlY3Rpb24gaWQ9XCJza2lsbHNcIiBjbGFzc05hbWU9XCJtaW4taC1zY3JlZW4gcHgtNCBweS0yNFwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJteC1hdXRvIG1heC13LTZ4bFwiPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJzeXN0ZW0tbGFiZWwgdGV4dC12aW9sZXQtMzAwXCI+SU5WRU5UT1JZIC8vIEVRVUlQUEVEIEdFQVI8L3A+XG4gICAgICAgIDxoMiBjbGFzc05hbWU9XCJzeXN0ZW0taGVhZGluZyBtdC00XCI+VGVjaG5pY2FsIHN0YWNrLjwvaDI+XG4gICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTQgbWF4LXctMnhsIHRleHQtd2hpdGUvNjVcIj5BIGNhdGVnb3JpemVkIGluZGV4IG9mIGxhbmd1YWdlcywgbGlicmFyaWVzLCBkYXRhYmFzZXMsIGFuZCB3b3JrZmxvd3MgSSB1c2UgdG8gYnVpbGQgcm9idXN0IHNvZnR3YXJlLjwvcD5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xMiBncmlkIGdhcC01IG1kOmdyaWQtY29scy0yIGxnOmdyaWQtY29scy0zXCI+XG4gICAgICAgICAge2dyb3Vwcy5tYXAoKFt0aXRsZSwgc2tpbGxzXSwgaW5kZXgpID0+IChcbiAgICAgICAgICAgIDxtb3Rpb24uYXJ0aWNsZSBrZXk9e3RpdGxlfSBpbml0aWFsPXt7IG9wYWNpdHk6IDAsIHk6IDE2IH19IHdoaWxlSW5WaWV3PXt7IG9wYWNpdHk6IDEsIHk6IDAgfX0gdmlld3BvcnQ9e3sgb25jZTogdHJ1ZSB9fSB0cmFuc2l0aW9uPXt7IGRlbGF5OiBpbmRleCAqIDAuMDYgfX0gY2xhc3NOYW1lPVwic3lzdGVtLXBhbmVsIHAtNlwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTYgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+PGgzIGNsYXNzTmFtZT1cImZvbnQtbW9ubyB0ZXh0LXNtIHVwcGVyY2FzZSB0cmFja2luZy1bLjE4ZW1dIHRleHQtdmlvbGV0LTIwMFwiPnt0aXRsZX08L2gzPjxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC12aW9sZXQtNDAwLzYwXCI+MHtpbmRleCArIDF9PC9zcGFuPjwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZmxleC13cmFwIGdhcC0yXCI+e3NraWxscy5tYXAoKHNraWxsKSA9PiA8c3BhbiBrZXk9e3NraWxsLm5hbWV9IGNsYXNzTmFtZT1cImludmVudG9yeS1pdGVtXCI+e3NraWxsLm5hbWV9PC9zcGFuPil9PC9kaXY+XG4gICAgICAgICAgICA8L21vdGlvbi5hcnRpY2xlPlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xMCBmbGV4IGZsZXgtY29sIGl0ZW1zLWNlbnRlciBnYXAtMlwiPjxTdXNwZW5zZSBmYWxsYmFjaz17PGRpdiBjbGFzc05hbWU9XCJwcm9wLWZhbGxiYWNrXCI+4peHPC9kaXY+fT48RmxvYXRpbmdQcm9wIGtpbmQ9XCJkYWdnZXJcIiAvPjwvU3VzcGVuc2U+PHAgY2xhc3NOYW1lPVwidGV4dC1jZW50ZXIgZm9udC1tb25vIHRleHQteHMgdHJhY2tpbmctd2lkZXN0IHRleHQtd2hpdGUvMzVcIj57Y291bnR9IENBUEFCSUxJVElFUyBFUVVJUFBFRDwvcD48L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IFNraWxsc1NlY3Rpb247XG4iXSwibmFtZXMiOlsibW90aW9uIiwibGF6eSIsIlN1c3BlbnNlIiwicG9ydGZvbGlvRGF0YSIsIkZsb2F0aW5nUHJvcCIsIlNraWxsc1NlY3Rpb24iLCJncm91cHMiLCJza2lsbHMiLCJsYW5ndWFnZXMiLCJmcm9udGVuZCIsImJhY2tlbmQiLCJkYXRhYmFzZXMiLCJ0b29sc0Rldk9wcyIsImNvdW50IiwicmVkdWNlIiwidG90YWwiLCJsZW5ndGgiLCJzZWN0aW9uIiwiaWQiLCJjbGFzc05hbWUiLCJkaXYiLCJwIiwiaDIiLCJtYXAiLCJ0aXRsZSIsImluZGV4IiwiYXJ0aWNsZSIsImluaXRpYWwiLCJvcGFjaXR5IiwieSIsIndoaWxlSW5WaWV3Iiwidmlld3BvcnQiLCJvbmNlIiwidHJhbnNpdGlvbiIsImRlbGF5IiwiaDMiLCJzcGFuIiwic2tpbGwiLCJuYW1lIiwiZmFsbGJhY2siLCJraW5kIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLFNBQVNBLE1BQU0sUUFBUSxnQkFBZ0I7QUFDdkMsU0FBU0MsSUFBSSxFQUFFQyxRQUFRLFFBQVEsUUFBUTtBQUN2QyxTQUFTQyxhQUFhLFFBQVEsbUJBQW1CO0FBRWpELE1BQU1DLDZCQUFlSCxLQUFLLElBQU0sTUFBTSxDQUFDO0tBQWpDRztBQUVOLE1BQU1DLGdCQUFnQjtJQUNwQixNQUFNQyxTQUFTO1FBQ2I7WUFBQztZQUFhSCxjQUFjSSxNQUFNLENBQUNDLFNBQVM7U0FBQztRQUFFO1lBQUM7WUFBWUwsY0FBY0ksTUFBTSxDQUFDRSxRQUFRO1NBQUM7UUFDMUY7WUFBQztZQUFXTixjQUFjSSxNQUFNLENBQUNHLE9BQU87U0FBQztRQUFFO1lBQUM7WUFBYVAsY0FBY0ksTUFBTSxDQUFDSSxTQUFTO1NBQUM7UUFDeEY7WUFBQztZQUFrQlIsY0FBY0ksTUFBTSxDQUFDSyxXQUFXO1NBQUM7S0FDckQ7SUFDRCxNQUFNQyxRQUFRUCxPQUFPUSxNQUFNLENBQUMsQ0FBQ0MsT0FBTyxHQUFHUixPQUFPLEdBQUtRLFFBQVFSLE9BQU9TLE1BQU0sRUFBRTtJQUMxRSxxQkFDRSxRQUFDQztRQUFRQyxJQUFHO1FBQVNDLFdBQVU7a0JBQzdCLGNBQUEsUUFBQ0M7WUFBSUQsV0FBVTs7OEJBQ2IsUUFBQ0U7b0JBQUVGLFdBQVU7OEJBQStCOzs7Ozs7OEJBQzVDLFFBQUNHO29CQUFHSCxXQUFVOzhCQUFzQjs7Ozs7OzhCQUNwQyxRQUFDRTtvQkFBRUYsV0FBVTs4QkFBK0I7Ozs7Ozs4QkFDNUMsUUFBQ0M7b0JBQUlELFdBQVU7OEJBQ1piLE9BQU9pQixHQUFHLENBQUMsQ0FBQyxDQUFDQyxPQUFPakIsT0FBTyxFQUFFa0Isc0JBQzVCLFFBQUN6QixPQUFPMEIsT0FBTzs0QkFBYUMsU0FBUztnQ0FBRUMsU0FBUztnQ0FBR0MsR0FBRzs0QkFBRzs0QkFBR0MsYUFBYTtnQ0FBRUYsU0FBUztnQ0FBR0MsR0FBRzs0QkFBRTs0QkFBR0UsVUFBVTtnQ0FBRUMsTUFBTTs0QkFBSzs0QkFBR0MsWUFBWTtnQ0FBRUMsT0FBT1QsUUFBUTs0QkFBSzs0QkFBR04sV0FBVTs7OENBQ3RLLFFBQUNDO29DQUFJRCxXQUFVOztzREFBeUMsUUFBQ2dCOzRDQUFHaEIsV0FBVTtzREFBZ0VLOzs7Ozs7c0RBQVcsUUFBQ1k7NENBQUtqQixXQUFVOztnREFBNkI7Z0RBQUVNLFFBQVE7Ozs7Ozs7Ozs7Ozs7OENBQ3hNLFFBQUNMO29DQUFJRCxXQUFVOzhDQUF3QlosT0FBT2dCLEdBQUcsQ0FBQyxDQUFDYyxzQkFBVSxRQUFDRDs0Q0FBc0JqQixXQUFVO3NEQUFrQmtCLE1BQU1DLElBQUk7MkNBQWxERCxNQUFNQyxJQUFJOzs7Ozs7Ozs7OzsyQkFGL0RkOzs7Ozs7Ozs7OzhCQU16QixRQUFDSjtvQkFBSUQsV0FBVTs7c0NBQXlDLFFBQUNqQjs0QkFBU3FDLHdCQUFVLFFBQUNuQjtnQ0FBSUQsV0FBVTswQ0FBZ0I7Ozs7OztzQ0FBUyxjQUFBLFFBQUNmO2dDQUFhb0MsTUFBSzs7Ozs7Ozs7Ozs7c0NBQXNCLFFBQUNuQjs0QkFBRUYsV0FBVTs7Z0NBQStETjtnQ0FBTTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSXZQO01BekJNUjtBQTJCTixlQUFlQSxjQUFjIn0=∞m‚"í      jq»újq»úI…=       ]    O^partitionKey=%28http%2Clocalhost%29,:http://localhost:8081/src/components/SkillsSection.tsx strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"2eee-gv8P7oYj04k+U+ufT8DQ6ymmfV8"
+Content-Length: 17541
+Vary: Origin
+Date: Tue, 04 Aug 2026 11:10:20 GMT
+ original-response-headers Vary: Origin
+Content-Type: text/javascript
+Cache-Control: no-cache
+Etag: W/"2eee-gv8P7oYj04k+U+ufT8DQ6ymmfV8"
+Date: Tue, 04 Aug 2026 11:09:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 17541
+ ctid 2 net-response-time-onstart 134 net-response-time-onstop 134   DÖ
