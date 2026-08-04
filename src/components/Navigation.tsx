@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-
-interface NavigationProps {
-  onNavigate?: (section: string) => void;
-}
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { usePortalTransition } from './PortalTransition';
 
 const navItems = [
   { label: 'Works', route: '/projects' },
@@ -11,8 +8,10 @@ const navItems = [
   { label: 'Contact', route: '/contact' },
 ] as const;
 
-const Navigation = ({ onNavigate }: NavigationProps) => {
+const Navigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { transition } = usePortalTransition();
 
   return (
     <motion.nav
@@ -21,10 +20,10 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-[50]"
       style={{
-        background: 'rgba(5, 5, 20, 0.72)',
+        background: 'rgba(10, 10, 15, 0.78)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(0, 245, 255, 0.08)',
+        borderBottom: '1px solid rgba(167, 139, 250, 0.16)',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -33,9 +32,9 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
           {/* Logo — links home (non-rotating, circular, subtle hover glow, NO scale scale or rotate) */}
           <Link to="/" aria-label="Home">
             <div
-              className="w-9 h-9 border-2 border-[#00f5ff] rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,245,255,0.5)]"
+              className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-violet-400 transition-all duration-200 hover:shadow-[0_0_18px_rgba(167,139,250,0.65)]"
             >
-              <span className="text-[#00f5ff] font-bold text-sm font-sans">Q</span>
+              <span className="font-sans text-sm font-bold text-violet-300">Q</span>
             </div>
           </Link>
 
@@ -44,14 +43,18 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
             {navItems.map((item) => {
               const isActive = location.pathname === item.route;
               return (
-                <Link key={item.label} to={item.route}>
+                <Link key={item.label} to={item.route} onClick={(event) => {
+                  if (isActive) return;
+                  event.preventDefault();
+                  transition(() => navigate(item.route));
+                }}>
                   <button
                     className="px-5 py-2 rounded-lg transition-all duration-200 text-sm font-medium"
                     style={{
                       fontFamily: "'Inter', sans-serif",
-                      background: isActive ? 'rgba(0, 245, 255, 0.1)' : 'transparent',
-                      border: isActive ? '1px solid rgba(0, 245, 255, 0.3)' : '1px solid transparent',
-                      color: isActive ? '#00f5ff' : 'rgba(255, 255, 255, 0.7)',
+                      background: isActive ? 'rgba(124, 58, 237, 0.16)' : 'transparent',
+                      border: isActive ? '1px solid rgba(167, 139, 250, 0.45)' : '1px solid transparent',
+                      color: isActive ? '#c4b5fd' : 'rgba(255, 255, 255, 0.7)',
                     }}
                   >
                     {item.label}

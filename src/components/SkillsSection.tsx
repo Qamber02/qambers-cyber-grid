@@ -1,137 +1,31 @@
 import { motion } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 import { portfolioData } from '@/data/portfolio';
+
+const FloatingProp = lazy(() => import('./three/FloatingProp'));
+
 const SkillsSection = () => {
-
-  const skillGroups = [
-    {
-      title: 'Languages',
-      skills: portfolioData.skills.languages,
-    },
-    {
-      title: 'Frontend',
-      skills: portfolioData.skills.frontend,
-    },
-    {
-      title: 'Backend',
-      skills: portfolioData.skills.backend,
-    },
-    {
-      title: 'Databases',
-      skills: portfolioData.skills.databases,
-    },
-    {
-      title: 'Tools & DevOps',
-      skills: portfolioData.skills.toolsDevOps,
-    },
-  ];
-
-  const totalSkillsCount = skillGroups.reduce((acc, curr) => acc + curr.skills.length, 0);
-
+  const groups = [
+    ['Languages', portfolioData.skills.languages], ['Frontend', portfolioData.skills.frontend],
+    ['Backend', portfolioData.skills.backend], ['Databases', portfolioData.skills.databases],
+    ['Tools & DevOps', portfolioData.skills.toolsDevOps],
+  ] as const;
+  const count = groups.reduce((total, [, skills]) => total + skills.length, 0);
   return (
-    <section id="skills" className="min-h-screen py-24 px-4 relative z-[3]">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16 text-left"
-        >
-          <span 
-            className="text-[13px] tracking-[3px] uppercase mb-3 block"
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              color: 'rgba(0, 245, 255, 0.5)',
-            }}
-          >
-            // system capabilities
-          </span>
-          <h2 
-            className="text-[40px] md:text-[54px] font-bold mb-4 leading-tight"
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              color: '#00f5ff',
-              textShadow: '0 0 40px rgba(0, 245, 255, 0.35)',
-            }}
-          >
-            Technical Stack.
-          </h2>
-          <p 
-            className="text-[17px] leading-[1.75] font-medium max-w-2xl"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              color: 'rgba(255, 255, 255, 0.88)',
-            }}
-          >
-            A categorized index of languages, libraries, databases, and workflows I use to build robust software.
-          </p>
-        </motion.div>
-
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {skillGroups.map((group, index) => (
-            <motion.div
-              key={group.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="p-6 rounded-[8px] flex flex-col justify-start"
-              style={{
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(0, 245, 255, 0.12)',
-              }}
-            >
-              <h3 
-                className="text-[15px] font-bold tracking-[2px] mb-6 uppercase"
-                style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: '#00f5ff',
-                  textShadow: '0 0 10px rgba(0, 245, 255, 0.15)',
-                }}
-              >
-                // {group.title}
-              </h3>
-              
-              <div className="flex flex-wrap gap-2.5">
-                {group.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="flex items-center gap-2 h-9 px-3.5 rounded-[6px] text-[14px] font-medium border text-white/90 bg-white/[0.02] border-white/10 transition-all duration-200 ease-in-out hover:border-[#00f5ff] hover:text-[#00f5ff] hover:shadow-[0_0_12px_rgba(0,245,255,0.25)] hover:bg-[#00f5ff]/5 select-none"
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                    }}
-                  >
-
-                    {skill.name}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+    <section id="skills" className="min-h-screen px-4 py-24">
+      <div className="mx-auto max-w-6xl">
+        <p className="system-label text-violet-300">INVENTORY // EQUIPPED GEAR</p>
+        <h2 className="system-heading mt-4">Technical stack.</h2>
+        <p className="mt-4 max-w-2xl text-white/65">A categorized index of languages, libraries, databases, and workflows I use to build robust software.</p>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {groups.map(([title, skills], index) => (
+            <motion.article key={title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="system-panel p-6">
+              <div className="mb-6 flex items-center justify-between"><h3 className="font-mono text-sm uppercase tracking-[.18em] text-violet-200">{title}</h3><span className="text-xs text-violet-400/60">0{index + 1}</span></div>
+              <div className="flex flex-wrap gap-2">{skills.map((skill) => <span key={skill.name} className="inventory-item">{skill.name}</span>)}</div>
+            </motion.article>
           ))}
         </div>
-
-        {/* Quiet status line at the bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <span 
-            className="text-[12px] font-normal"
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              color: 'rgba(255, 255, 255, 0.4)',
-            }}
-          >
-            // {totalSkillsCount} core technologies loaded successfully
-          </span>
-        </motion.div>
-
+        <div className="mt-10 flex flex-col items-center gap-2"><Suspense fallback={<div className="prop-fallback">◇</div>}><FloatingProp kind="dagger" /></Suspense><p className="text-center font-mono text-xs tracking-widest text-white/35">{count} CAPABILITIES EQUIPPED</p></div>
       </div>
     </section>
   );

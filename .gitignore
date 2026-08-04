@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Source GLBs are retained locally; optimized runtime assets ship with the app.
+public/models/raw/
