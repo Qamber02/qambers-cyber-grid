@@ -10,19 +10,40 @@ const modelPaths: Record<PropKind, string> = {
   dagger: '/models/optimized/rune-dagger.glb',
   crystal: '/models/optimized/crystal-core.glb',
 };
+useGLTF.setDecoderPath('/draco/');
+useGLTF.preload(modelPaths.dagger);
+useGLTF.preload(modelPaths.crystal);
 
 function Model({ kind }: { kind: PropKind }) {
   const { scene } = useGLTF(modelPaths[kind]);
   const model = useMemo(() => {
     const clone = scene.clone(true);
-    clone.traverse((node) => {
+
+    // Compute bounding box to normalize scale and center geometry at (0,0,0)
+    const box = new THREE.Box3().setFromObject(clone);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z) || 1;
+    const scaleFactor = 1 / maxDim;
+
+    clone.position.set(-center.x * scaleFactor, -center.y * scaleFactor, -center.z * scaleFactor);
+    clone.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+    const wrapper = new THREE.Group();
+    wrapper.add(clone);
+
+    wrapper.traverse((node) => {
       if (!(node instanceof THREE.Mesh)) return;
-      const material = (Array.isArray(node.material) ? node.material[0] : node.material).clone();
+      const original = Array.isArray(node.material) ? node.material[0] : node.material;
+      const material = original.clone();
       material.emissive = new THREE.Color('#7c3aed');
-      material.emissiveIntensity = kind === 'crystal' ? 1.25 : 0.55;
+      if (material.map) material.emissiveMap = material.map;
+      material.emissiveIntensity = kind === 'crystal' ? 0.7 : 0.45;
+      material.metalness = 0.65;
+      material.roughness = 0.3;
       node.material = material;
     });
-    return clone;
+    return wrapper;
   }, [kind, scene]);
   const group = useRef<THREE.Group>(null);
   useFrame((state, delta) => {
@@ -30,7 +51,14 @@ function Model({ kind }: { kind: PropKind }) {
     group.current.rotation.y += delta * (kind === 'dagger' ? 0.42 : 0.28);
     group.current.position.y = Math.sin(state.clock.elapsedTime * 1.2) * 0.12;
   });
-  return <primitive ref={group} object={model} scale={kind === 'dagger' ? 1.3 : 1.8} rotation={[0.1, 0.4, 0]} />;
+  return (
+    <primitive
+      ref={group}
+      object={model}
+      scale={kind === 'dagger' ? 2.2 : 2.4}
+      rotation={kind === 'dagger' ? [0.35, 0.45, 0.4] : [0.2, 0.5, 0.1]}
+    />
+  );
 }
 
 export default function FloatingProp({ kind }: { kind: PropKind }) {
@@ -47,7 +75,12 @@ export default function FloatingProp({ kind }: { kind: PropKind }) {
   }, []);
   return <div ref={host} className="prop-shell" aria-hidden="true">
     {!mounted || !webgl ? <div className="prop-fallback">◇</div> : <Canvas dpr={[1, 1.25]} camera={{ position: [0, 0, 4.2], fov: 40 }} gl={{ antialias: false, powerPreference: 'high-performance' }}>
-      <ambientLight intensity={0.5} /><pointLight color="#a78bfa" intensity={7} position={[2, 2, 3]} />
+      {/* Ambient light for shadow definition */}
+      <ambientLight intensity={0.4} />
+      {/* Key directional light for surface geometry & specular highlights */}
+      <directionalLight position={[3, 4, 4]} intensity={3.2} color="#ddd6fe" />
+      {/* Rim light from front-left */}
+      <pointLight color="#7c3aed" intensity={8} position={[-2, -1, 2]} />
       <Suspense fallback={null}><Model kind={kind} /></Suspense>
     </Canvas>}
   </div>;
