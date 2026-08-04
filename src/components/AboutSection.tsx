@@ -13,9 +13,9 @@ const AboutSection = () => (
       style={{
         backgroundImage: 'url(/images/hero.jpg)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+        backgroundPosition: 'top center',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)'
       }} 
     />
     <div className="relative mx-auto max-w-5xl z-10">
