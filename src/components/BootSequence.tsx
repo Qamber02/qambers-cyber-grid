@@ -38,15 +38,26 @@ const BootSequence = () => {
     <button
       type="button"
       onClick={dismiss}
-      className="boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center bg-[#050507] px-6 text-left"
-      aria-label="Dismiss introduction"
+      className="boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center px-6 text-left"
+      aria-label="Enter the Gate"
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, rgba(5,5,7,0.8), rgba(5,5,7,0.3)), url(/images/gate.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
-      <div className="max-w-xl">
-        <p className="system-label mb-5 text-violet-300/70">SYSTEM // INITIALIZATION</p>
-        <p className="font-mono text-xl leading-relaxed text-violet-100 md:text-3xl">
+      <div className="max-w-xl text-center flex flex-col items-center">
+        <p className="system-label mb-5 text-violet-300/80 tracking-[0.3em] font-bold">SYSTEM // INITIALIZATION</p>
+        <p className="font-mono text-xl leading-relaxed text-violet-100 md:text-3xl drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]">
           {messages[messageIndex].slice(0, characters)}<span className="boot-caret">▋</span>
         </p>
-        <p className="mt-10 font-mono text-xs tracking-[0.2em] text-white/35">TAP ANYWHERE TO CONTINUE</p>
+        
+        {messageIndex === messages.length - 1 && characters === messages[messageIndex].length && (
+          <div className="mt-12 animate-pulse rounded-sm border border-violet-500/50 bg-violet-500/10 px-8 py-3 backdrop-blur-sm transition-all hover:bg-violet-500/30 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]">
+            <p className="font-mono text-sm tracking-[0.25em] text-violet-200">ENTER THE GATE</p>
+          </div>
+        )}
       </div>
     </button>
   );

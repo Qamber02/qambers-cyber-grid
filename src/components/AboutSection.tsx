@@ -6,8 +6,19 @@ import StatSheet from './StatSheet';
 const FloatingProp = lazy(() => import('./three/FloatingProp'));
 
 const AboutSection = () => (
-  <section id="about" className="min-h-screen px-4 py-20">
-    <div className="mx-auto max-w-5xl">
+  <section id="about" className="relative min-h-screen px-4 py-20 overflow-hidden">
+    {/* Subtle Hero Background Overlay */}
+    <div 
+      className="absolute right-0 top-0 h-full w-[120%] md:w-3/4 opacity-[0.12] pointer-events-none mix-blend-screen" 
+      style={{
+        backgroundImage: 'url(/images/hero.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        maskImage: 'linear-gradient(to left, black 30%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to left, black 30%, transparent 100%)'
+      }} 
+    />
+    <div className="relative mx-auto max-w-5xl z-10">
       <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
         <p className="system-label text-violet-300">PLAYER PROFILE // QAMBER</p>
         <h1 className="system-heading mt-4">The stat sheet.</h1>

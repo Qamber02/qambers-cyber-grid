@@ -5,8 +5,19 @@ import { portfolioData } from '@/data/portfolio';
 const ranks = ['S', 'S', 'A', 'B'] as const;
 
 const ProjectsSection = () => (
-  <section id="projects" className="min-h-screen px-4 py-20">
-    <div className="mx-auto max-w-6xl">
+  <section id="projects" className="relative min-h-screen px-4 py-20 overflow-hidden">
+    {/* Subtle Soldiers Background Overlay */}
+    <div 
+      className="absolute top-0 left-0 w-full h-[800px] opacity-[0.08] pointer-events-none mix-blend-screen" 
+      style={{
+        backgroundImage: 'url(/images/soldiers.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'top center',
+        maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)'
+      }} 
+    />
+    <div className="relative mx-auto max-w-6xl z-10">
       <p className="system-label text-violet-300">INSTANCE DIRECTORY // GATES</p>
       <h1 className="system-heading mt-4">Choose a gate.</h1>
       <p className="mt-4 max-w-2xl text-white/65">

@@ -29,6 +29,11 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="relative min-h-screen overflow-x-hidden z-0">
       <div className="system-backdrop fixed inset-0 z-0 pointer-events-none" />
 
+      {/* Global thematic overlay - broken glass (subtle) */}
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none opacity-[0.07] mix-blend-screen bg-cover bg-center" 
+        style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }} 
+      />
       {/* SpiderCursor — global overlay below page content — z-index 1 */}
       <SpiderCursor />
 
