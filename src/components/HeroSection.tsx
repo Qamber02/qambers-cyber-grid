@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Shield } from 'lucide-react';
+import { ArrowUpRight, FileText, Github, Shield } from 'lucide-react';
 import { Component, lazy, Suspense, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { portfolioData } from '@/data/portfolio';
@@ -80,6 +80,13 @@ const HeroSection = () => (
           <Link to="/about" className="system-button">
             View stat sheet
           </Link>
+          <a
+            href={portfolioData.cvPath}
+            download="Qambar_CV.pdf"
+            className="system-button flex items-center gap-2 border-violet-400/30 hover:border-violet-300"
+          >
+            <FileText size={15} className="text-violet-300" /> Download CV
+          </a>
           <a
             href={portfolioData.github}
             target="_blank"

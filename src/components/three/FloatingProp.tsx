@@ -11,7 +11,7 @@ const modelPaths: Record<PropKind, string> = {
   dagger: '/models/optimized/rune-dagger.glb',
   crystal: '/models/optimized/crystal-core.glb',
 };
-useGLTF.setDecoderPath('/draco/');
+useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
 useGLTF.preload(modelPaths.dagger);
 useGLTF.preload(modelPaths.crystal);
 
