@@ -40,8 +40,9 @@ const BootSequence = () => {
       className="boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center px-6 text-left"
       aria-label="Enter the Gate"
       style={{
-        backgroundImage: 'linear-gradient(to bottom, rgba(5,5,7,0.8), rgba(5,5,7,0.3)), url(/images/gate.jpg)',
-        backgroundSize: 'cover',
+        backgroundColor: '#050507',
+        backgroundImage: 'linear-gradient(to bottom, rgba(5,5,7,0.8), rgba(5,5,7,0.5)), url(/images/gate.jpg)',
+        backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
