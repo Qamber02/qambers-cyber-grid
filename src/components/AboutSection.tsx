@@ -16,9 +16,19 @@ const AboutSection = () => (
           <p>Right now I'm interning as a Full Stack Engineer at Unhire, where I successfully built payment architecture with <span className="text-violet-300">Stripe Connect</span>. On the side I'm building Karwan for Gwadar and Turbat and Cherág, an AI learning tool for students with limited connectivity.</p>
         </div>
       </motion.div>
-      <div className="grid items-center gap-5 md:grid-cols-[1fr_190px]">
+      <div className="grid items-stretch gap-5 md:grid-cols-[1fr_280px]">
         <StatSheet />
-        <Suspense fallback={<div className="prop-fallback">◇</div>}><FloatingProp kind="crystal" /></Suspense>
+        <div className="system-panel mt-12 md:mt-12 flex flex-col justify-between overflow-hidden p-6 md:p-8">
+          <div className="flex items-center justify-between border-b border-violet-300/15 pb-4">
+            <span className="system-label text-violet-300">CRYSTAL CORE</span>
+            <span className="font-mono text-xs text-violet-100/45">ACTIVE</span>
+          </div>
+          <div className="relative w-full h-[300px] md:h-full min-h-[280px] flex items-center justify-center py-2">
+            <Suspense fallback={<div className="prop-fallback">◇</div>}>
+              <FloatingProp kind="crystal" />
+            </Suspense>
+          </div>
+        </div>
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[
         ['LOCATION', 'Gwadar, Balochistan'], ['UNIVERSITY', 'University of Turbat'], ['GRADUATING', '2027'], ['STATUS', 'Available'],
