@@ -11,7 +11,7 @@ const AboutSection = () => (
     <div 
       className="absolute inset-0 w-full h-full opacity-[0.12] pointer-events-none mix-blend-screen" 
       style={{
-        backgroundImage: 'url(/images/hero.jpg)',
+        backgroundImage: 'url(/images/soldiers.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'top center',
         maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 60%, transparent 100%)',
