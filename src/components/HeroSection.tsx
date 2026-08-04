@@ -1,9 +1,22 @@
 import { ArrowUpRight, Github, Shield } from 'lucide-react';
-import { lazy, Suspense } from 'react';
+import { Component, lazy, Suspense, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { portfolioData } from '@/data/portfolio';
 
 const PortalScene = lazy(() => import('./three/PortalScene'));
+
+class PortalErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError(): { hasError: boolean } {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) return <div className="portal-fallback" aria-hidden="true"><span>⌬</span></div>;
+    return this.props.children;
+  }
+}
 
 const HeroSection = () => (
   <section className="relative flex min-h-screen items-center overflow-hidden">
@@ -28,7 +41,7 @@ const HeroSection = () => (
         <div className="mt-12 flex items-center gap-3 font-mono text-xs text-violet-100/45"><Shield size={15} className="text-violet-400" /> LEVEL 01 // FULL-STACK ENGINEER</div>
       </div>
       <div className="portal-shell relative mx-auto h-[360px] w-full max-w-[520px] md:h-[500px]" aria-label="Animated violet portal">
-        <Suspense fallback={<div className="portal-fallback" aria-hidden="true"><span>⌬</span></div>}><PortalScene /></Suspense>
+        <PortalErrorBoundary><Suspense fallback={<div className="portal-fallback" aria-hidden="true"><span>⌬</span></div>}><PortalScene /></Suspense></PortalErrorBoundary>
         <div className="pointer-events-none absolute inset-x-7 bottom-5 rounded border border-violet-300/20 bg-[#0a0a0f]/70 px-4 py-3 font-mono text-[10px] tracking-[.18em] text-violet-100/55 backdrop-blur">
           GATE STATUS <span className="float-right text-violet-300">OPEN</span>
         </div>

@@ -1,7 +1,6 @@
 import { Suspense, useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import { supportsWebGL } from '@/lib/webgl';
 
@@ -68,11 +67,6 @@ export default function PortalScene() {
         <PortalModel />
         <Swirl />
       </Suspense>
-      <EffectComposer multisampling={0}>
-        <Bloom intensity={0.9} luminanceThreshold={1.1} mipmapBlur />
-      </EffectComposer>
     </Canvas>
   );
 }
-
-useGLTF.preload(PORTAL_MODEL);
