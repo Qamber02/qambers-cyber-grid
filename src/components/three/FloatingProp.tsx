@@ -87,16 +87,24 @@ export default function FloatingProp({ kind }: { kind: PropKind }) {
   const host = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(true);
   const [webgl, setWebgl] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setWebgl(supportsWebGL());
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const element = host.current;
     if (!element) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) setMounted(true);
     }, { rootMargin: '200px' });
     observer.observe(element);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
@@ -105,7 +113,7 @@ export default function FloatingProp({ kind }: { kind: PropKind }) {
         <div className="prop-fallback">◇</div>
       ) : (
         <Canvas
-          dpr={[1, 1.25]}
+          dpr={isMobile ? [0.5, 1] : [1, 1.25]}
           camera={{ position: [0, 0, 4.0], fov: 40 }}
           gl={{ antialias: false, powerPreference: 'high-performance' }}
         >

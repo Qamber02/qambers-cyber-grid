@@ -126,13 +126,22 @@ function PortalFallback() {
 
 export default function PortalScene() {
   const [webgl, setWebgl] = useState(false);
-  useEffect(() => setWebgl(supportsWebGL()), []);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setWebgl(supportsWebGL());
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   if (!webgl) return <PortalFallback />;
 
   return (
     <Canvas
       className="portal-canvas"
-      dpr={[1, 1.5]}
+      dpr={isMobile ? [0.5, 1] : [1, 1.5]}
       camera={{ position: [0, 0, 4.6], fov: 40 }}
       gl={{ antialias: false, powerPreference: 'high-performance' }}
     >

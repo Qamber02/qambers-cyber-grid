@@ -24,8 +24,10 @@
   color: #c4b5fd;
   transition: opacity 0.2s ease;
 }
-.nav-toggle-label:hover {
-  opacity: 0.8;
+@media (hover: hover) {
+  .nav-toggle-label:hover {
+    opacity: 0.8;
+  }
 }
 
 .nav-close-btn {
@@ -41,10 +43,12 @@
   transition: all 0.25s cubic-bezier(0.65, 0.05, 0.05, 0.99);
   backdrop-filter: blur(12px);
 }
-.nav-close-btn:hover {
-  background: rgba(124, 58, 237, 0.3);
-  border-color: #a78bfa;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+@media (hover: hover) {
+  .nav-close-btn:hover {
+    background: rgba(124, 58, 237, 0.3);
+    border-color: #a78bfa;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  }
 }
 
 .menu-button-text {
@@ -112,6 +116,12 @@
   padding: 4rem 3rem;
   z-index: 2;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .menu-content {
+    padding: 2rem 1.5rem;
+  }
 }
 
 .menu-bg {
@@ -195,12 +205,6 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.menu-list-item:hover .nav-link-text {
-  color: #c4b5fd;
-  transform: translateX(12px);
-  text-shadow: 0 0 24px rgba(167, 139, 250, 0.6);
-}
-
 .nav-link-hover-bg {
   position: absolute;
   inset: 0;
@@ -212,6 +216,14 @@
   z-index: -1;
 }
 
-.menu-list-item:hover .nav-link-hover-bg {
-  opacity: 1;
+@media (hover: hover) {
+  .menu-list-item:hover .nav-link-text {
+    color: #c4b5fd;
+    transform: translateX(12px);
+    text-shadow: 0 0 24px rgba(167, 139, 250, 0.6);
+  }
+
+  .menu-list-item:hover .nav-link-hover-bg {
+    opacity: 1;
+  }
 }

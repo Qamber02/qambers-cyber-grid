@@ -114,6 +114,10 @@ All colors MUST be HSL.
   .prop-shell { position: absolute; inset: 0; height: 100%; width: 100%; } .prop-shell canvas { display: block; } .prop-fallback { display:grid; min-height:140px; place-items:center; color:#a78bfa; font-size:3rem; height: 100%; }
   .portal-transition { pointer-events:none; position:fixed; inset:0; z-index:90; opacity:0; background:radial-gradient(circle at center, rgba(167,139,250,.8) 0, rgba(76,29,149,.45) 12%, rgba(10,10,15,.94) 41%, transparent 65%); transform:scale(.05) rotate(0deg); transition:opacity .16s ease, transform .8s cubic-bezier(.2,.8,.15,1); }
   .portal-transition--active { opacity:1; transform:scale(2.4) rotate(140deg); }
+  @media (max-width: 768px) {
+    .portal-transition { background: #050507; transform: none; transition: opacity .25s ease; }
+    .portal-transition--active { transform: none; }
+  }
   .boot-sequence { animation: boot-in .25s ease-out; }
   .boot-caret { margin-left:.12em; color:#a78bfa; animation: blink .8s steps(2) infinite; }
 }

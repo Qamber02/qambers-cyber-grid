@@ -21,7 +21,8 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
     const charList = chars.split('');
     const fontSize = 14;
 
-    const numStreams = reducedColumns ? 35 : 110;
+    const isMobile = window.innerWidth < 768;
+    const numStreams = isMobile ? 15 : (reducedColumns ? 35 : 110);
     const streams: Array<{
       startX: number;
       startY: number;
@@ -122,7 +123,8 @@ const DigitalRain = ({ reducedColumns = false }: DigitalRainProps) => {
       return;
     }
 
-    const interval = setInterval(draw, 33);
+    const intervalTime = isMobile ? 45 : 33;
+    const interval = setInterval(draw, intervalTime);
 
     const handleResize = () => {
       canvas.width = window.innerWidth;

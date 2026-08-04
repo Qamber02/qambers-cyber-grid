@@ -20,9 +20,9 @@ const SkillsSection = () => {
         <p className="mt-4 max-w-2xl text-white/65">A categorized index of languages, libraries, databases, and workflows I use to build robust software.</p>
 
         {/* Side-by-side layout: Technical Stack Grid on Left, Dagger Card on Right */}
-        <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1fr_340px]">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1fr_340px]">
           {/* Left Side: Technical Stack Grid */}
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             {groups.map(([title, skills], index) => (
               <motion.article
                 key={title}

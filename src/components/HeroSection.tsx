@@ -41,7 +41,7 @@ const HeroSection = () => (
           [System] Player status recognized. Class: Full-Stack Architect.
         </p>
 
-        <h1 className="max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl">
+        <h1 className="max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-tight text-white md:text-7xl lg:text-8xl">
           Arise,<br />
           <span className="bg-gradient-to-r from-violet-300 via-violet-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(167,139,250,0.4)]">
             Qamber.
@@ -75,7 +75,7 @@ const HeroSection = () => (
         {/* Action Buttons */}
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link to="/projects" className="system-button system-button--solid group">
-            Enter the gates <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            Enter the gates <ArrowUpRight size={16} className="transition-transform [@media(hover:hover)]:group-hover:translate-x-0.5 [@media(hover:hover)]:group-hover:-translate-y-0.5" />
           </Link>
           <Link to="/about" className="system-button">
             View stat sheet
@@ -83,7 +83,7 @@ const HeroSection = () => (
           <a
             href={portfolioData.cvPath}
             download="Qambar_CV.pdf"
-            className="system-button flex items-center gap-2 border-violet-400/30 hover:border-violet-300"
+            className="system-button flex items-center gap-2 border-violet-400/30 [@media(hover:hover)]:hover:border-violet-300"
           >
             <FileText size={15} className="text-violet-300" /> Download CV
           </a>

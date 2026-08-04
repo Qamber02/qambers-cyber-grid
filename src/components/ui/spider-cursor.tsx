@@ -9,12 +9,17 @@ export function SpiderCursor() {
     const canvas = canvasRef.current
     if (!canvas) return
 
+    const isMobile = window.innerWidth < 768;
+    const numPts = isMobile ? 80 : 333;
+    const numSpiders = 2;
+    const lineSegments = isMobile ? 25 : 100;
+
     let w: number, h: number
     const ctx = canvas.getContext("2d")!
     const { sin, cos, PI, hypot, min, max } = Math
 
     function spawn() {
-      const pts = many(333, () => {
+      const pts = many(numPts, () => {
         return {
           x: rnd(window.innerWidth),
           y: rnd(window.innerHeight),
@@ -88,7 +93,7 @@ export function SpiderCursor() {
       }
     }
 
-    const spiders = many(2, spawn)
+    const spiders = many(numSpiders, spawn)
 
     const handlePointerMove = (e: PointerEvent) => {
       spiders.forEach((spider) => {
@@ -120,8 +125,8 @@ export function SpiderCursor() {
     function drawLine(x0: number, y0: number, x1: number, y1: number) {
       ctx.beginPath()
       ctx.moveTo(x0, y0)
-      many(100, (i) => {
-        i = (i + 1) / 100
+      many(lineSegments, (i) => {
+        i = (i + 1) / lineSegments
         const x = lerp(x0, x1, i)
         const y = lerp(y0, y1, i)
         const k = noise(x / 5 + x0, y / 5 + y0) * 2

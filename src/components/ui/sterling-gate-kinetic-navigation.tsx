@@ -60,8 +60,11 @@ export function SterlingGateKineticNavigation() {
 
       const menuEls = containerRef.current!.querySelectorAll(".menu-list-item[data-shape]");
       const shapesContainer = containerRef.current!.querySelector(".ambient-background-shapes");
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
       
       menuEls.forEach((item) => {
+        if (isTouch) return; // Prevent background shapes from getting stuck covering the screen on touch devices
+
         const shapeIndex = item.getAttribute("data-shape");
         const shape = shapesContainer ? shapesContainer.querySelector(`.bg-shape-${shapeIndex}`) : null;
         
@@ -178,7 +181,7 @@ export function SterlingGateKineticNavigation() {
 
   return (
     <div ref={containerRef}>
-      <div className="site-header-wrapper fixed top-0 left-0 right-0 z-[50]">
+      <div className="site-header-wrapper fixed top-0 left-0 right-0 z-[110]">
         <header className="header backdrop-blur-md bg-[#0a0a0f]/80 border-b border-violet-400/20 px-6 py-3.5">
           <div className="container is--full max-w-7xl mx-auto">
             <nav className="nav-row flex items-center justify-between">
@@ -194,8 +197,8 @@ export function SterlingGateKineticNavigation() {
 
               <div className="nav-row__right flex items-center gap-4">
                 {/* Menu Indicator */}
-                <div className="nav-toggle-label" onClick={toggleMenu} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
-                  <span className="toggle-text text-violet-300 hover:text-violet-100 transition-colors">
+                <div className="hidden sm:block nav-toggle-label" onClick={toggleMenu} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
+                  <span className="toggle-text text-violet-300 [@media(hover:hover)]:hover:text-violet-100 transition-colors">
                     {isMenuOpen ? "CLOSE" : "MENU // ARISE"}
                   </span>
                 </div>
