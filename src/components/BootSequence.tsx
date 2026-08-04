@@ -23,8 +23,7 @@ const BootSequence = () => {
       }, 460);
       return () => window.clearTimeout(timeout);
     }
-    const timeout = window.setTimeout(() => dismiss(), 1100);
-    return () => window.clearTimeout(timeout);
+    // Require user to tap to dismiss
   }, [characters, messageIndex, visible]);
 
   const dismiss = () => {

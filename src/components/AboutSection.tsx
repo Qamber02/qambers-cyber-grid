@@ -9,13 +9,13 @@ const AboutSection = () => (
   <section id="about" className="relative min-h-screen px-4 py-20 overflow-hidden">
     {/* Subtle Hero Background Overlay */}
     <div 
-      className="absolute right-0 top-0 h-full w-[120%] md:w-3/4 opacity-[0.12] pointer-events-none mix-blend-screen" 
+      className="absolute inset-0 w-full h-full opacity-[0.12] pointer-events-none mix-blend-screen" 
       style={{
         backgroundImage: 'url(/images/hero.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        maskImage: 'linear-gradient(to left, black 30%, transparent 100%)',
-        WebkitMaskImage: 'linear-gradient(to left, black 30%, transparent 100%)'
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
       }} 
     />
     <div className="relative mx-auto max-w-5xl z-10">
