@@ -10,6 +10,9 @@ useGLTF.preload(PORTAL_MODEL);
 
 function PortalModel({ emissiveIntensity = 1.35 }: { emissiveIntensity?: number }) {
   const { scene } = useGLTF(PORTAL_MODEL);
+  const [hovered, setHovered] = useState(false);
+  const group = useRef<THREE.Group>(null);
+
   const model = useMemo(() => {
     const clone = scene.clone(true);
     
@@ -40,13 +43,32 @@ function PortalModel({ emissiveIntensity = 1.35 }: { emissiveIntensity?: number 
     return wrapper;
   }, [emissiveIntensity, scene]);
 
-  const group = useRef<THREE.Group>(null);
   useFrame((state, delta) => {
     if (!group.current) return;
+    const time = state.clock.elapsedTime;
+    
+    const idleFloat = Math.sin(time * 0.8) * 0.08;
+    const tiltX = state.pointer.y * 0.25;
+    const tiltY = state.pointer.x * 0.25;
+    const baseScale = 2.7 * (hovered ? 1.08 : 1.0);
+
+    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, idleFloat, delta * 4);
+    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, tiltX + 0.05, delta * 4);
+    group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, tiltY, delta * 4);
     group.current.rotation.z += delta * 0.16;
-    group.current.position.y = Math.sin(state.clock.elapsedTime * 0.7) * 0.07;
+    group.current.scale.lerp(new THREE.Vector3(baseScale, baseScale, baseScale), delta * 5);
   });
-  return <primitive ref={group} object={model} scale={2.7} rotation={[0.05, 0, 0.2]} />;
+
+  return (
+    <primitive
+      ref={group}
+      object={model}
+      scale={2.7}
+      rotation={[0.05, 0, 0.2]}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+    />
+  );
 }
 
 function Swirl() {

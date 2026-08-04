@@ -58,6 +58,47 @@ function resizeTextures({ size }) {
   };
 }
 
+// Custom transform to filter out floating side debris/duplicate objects generated in raw GLBs
+function cleanDebris(file) {
+  return (doc) => {
+    for (const mesh of doc.getRoot().listMeshes()) {
+      for (const prim of mesh.listPrimitives()) {
+        const posAttr = prim.getAttribute('POSITION');
+        const indicesAttr = prim.getIndices();
+        if (!posAttr || !indicesAttr) continue;
+        const indices = indicesAttr.getArray();
+        const posArray = posAttr.getArray();
+        const newIndices = [];
+        const triCount = indices.length / 3;
+
+        for (let t = 0; t < triCount; t++) {
+          const i0 = indices[t * 3];
+          const i1 = indices[t * 3 + 1];
+          const i2 = indices[t * 3 + 2];
+          const avgX = (posArray[i0 * 3] + posArray[i1 * 3] + posArray[i2 * 3]) / 3;
+
+          let keep = true;
+          if (file.includes('rune-dagger')) {
+            keep = avgX >= -20 && avgX <= 20;
+          } else if (file.includes('portal-ring')) {
+            keep = avgX >= -25 && avgX <= 25;
+          } else if (file.includes('crystal-core')) {
+            keep = avgX >= -50 && avgX <= -10;
+          }
+
+          if (keep) {
+            newIndices.push(i0, i1, i2);
+          }
+        }
+        const newIndicesTyped = indices.constructor === Uint32Array 
+          ? new Uint32Array(newIndices) 
+          : new Uint16Array(newIndices);
+        indicesAttr.setArray(newIndicesTyped);
+      }
+    }
+  };
+}
+
 async function main() {
   if (!existsSync(RAW_DIR)) {
     console.error(`[!] raw dir not found: ${RAW_DIR}`);
@@ -93,23 +134,22 @@ async function main() {
     const doc = await io.read(inPath);
 
     await doc.transform(
-      // 1) housekeeping
+      // 1) housekeeping & debris filtering
+      cleanDebris(file),
       dedup(),
       prune({ propertyTypes: ['NODE', 'MESH', 'MATERIAL', 'ACCESSOR', 'CAMERA', 'SKIN'] }),
       // 2) weld so draco is effective
       weld({ tolerance: 0.0001 }),
       // 3) cap textures at 2K (sharp)
       resizeTextures({ size: MAX_TEX_SIZE }),
-      // 4) re-encode textures: lossy PNG (RM maps) -> JPEG, JPEGs recompressed
-      textureCompress({ targetFormat: 'jpeg' }),
-      // 5) draco geometry compression
+      // 4) draco geometry compression
       draco({
         method: 'edgebreaker',
         encodeSpeed: 5,
         decodeSpeed: 5,
         quantizationBits: { POSITION: 14, NORMAL: 10, TEXCOORD: 12, COLOR: 8, GENERIC: 12 },
       }),
-      // 6) final prune of orphaned data
+      // 5) final prune of orphaned data
       prune(),
     );
 

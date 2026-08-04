@@ -111,7 +111,7 @@ All colors MUST be HSL.
   .contact-channel span { display: flex; flex-direction: column; gap: .25rem; } .contact-channel b { font-size: .82rem; } .contact-channel small { font-family: 'JetBrains Mono', monospace; font-size: .65rem; color: rgba(255,255,255,.45); overflow-wrap: anywhere; }
   .portal-canvas { height: 100% !important; width: 100% !important; } .portal-canvas canvas { outline: none; }
   .portal-fallback { display:grid; height:100%; place-items:center; border:1px solid rgba(167,139,250,.3); background:radial-gradient(circle, rgba(124,58,237,.45), transparent 45%); color:#c4b5fd; font-size:8rem; animation: portal-pulse 2.5s ease-in-out infinite; }
-  .prop-shell { height: 180px; width: 180px; max-width: 100%; } .prop-shell canvas { height:100% !important; width:100% !important; } .prop-fallback { display:grid; min-height:120px; place-items:center; color:#a78bfa; font-size:3rem; }
+  .prop-shell { height: 220px; width: 220px; max-width: 100%; } .prop-shell canvas { height:100% !important; width:100% !important; } .prop-fallback { display:grid; min-height:140px; place-items:center; color:#a78bfa; font-size:3rem; }
   .portal-transition { pointer-events:none; position:fixed; inset:0; z-index:90; opacity:0; background:radial-gradient(circle at center, rgba(167,139,250,.8) 0, rgba(76,29,149,.45) 12%, rgba(10,10,15,.94) 41%, transparent 65%); transform:scale(.05) rotate(0deg); transition:opacity .16s ease, transform .8s cubic-bezier(.2,.8,.15,1); }
   .portal-transition--active { opacity:1; transform:scale(2.4) rotate(140deg); }
   .boot-sequence { animation: boot-in .25s ease-out; }

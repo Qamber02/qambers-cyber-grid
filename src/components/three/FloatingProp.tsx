@@ -16,6 +16,9 @@ useGLTF.preload(modelPaths.crystal);
 
 function Model({ kind }: { kind: PropKind }) {
   const { scene } = useGLTF(modelPaths[kind]);
+  const [hovered, setHovered] = useState(false);
+  const group = useRef<THREE.Group>(null);
+
   const model = useMemo(() => {
     const clone = scene.clone(true);
 
@@ -38,25 +41,39 @@ function Model({ kind }: { kind: PropKind }) {
       const material = original.clone();
       material.emissive = new THREE.Color('#7c3aed');
       if (material.map) material.emissiveMap = material.map;
-      material.emissiveIntensity = kind === 'crystal' ? 0.7 : 0.45;
+      material.emissiveIntensity = kind === 'crystal' ? 0.75 : 0.5;
       material.metalness = 0.65;
       material.roughness = 0.3;
       node.material = material;
     });
     return wrapper;
   }, [kind, scene]);
-  const group = useRef<THREE.Group>(null);
+
   useFrame((state, delta) => {
     if (!group.current) return;
-    group.current.rotation.y += delta * (kind === 'dagger' ? 0.42 : 0.28);
-    group.current.position.y = Math.sin(state.clock.elapsedTime * 1.2) * 0.12;
+    const time = state.clock.elapsedTime;
+    const idleSpeed = kind === 'dagger' ? 0.42 : 0.28;
+    const idleFloat = Math.sin(time * 1.2) * 0.12;
+
+    const tiltX = state.pointer.y * 0.32;
+    const tiltY = state.pointer.x * 0.38;
+    const targetScale = (kind === 'dagger' ? 2.4 : 2.6) * (hovered ? 1.12 : 1.0);
+    const initialRot = kind === 'dagger' ? [0.35, 0.45, 0.4] : [0.2, 0.5, 0.1];
+
+    group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, initialRot[0] + tiltX, delta * 4);
+    group.current.rotation.y += delta * idleSpeed + (tiltY * 0.02);
+    group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, idleFloat, delta * 4);
+    group.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), delta * 5);
   });
+
   return (
     <primitive
       ref={group}
       object={model}
-      scale={kind === 'dagger' ? 2.2 : 2.4}
+      scale={kind === 'dagger' ? 2.4 : 2.6}
       rotation={kind === 'dagger' ? [0.35, 0.45, 0.4] : [0.2, 0.5, 0.1]}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
     />
   );
 }
