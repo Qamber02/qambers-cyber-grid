@@ -37,17 +37,33 @@ const BootSequence = () => {
     <button
       type="button"
       onClick={dismiss}
-      className="boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center px-6 text-left"
+      className="boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center px-6 text-left bg-[#050507] overflow-hidden"
       aria-label="Enter the Gate"
-      style={{
-        backgroundColor: '#050507',
-        backgroundImage: 'linear-gradient(to bottom, rgba(5,5,7,0.8), rgba(5,5,7,0.5)), url(/images/gate.jpg)',
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
-      <div className="max-w-xl text-center flex flex-col items-center">
+      {/* Background Broken Glass Layer for empty sides */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20 mix-blend-screen bg-cover bg-center" 
+        style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }} 
+      />
+      
+      {/* Gate Image Layer with horizontal edge fade */}
+      <div className="absolute inset-0 z-10 flex justify-center items-center pointer-events-none">
+        <img 
+          src="/images/gate.jpg" 
+          alt="" 
+          className="h-full w-full max-w-4xl object-contain object-center opacity-90" 
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+          }}
+        />
+      </div>
+
+      {/* Dark gradient overlay to ensure text readability */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#050507]/80 to-[#050507]/30 pointer-events-none" />
+
+      {/* Content Layer */}
+      <div className="relative z-20 max-w-xl text-center flex flex-col items-center">
         <p className="system-label mb-5 text-violet-300/80 tracking-[0.3em] font-bold">SYSTEM // INITIALIZATION</p>
         <p className="font-mono text-xl leading-relaxed text-violet-100 md:text-3xl drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]">
           {messages[messageIndex].slice(0, characters)}<span className="boot-caret">▋</span>
