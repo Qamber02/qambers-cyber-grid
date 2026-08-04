@@ -23,21 +23,6 @@ function Model({ kind }: { kind: PropKind }) {
 
   const modelWrapper = useMemo(() => {
     const clone = scene.clone(true);
-    const aspect = viewportSize.width > 0 && viewportSize.height > 0
-      ? viewportSize.width / viewportSize.height
-      : 1.0;
-
-    // High fill ratios for prominent visual weight: 0.94 for crystal, 0.98 for dagger
-    const fillRatio = kind === 'crystal' ? 0.94 : 0.98;
-
-    fitModelToContainer({
-      model: clone,
-      camera,
-      aspect,
-      fillRatio,
-      objectZ: 0,
-      fitAxis: 'height',
-    });
 
     clone.traverse((node) => {
       if (!(node instanceof THREE.Mesh)) return;
@@ -54,7 +39,29 @@ function Model({ kind }: { kind: PropKind }) {
     const wrapper = new THREE.Group();
     wrapper.add(clone);
     return wrapper;
-  }, [kind, scene, camera, viewportSize.width, viewportSize.height]);
+  }, [kind, scene]);
+
+  useEffect(() => {
+    if (!modelWrapper) return;
+    
+    const clone = modelWrapper.children[0];
+    if (!clone) return;
+
+    const aspect = viewportSize.width > 0 && viewportSize.height > 0
+      ? viewportSize.width / viewportSize.height
+      : 1.0;
+
+    const fillRatio = kind === 'crystal' ? 0.94 : 0.98;
+
+    fitModelToContainer({
+      model: clone,
+      camera,
+      aspect,
+      fillRatio,
+      objectZ: 0,
+      fitAxis: 'height',
+    });
+  }, [kind, modelWrapper, camera, viewportSize.width, viewportSize.height]);
 
   useFrame((state, delta) => {
     if (!group.current) return;

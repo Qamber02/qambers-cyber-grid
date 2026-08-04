@@ -35,35 +35,15 @@ export function fitModelToContainer({
   // 1. Guard aspect ratio against 0 / NaN during initial mount
   const safeAspect = aspect && !isNaN(aspect) && aspect > 0.05 ? aspect : 1.0;
 
-  // 2. Reset transforms and center local mesh geometries at (0, 0, 0)
+  // 2. Reset transforms to compute unscaled bounding box
   model.scale.set(1, 1, 1);
   model.position.set(0, 0, 0);
   model.rotation.set(0, 0, 0);
 
-  model.traverse((child) => {
-    if (child instanceof THREE.Mesh && child.geometry) {
-      child.geometry.center();
-    }
-  });
-
   model.updateMatrixWorld(true);
 
-  // Compute accurate bounding box from centered geometries
-  const box = new THREE.Box3();
-  model.traverse((child) => {
-    if (child instanceof THREE.Mesh && child.geometry) {
-      if (!child.geometry.boundingBox) {
-        child.geometry.computeBoundingBox();
-      }
-      if (child.geometry.boundingBox) {
-        box.union(child.geometry.boundingBox);
-      }
-    }
-  });
-
-  if (box.isEmpty()) {
-    box.setFromObject(model);
-  }
+  // Compute accurate world bounding box without mutating shared geometries
+  const box = new THREE.Box3().setFromObject(model);
 
   const size = box.getSize(new THREE.Vector3());
   const center = box.getCenter(new THREE.Vector3());
