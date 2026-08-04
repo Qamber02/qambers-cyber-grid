@@ -1,0 +1,217 @@
+.site-header-wrapper {
+  position: relative;
+  z-index: 60;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-row__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-toggle-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c4b5fd;
+  transition: opacity 0.2s ease;
+}
+.nav-toggle-label:hover {
+  opacity: 0.8;
+}
+
+.nav-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 9999px;
+  color: #ddd6fe;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.65, 0.05, 0.05, 0.99);
+  backdrop-filter: blur(12px);
+}
+.nav-close-btn:hover {
+  background: rgba(124, 58, 237, 0.3);
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+}
+
+.menu-button-text {
+  height: 1.25em;
+  overflow: hidden;
+  position: relative;
+}
+.menu-button-text p {
+  margin: 0;
+  line-height: 1.25em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.icon-wrap {
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-button-icon {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.fullscreen-menu-container {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.nav-overlay-wrapper {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.nav-overlay-wrapper[data-nav="open"] {
+  pointer-events: auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 12, 0.75);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+}
+
+.menu-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.menu-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.backdrop-layer {
+  position: absolute;
+  inset: 0;
+  background: #0a0a0f;
+  border-left: 1px solid rgba(167, 139, 250, 0.25);
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.7);
+}
+.backdrop-layer.first {
+  background: linear-gradient(135deg, #1e0938, #0a0a0f);
+}
+.backdrop-layer.second {
+  background: linear-gradient(135deg, #120424, #07070c);
+}
+
+.ambient-background-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.bg-shape.active {
+  opacity: 1;
+}
+
+.menu-content-wrapper {
+  position: relative;
+  z-index: 5;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.menu-list-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link-text {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  letter-spacing: -0.03em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-list-item:hover .nav-link-text {
+  color: #c4b5fd;
+  transform: translateX(12px);
+  text-shadow: 0 0 24px rgba(167, 139, 250, 0.6);
+}
+
+.nav-link-hover-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.menu-list-item:hover .nav-link-hover-bg {
+  opacity: 1;
+}
