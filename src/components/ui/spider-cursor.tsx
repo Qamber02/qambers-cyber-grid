@@ -96,6 +96,15 @@ export function SpiderCursor() {
       })
     }
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0]
+        spiders.forEach((spider) => {
+          spider.follow(touch.clientX, touch.clientY)
+        })
+      }
+    }
+
     function anim(t: number) {
       if (w !== window.innerWidth) w = canvas.width = window.innerWidth
       if (h !== window.innerHeight) h = canvas.height = window.innerHeight
@@ -149,10 +158,14 @@ export function SpiderCursor() {
     }
 
     window.addEventListener("pointermove", handlePointerMove)
+    window.addEventListener("touchmove", handleTouchMove)
+    window.addEventListener("touchstart", handleTouchMove)
     requestAnimationFrame(anim)
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove)
+      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener("touchstart", handleTouchMove)
     }
   }, [])
 
