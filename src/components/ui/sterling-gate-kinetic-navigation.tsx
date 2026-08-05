@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { usePortalTransition } from "../PortalTransition";
+import { useGate } from "../GateContext";
 import "./sterling-gate-kinetic-navigation.css";
 
 // Register GSAP Plugins safely
@@ -22,6 +23,8 @@ export function SterlingGateKineticNavigation() {
   const navigate = useNavigate();
   const location = useLocation();
   const { transition } = usePortalTransition();
+  const gate = useGate();
+  const isHome = location.pathname === '/';
 
   const menuItems: MenuItem[] = [
     { label: "About Qamber", route: "/about", shape: "1" },
@@ -185,29 +188,47 @@ export function SterlingGateKineticNavigation() {
         <header className="header backdrop-blur-md bg-[#0a0a0f]/80 border-b border-violet-400/20 px-6 py-3.5">
           <div className="container is--full max-w-7xl mx-auto">
             <nav className="nav-row flex items-center justify-between">
-              {/* Logo */}
-              <Link to="/" aria-label="home" className="nav-logo-row flex items-center gap-3 group">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-violet-400 transition-all duration-200 group-hover:shadow-[0_0_18px_rgba(167,139,250,0.65)]">
-                  <span className="font-sans text-sm font-bold text-violet-300">Q</span>
-                </div>
-                <span className="hidden sm:inline font-mono text-xs font-semibold tracking-widest text-violet-200/80">
-                  SYSTEM // GATE
-                </span>
-              </Link>
-
-              <div className="nav-row__right flex items-center gap-4">
-                {/* Menu Indicator */}
-                <div className="hidden sm:block nav-toggle-label" onClick={toggleMenu} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
-                  <span className="toggle-text text-violet-300 [@media(hover:hover)]:hover:text-violet-100 transition-colors">
-                    {isMenuOpen ? "CLOSE" : "MENU // ARISE"}
+              {/* Logo — on home calls gate.replay(), elsewhere navigates to / */}
+              {isHome ? (
+                <button
+                  id="nav-q-replay-btn"
+                  type="button"
+                  onClick={() => gate.replay()}
+                  aria-label="Replay gate"
+                  className="nav-logo-row flex items-center gap-3 group cursor-pointer"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-violet-400 transition-all duration-200 group-hover:shadow-[0_0_18px_rgba(167,139,250,0.65)]">
+                    <span className="font-sans text-sm font-bold text-violet-300">Q</span>
+                  </div>
+                  <span className="hidden sm:inline font-mono text-xs font-semibold tracking-widest text-violet-200/80">
+                    SYSTEM // GATE
                   </span>
-                </div>
-                
-                {/* Menu Button */}
-                <button role="button" className="nav-close-btn" onClick={toggleMenu} style={{ pointerEvents: 'auto' }}>
-                  <div className="menu-button-text">
-                    <p className="p-large">Menu</p>
-                    <p className="p-large">Close</p>
+                </button>
+              ) : (
+                <Link to="/" aria-label="home" className="nav-logo-row flex items-center gap-3 group">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-violet-400 transition-all duration-200 group-hover:shadow-[0_0_18px_rgba(167,139,250,0.65)]">
+                    <span className="font-sans text-sm font-bold text-violet-300">Q</span>
+                  </div>
+                  <span className="hidden sm:inline font-mono text-xs font-semibold tracking-widest text-violet-200/80">
+                    SYSTEM // GATE
+                  </span>
+                </Link>
+              )}
+
+              {!isHome && (
+                <div className="nav-row__right flex items-center gap-4">
+                  {/* Menu Indicator */}
+                  <div className="hidden sm:block nav-toggle-label" onClick={toggleMenu} style={{ cursor: 'pointer', pointerEvents: 'auto' }}>
+                    <span className="toggle-text text-violet-300 [@media(hover:hover)]:hover:text-violet-100 transition-colors">
+                      {isMenuOpen ? "CLOSE" : "MENU // ARISE"}
+                    </span>
+                  </div>
+                  
+                  {/* Menu Button */}
+                  <button role="button" className="nav-close-btn" onClick={toggleMenu} style={{ pointerEvents: 'auto' }}>
+                    <div className="menu-button-text">
+                      <p className="p-large">Menu</p>
+                      <p className="p-large">Close</p>
                   </div>
                   <div className="icon-wrap">
                     <svg
@@ -245,6 +266,7 @@ export function SterlingGateKineticNavigation() {
                   </div>
                 </button>
               </div>
+            )}
             </nav>
           </div>
         </header>

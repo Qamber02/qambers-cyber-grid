@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BootSequence from "./components/BootSequence";
 import { PortalTransitionProvider } from "./components/PortalTransition";
+import { GateProvider } from "./components/GateContext";
 
 const queryClient = new QueryClient();
 
@@ -22,17 +23,19 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <PortalTransitionProvider>
-          <BootSequence />
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
+          <GateProvider>
+            <BootSequence />
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Layout>
+          </GateProvider>
         </PortalTransitionProvider>
       </BrowserRouter>
     </TooltipProvider>

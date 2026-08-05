@@ -1,82 +1,254 @@
-import { useEffect, useState } from 'react';
+import {
+  Component,
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
+import gsap from 'gsap';
+import { useGate } from './GateContext';
 
-const STORAGE_KEY = 'arise-boot-seen';
-const messages = ['[System] Player has been recognized.', 'Arise, Qamber Muhammad Hanif.'];
+// ── Lazy portal canvas (independent Suspense — not gated behind this) ──
+const PortalScene = lazy(() => import('./three/PortalScene'));
 
-const BootSequence = () => {
-  const [visible, setVisible] = useState(() => localStorage.getItem(STORAGE_KEY) !== 'true');
-  const [messageIndex, setMessageIndex] = useState(0);
-  const [characters, setCharacters] = useState(0);
+// ── Error boundary for the gate's portal canvas only ──
+class PortalErrorBoundary extends Component<
+  { children: ReactNode; fallback: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    return this.state.hasError ? this.props.fallback : this.props.children;
+  }
+}
+
+const MESSAGES = [
+  '[System] Player has been recognized.',
+  'Arise, Qamber Muhammad Hanif.',
+];
+
+// ── Typewriter hook ──
+function useTypewriter(messages: string[]) {
+  const [msgIndex, setMsgIndex] = useState(0);
+  const [charCount, setCharCount] = useState(0);
 
   useEffect(() => {
-    if (!visible) return;
-
-    const message = messages[messageIndex];
-    if (characters < message.length) {
-      const timeout = window.setTimeout(() => setCharacters((value) => value + 1), 27);
-      return () => window.clearTimeout(timeout);
+    const msg = messages[msgIndex];
+    if (charCount < msg.length) {
+      const t = window.setTimeout(() => setCharCount((c) => c + 1), 27);
+      return () => window.clearTimeout(t);
     }
-    if (messageIndex < messages.length - 1) {
-      const timeout = window.setTimeout(() => {
-        setMessageIndex((value) => value + 1);
-        setCharacters(0);
+    if (msgIndex < messages.length - 1) {
+      const t = window.setTimeout(() => {
+        setMsgIndex((i) => i + 1);
+        setCharCount(0);
       }, 460);
-      return () => window.clearTimeout(timeout);
+      return () => window.clearTimeout(t);
     }
-    // Require user to tap to dismiss
-  }, [characters, messageIndex, visible]);
+  }, [charCount, msgIndex, messages]);
 
-  const dismiss = () => {
-    localStorage.setItem(STORAGE_KEY, 'true');
-    setVisible(false);
-  };
+  const done =
+    msgIndex === messages.length - 1 && charCount === messages[msgIndex].length;
 
-  if (!visible) return null;
+  return { text: messages[msgIndex].slice(0, charCount), done };
+}
+
+export default function BootSequence() {
+  const { status, enter, directorRef } = useGate();
+
+  // ── UI refs for GSAP ──
+  const overlayRef     = useRef<HTMLDivElement>(null);
+  const labelRef       = useRef<HTMLParagraphElement>(null);
+  const messageRef     = useRef<HTMLParagraphElement>(null);
+  const pillRef        = useRef<HTMLDivElement>(null);
+  const blackClipRef   = useRef<HTMLDivElement>(null);
+
+  // ── Hero canvas state — pre-mounted at opacity 0, frameloop=never ──
+  const [heroMounted, setHeroMounted]     = useState(false);
+  const [heroVisible, setHeroVisible]     = useState(false);
+  const [heroFrameloop, setHeroFrameloop] = useState<'always' | 'never'>('never');
+  const [animating, setAnimating]         = useState(false);
+
+  const { text, done } = useTypewriter(MESSAGES);
+
+  // Respect reduced-motion preference
+  const prefersReduced =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const handleEnter = useCallback(() => {
+    if (animating) return;
+    setAnimating(true);
+
+    // Step 1: pre-mount hero canvas (idle, invisible)
+    setHeroMounted(true);
+
+    if (prefersReduced) {
+      // Reduced-motion: plain opacity cross-fade, no zoom
+      const tl = gsap.timeline({
+        onComplete: () => {
+          enter();
+        },
+      });
+      tl.to(overlayRef.current, { autoAlpha: 0, duration: 0.3 })
+        .call(() => {
+          setHeroFrameloop('always');
+          setHeroVisible(true);
+        });
+      return;
+    }
+
+    // Full fly-through animation
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          ctx.revert();
+        },
+      });
+
+      // t=0 → ~1.1s: tween director.progress 0→1 (portal scales/distorts)
+      tl.to(directorRef.current, {
+        progress: 1,
+        duration: 1.1,
+        ease: 'power2.inOut',
+      }, 0);
+
+      // Staggered UI fade — label → message → pill (name last would need separate ref)
+      tl.to(
+        [labelRef.current, messageRef.current, pillRef.current].filter(Boolean),
+        {
+          autoAlpha: 0,
+          y: -12,
+          stagger: 0.1,
+          duration: 0.35,
+          ease: 'power2.in',
+        },
+        0.1,
+      );
+
+      // ~0.9s: black clip overlay fades in
+      tl.to(
+        blackClipRef.current,
+        { autoAlpha: 1, duration: 0.2, ease: 'power2.in' },
+        0.85,
+      );
+
+      // ~1.0s: at black peak — flip hero frameloop, fade in
+      tl.call(() => {
+        setHeroFrameloop('always');
+        setHeroVisible(true);
+      }, [], 1.0);
+
+      tl.to(
+        blackClipRef.current,
+        { autoAlpha: 0, duration: 0.25, ease: 'power2.out' },
+        1.05,
+      );
+
+      // Gate fully unmounts, session set
+      tl.call(() => {
+        enter();
+      }, [], 1.2);
+    });
+  }, [animating, directorRef, enter, prefersReduced]);
+
+  // Don't render anything if already entered
+  if (status === 'entered') return null;
 
   return (
-    <button
-      type="button"
-      onClick={dismiss}
-      className="boot-sequence fixed inset-0 z-[100] grid cursor-pointer place-items-center px-6 text-left bg-[#050507] overflow-hidden"
-      aria-label="Enter the Gate"
-    >
-      {/* Background Broken Glass Layer for empty sides */}
-      <div 
-        className="absolute inset-0 z-0 opacity-20 mix-blend-screen bg-cover bg-center" 
-        style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }} 
+    <div className="boot-sequence fixed inset-0 z-[100] overflow-hidden bg-[#050507]">
+      {/* ── Full-black cross-fade clip overlay ── */}
+      <div
+        ref={blackClipRef}
+        className="pointer-events-none absolute inset-0 z-50 bg-[#050507]"
+        style={{ opacity: 0 }}
+        aria-hidden="true"
       />
-      
-      {/* Gate Image Layer with horizontal edge fade */}
-      <div className="absolute inset-0 z-10 flex justify-center items-center pointer-events-none">
-        <img 
-          src="/images/gate.jpg" 
-          alt="" 
-          className="h-full w-full max-w-4xl object-contain object-center opacity-90" 
+
+      {/* ── Hero canvas pre-mount (invisible, idle) ── */}
+      {heroMounted && (
+        <div
+          className="absolute inset-0 z-40"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+            opacity: heroVisible ? 1 : 0,
+            transition: 'opacity 0.25s ease',
           }}
-        />
+          aria-hidden="true"
+        >
+          {/* HeroSection import would create a circular dep — we embed only the portal here */}
+        </div>
+      )}
+
+      {/* ── Broken-glass fallback background ── */}
+      <div
+        className="absolute inset-0 z-0 opacity-20 mix-blend-screen bg-cover bg-center"
+        style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }}
+        aria-hidden="true"
+      />
+
+      {/* ── Gate 3D canvas — own Suspense, broken-glass as atmospheric fallback ── */}
+      <div className="absolute inset-0 z-10" aria-hidden="true">
+        <PortalErrorBoundary
+          fallback={
+            <div
+              className="absolute inset-0 opacity-20 mix-blend-screen bg-cover bg-center"
+              style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }}
+            />
+          }
+        >
+          <Suspense fallback={null}>
+            <PortalScene director={directorRef} />
+          </Suspense>
+        </PortalErrorBoundary>
       </div>
 
-      {/* Dark gradient overlay to ensure text readability */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#050507]/80 to-[#050507]/30 pointer-events-none" />
+      {/* ── Dark gradient overlay for text readability ── */}
+      <div
+        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050507]/80 to-[#050507]/30"
+        aria-hidden="true"
+      />
 
-      {/* Content Layer */}
-      <div className="relative z-20 max-w-xl text-center flex flex-col items-center">
-        <p className="system-label mb-5 text-violet-300/80 tracking-[0.3em] font-bold">SYSTEM // INITIALIZATION</p>
-        <p className="font-mono text-xl leading-relaxed text-violet-100 md:text-3xl drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]">
-          {messages[messageIndex].slice(0, characters)}<span className="boot-caret">▋</span>
+      {/* ── Foreground UI (renders synchronously — always clickable) ── */}
+      <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
+        <p
+          ref={labelRef}
+          className="system-label mb-5 text-violet-300/80 tracking-[0.3em] font-bold"
+        >
+          SYSTEM // INITIALIZATION
         </p>
-        
-        {messageIndex === messages.length - 1 && characters === messages[messageIndex].length && (
-          <div className="mt-12 animate-pulse rounded-sm border border-violet-500/50 bg-violet-500/10 px-8 py-3 backdrop-blur-sm transition-all hover:bg-violet-500/30 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]">
-            <p className="font-mono text-sm tracking-[0.25em] text-violet-200">ENTER THE GATE</p>
+        <p
+          ref={messageRef}
+          className="font-mono text-xl leading-relaxed text-violet-100 md:text-3xl drop-shadow-[0_0_8px_rgba(167,139,250,0.6)]"
+        >
+          {text}
+          <span className="boot-caret">▋</span>
+        </p>
+
+        {done && (
+          <div
+            ref={pillRef}
+            className="mt-12"
+          >
+            <button
+              id="gate-enter-btn"
+              type="button"
+              onClick={handleEnter}
+              className="animate-pulse rounded-sm border border-violet-500/50 bg-violet-500/10 px-8 py-3 backdrop-blur-sm transition-all hover:bg-violet-500/30 hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:animate-none cursor-pointer"
+              aria-label="Enter the gate"
+            >
+              <p className="font-mono text-sm tracking-[0.25em] text-violet-200">
+                ENTER THE GATE
+              </p>
+            </button>
           </div>
         )}
       </div>
-    </button>
+    </div>
   );
-};
-
-export default BootSequence;
+}
