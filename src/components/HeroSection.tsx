@@ -69,17 +69,8 @@ const HeroSection = () => (
         </div>
       </div>
 
-      {/* Center Column: RED Marker Side - Free-Floating 3D Dagger with Magic Rune Aura */}
+      {/* Center Column: RED Marker Side - Free-Floating 3D Dagger */}
       <div className="relative mx-auto w-full h-[550px] sm:h-[640px] lg:h-[720px] flex items-center justify-center">
-        {/* Magic Rune Circle Aura Background */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <img
-            src="/images/magic-rune-circle.png"
-            alt="Magic Rune Aura"
-            className="w-[480px] h-[480px] sm:w-[580px] sm:h-[580px] lg:w-[660px] lg:h-[660px] max-w-none object-contain opacity-80 mix-blend-screen animate-[spin_100s_linear_infinite]"
-          />
-        </div>
-
         <Suspense fallback={<div className="prop-fallback text-4xl" aria-hidden="true"><span>◇</span></div>}>
           <FloatingProp kind="dagger" fillRatio={0.98} interactive={true} />
         </Suspense>
@@ -91,9 +82,9 @@ const HeroSection = () => (
           <p className="mb-3 font-mono text-xs sm:text-sm tracking-widest text-red-400">
             [System] Primary Item // Class: S-Rank
           </p>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight text-white">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[1.08] tracking-tight text-white">
             Equipped,<br />
-            <span className="bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(239,68,68,0.6)]">
+            <span className="block mt-1 bg-gradient-to-r from-red-400 via-rose-500 to-red-600 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(239,68,68,0.6)]">
               WEAPON.
             </span>
           </h2>
