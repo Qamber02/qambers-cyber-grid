@@ -22,7 +22,7 @@ class PortalErrorBoundary extends Component<{ children: ReactNode }, { hasError:
 const HeroSection = () => (
   <section className="relative flex min-h-screen items-center justify-center overflow-hidden py-16 md:py-24">
     {/* Ambient background glow */}
-    <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[140px]" />
+    <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[140px]" />
 
     <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
       {/* Left Column: Player Info & System HUD */}

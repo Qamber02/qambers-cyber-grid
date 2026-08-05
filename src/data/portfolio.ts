@@ -64,6 +64,7 @@ export const portfolioData = {
       id: 1,
       title: "Cherág",
       subtitle: "AI Study Platform for Low Connectivity",
+      proof: "800+ users",
       description: "AI-powered study assistant designed for students with limited/unreliable internet. Built a 5-tier multi-model AI cascade (Gemini, DeepSeek, Groq Llama 3.3 70B, HuggingFace, OpenRouter) with automatic failover and key rotation — maintaining 99%+ AI feature uptime.",
       techStack: ["React 19", "FastAPI", "Supabase", "5-Tier AI Cascade", "Gemini", "Groq"],
       highlights: [
@@ -80,6 +81,7 @@ export const portfolioData = {
       id: 2,
       title: "Karwan",
       subtitle: "Hyperlocal Food Delivery for Gwadar & Turbat",
+      proof: "Zero-coverage regions",
       description: "Hyperlocal food delivery platform built specifically for Gwadar and Turbat — regions with zero existing food delivery coverage. Engineered customer mobile app, vendor dashboard, and admin panel as three distinct interfaces on a unified backend.",
       techStack: ["Flutter", "FastAPI", "Supabase", "React", "RBAC"],
       highlights: [
@@ -94,6 +96,7 @@ export const portfolioData = {
       id: 3,
       title: "Offline-First POS System",
       subtitle: "Retail Point of Sale with IndexedDB",
+      proof: "100% offline capable",
       description: "Full-featured, offline-first POS system designed for low-connectivity retail environments. Built a local-first IndexedDB layer with background Supabase auto-sync upon reconnection.",
       techStack: ["React 18", "TypeScript", "Supabase", "IndexedDB", "Electron"],
       highlights: [
@@ -108,6 +111,7 @@ export const portfolioData = {
       id: 4,
       title: "DSA Visualizer",
       subtitle: "Interactive Algorithm & Data Structure Tool",
+      proof: "40% comprehension boost",
       description: "Engineered an interactive visualization tool that dynamically illustrates complex data structures and algorithms, boosting user comprehension by over 40% in usability testing.",
       techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
       highlights: [

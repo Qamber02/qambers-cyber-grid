@@ -39,7 +39,12 @@ const ProjectsSection = () => (
                 <div>
                   <p className="font-mono text-xs tracking-[.2em] text-violet-300/70">GATE 0{index + 1}</p>
                   <h2 className="mt-3 text-2xl font-bold text-white">{project.title}</h2>
-                  <p className="mt-1 text-sm text-violet-200/70 font-mono">{project.subtitle}</p>
+                  {project.proof && (
+                    <div className="mt-2">
+                      <span className="proof-chip">{project.proof}</span>
+                    </div>
+                  )}
+                  <p className="mt-3 text-sm text-violet-200/70 font-mono">{project.subtitle}</p>
                 </div>
                 <span className="rank-badge">{ranks[index]}</span>
               </div>
