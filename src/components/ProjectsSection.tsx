@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, ExternalLink, Github } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Github, Shield } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
 
 const ranks = ['S', 'S', 'A', 'B'] as const;
