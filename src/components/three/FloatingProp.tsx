@@ -14,6 +14,7 @@ export interface FloatingPropProps {
   emissive?: string;
   pointLightIntensity?: number;
   idleSpin?: boolean;
+  fillRatio?: number;
 }
 
 const modelPaths: Record<PropKind, string> = {
@@ -30,6 +31,7 @@ function Model({
   emissiveIntensity,
   emissive = '#7c3aed',
   idleSpin = true,
+  fillRatio: customFillRatio,
 }: FloatingPropProps) {
   const { scene } = useGLTF(modelPaths[kind]);
   const { camera, size: viewportSize } = useThree();
@@ -42,8 +44,8 @@ function Model({
       ? viewportSize.width / viewportSize.height
       : 1.0;
 
-    // High fill ratios for prominent visual weight: 0.94 for crystal, 0.98 for dagger
-    const fillRatio = kind === 'crystal' ? 0.94 : 0.98;
+    // High fill ratios for prominent visual weight: 0.94 for crystal, 0.98 for dagger (unless custom fillRatio provided)
+    const fillRatio = customFillRatio !== undefined ? customFillRatio : (kind === 'crystal' ? 0.94 : 0.98);
 
     fitModelToContainer({
       model: clone,
@@ -84,6 +86,7 @@ function Model({
     const time = state.clock.elapsedTime;
     const idleSpeed = kind === 'dagger' ? 0.35 : 0.28;
     const idleFloat = Math.sin(time * 1.2) * 0.04;
+    const idleSway = Math.sin(time * 0.5) * 0.05;
 
     const tiltX = state.pointer.y * 0.22;
     const tiltY = state.pointer.x * 0.25;
