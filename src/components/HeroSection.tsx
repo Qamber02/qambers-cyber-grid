@@ -69,13 +69,13 @@ const HeroSection = () => (
         </div>
       </div>
 
-      {/* Center Column: RED Marker Side - Free-Floating 3D Dagger with Rune Magic Circle */}
+      {/* Center Column: RED Marker Side - Free-Floating 3D Dagger with Magic Rune Aura */}
       <div className="relative mx-auto w-full h-[550px] sm:h-[640px] lg:h-[720px] flex items-center justify-center">
-        {/* User's Rune Magic Circle Background */}
+        {/* Generated AI Magic Rune Circle Background */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <img
-            src="/images/user-rune-magic-circle.png"
-            alt="Rune Magic Circle"
+            src="/images/magic-rune-circle.png"
+            alt="Magic Rune Aura"
             className="w-[480px] h-[480px] sm:w-[580px] sm:h-[580px] lg:w-[680px] lg:h-[680px] max-w-none object-contain opacity-85 mix-blend-screen animate-[spin_120s_linear_infinite]"
           />
         </div>
@@ -85,8 +85,8 @@ const HeroSection = () => (
         </Suspense>
       </div>
 
-      {/* Far Right Column: BLUE Marker Side - Equipped WEAPON Heading, Stats & Action Buttons */}
-      <div className="relative z-10 space-y-5 text-left">
+      {/* Far Right Column: BLUE Marker Side - Equipped WEAPON Heading, Stats & Action Buttons (Shifted Right) */}
+      <div className="relative z-10 space-y-5 text-left pl-6 sm:pl-10 lg:pl-16">
         <div>
           <p className="mb-3 font-mono text-xs sm:text-sm tracking-widest text-red-400">
             [System] Primary Item // Class: S-Rank
