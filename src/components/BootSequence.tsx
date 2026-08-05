@@ -185,20 +185,25 @@ export default function BootSequence() {
         </div>
       )}
 
-      {/* ── Broken-glass fallback background ── */}
+      {/* ── Gate atmospheric background ── */}
       <div
-        className="absolute inset-0 z-0 opacity-20 mix-blend-screen bg-cover bg-center"
+        className="absolute inset-0 z-0 opacity-45 bg-cover bg-center"
+        style={{ backgroundImage: 'url(/images/gate.jpg)' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 z-0 opacity-15 mix-blend-screen bg-cover bg-center"
         style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }}
         aria-hidden="true"
       />
 
-      {/* ── Gate 3D canvas — own Suspense, broken-glass as atmospheric fallback ── */}
+      {/* ── Gate 3D canvas — own Suspense ── */}
       <div className="absolute inset-0 z-10" aria-hidden="true">
         <PortalErrorBoundary
           fallback={
             <div
-              className="absolute inset-0 opacity-20 mix-blend-screen bg-cover bg-center"
-              style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }}
+              className="absolute inset-0 opacity-40 bg-cover bg-center"
+              style={{ backgroundImage: 'url(/images/gate.jpg)' }}
             />
           }
         >
@@ -210,7 +215,7 @@ export default function BootSequence() {
 
       {/* ── Dark gradient overlay for text readability ── */}
       <div
-        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050507]/80 to-[#050507]/30"
+        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050507]/70 via-[#050507]/20 to-[#050507]/80"
         aria-hidden="true"
       />
 
