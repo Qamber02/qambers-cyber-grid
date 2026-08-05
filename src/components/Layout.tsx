@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from './Navigation';
 import { SpiderCursor } from '@/components/ui/spider-cursor';
+import BackgroundAudio from './BackgroundAudio';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -28,6 +29,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="relative min-h-screen overflow-x-hidden z-0">
       <div className="system-backdrop fixed inset-0 z-0 pointer-events-none" />
+
+      {/* Background OST Audio Controller */}
+      <BackgroundAudio />
 
       {/* Global thematic overlay - broken glass (subtle) */}
       <div

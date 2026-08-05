@@ -90,7 +90,6 @@ export const portfolioData = {
         "Restaurant-owned delivery model at 12% commission",
       ],
       color: "primary",
-      sourceLink: "https://github.com/Qamber02/karwan",
     },
     {
       id: 3,
