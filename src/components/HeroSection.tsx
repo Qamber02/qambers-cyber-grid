@@ -71,12 +71,12 @@ const HeroSection = () => (
 
       {/* Center Column: RED Marker Side - Free-Floating 3D Dagger with Magic Rune Aura */}
       <div className="relative mx-auto w-full h-[550px] sm:h-[640px] lg:h-[720px] flex items-center justify-center">
-        {/* Generated AI Magic Rune Circle Background */}
+        {/* Pure Alpha Transparent Magic Rune Circle Background */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <img
-            src="/images/magic-rune-circle.png"
+            src="/images/magic-rune-circle-transparent.png"
             alt="Magic Rune Aura"
-            className="w-[480px] h-[480px] sm:w-[580px] sm:h-[580px] lg:w-[680px] lg:h-[680px] max-w-none object-contain opacity-85 mix-blend-screen animate-[spin_120s_linear_infinite]"
+            className="w-[480px] h-[480px] sm:w-[580px] sm:h-[580px] lg:w-[680px] lg:h-[680px] max-w-none object-contain opacity-90 animate-[spin_120s_linear_infinite]"
           />
         </div>
 
