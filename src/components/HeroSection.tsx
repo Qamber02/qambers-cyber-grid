@@ -69,8 +69,17 @@ const HeroSection = () => (
         </div>
       </div>
 
-      {/* Center Column: RED Marker Side - Free-Floating 3D Dagger */}
+      {/* Center Column: RED Marker Side - Free-Floating 3D Dagger with Rune Magic Circle */}
       <div className="relative mx-auto w-full h-[550px] sm:h-[640px] lg:h-[720px] flex items-center justify-center">
+        {/* User's Rune Magic Circle Background */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <img
+            src="/images/user-rune-magic-circle.png"
+            alt="Rune Magic Circle"
+            className="w-[480px] h-[480px] sm:w-[580px] sm:h-[580px] lg:w-[680px] lg:h-[680px] max-w-none object-contain opacity-85 mix-blend-screen animate-[spin_120s_linear_infinite]"
+          />
+        </div>
+
         <Suspense fallback={<div className="prop-fallback text-4xl" aria-hidden="true"><span>◇</span></div>}>
           <FloatingProp kind="dagger" fillRatio={0.98} interactive={true} />
         </Suspense>
