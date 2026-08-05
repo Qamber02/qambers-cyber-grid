@@ -7,6 +7,15 @@ import { fitModelToContainer } from '@/lib/three-fit';
 
 type PropKind = 'dagger' | 'crystal';
 
+export interface FloatingPropProps {
+  kind: PropKind;
+  opacity?: number;
+  emissiveIntensity?: number;
+  emissive?: string;
+  pointLightIntensity?: number;
+  idleSpin?: boolean;
+}
+
 const modelPaths: Record<PropKind, string> = {
   dagger: '/models/optimized/rune-dagger.glb',
   crystal: '/models/optimized/crystal-core.glb',
@@ -15,7 +24,13 @@ useGLTF.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/'
 useGLTF.preload(modelPaths.dagger);
 useGLTF.preload(modelPaths.crystal);
 
-function Model({ kind }: { kind: PropKind }) {
+function Model({
+  kind,
+  opacity = 1,
+  emissiveIntensity,
+  emissive = '#7c3aed',
+  idleSpin = true,
+}: FloatingPropProps) {
   const { scene } = useGLTF(modelPaths[kind]);
   const { camera, size: viewportSize } = useThree();
   const [hovered, setHovered] = useState(false);
@@ -43,9 +58,17 @@ function Model({ kind }: { kind: PropKind }) {
       if (!(node instanceof THREE.Mesh)) return;
       const original = Array.isArray(node.material) ? node.material[0] : node.material;
       const material = original ? original.clone() : new THREE.MeshStandardMaterial();
-      material.emissive = new THREE.Color('#7c3aed');
+      material.emissive = new THREE.Color(emissive);
       if (material.map) material.emissiveMap = material.map;
-      material.emissiveIntensity = kind === 'crystal' ? 1.1 : 0.85;
+      
+      const defaultIntensity = kind === 'crystal' ? 1.1 : 0.85;
+      material.emissiveIntensity = emissiveIntensity !== undefined ? emissiveIntensity : defaultIntensity;
+      
+      if (opacity < 1) {
+        material.transparent = true;
+        material.opacity = opacity;
+      }
+      
       material.metalness = 0.7;
       material.roughness = 0.25;
       node.material = material;
@@ -68,7 +91,11 @@ function Model({ kind }: { kind: PropKind }) {
     const initialRot = kind === 'dagger' ? [0.15, 0.35, 0.1] : [0.2, 0.5, 0.1];
 
     group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, initialRot[0] + tiltX, delta * 4);
-    group.current.rotation.y += delta * idleSpeed + (tiltY * 0.02);
+    if (idleSpin) {
+      group.current.rotation.y += delta * idleSpeed + (tiltY * 0.02);
+    } else {
+      group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, initialRot[1] + tiltY + idleSway, delta * 4);
+    }
     group.current.position.y = THREE.MathUtils.lerp(group.current.position.y, idleFloat, delta * 4);
     group.current.scale.lerp(new THREE.Vector3(hoverScale, hoverScale, hoverScale), delta * 5);
   });
@@ -83,7 +110,7 @@ function Model({ kind }: { kind: PropKind }) {
   );
 }
 
-export default function FloatingProp({ kind }: { kind: PropKind }) {
+export default function FloatingProp(props: FloatingPropProps) {
   const host = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(true);
   const [webgl, setWebgl] = useState(false);
@@ -119,9 +146,9 @@ export default function FloatingProp({ kind }: { kind: PropKind }) {
         >
           <ambientLight intensity={0.6} />
           <directionalLight position={[3, 4, 4]} intensity={3.8} color="#ddd6fe" />
-          <pointLight color="#7c3aed" intensity={12} position={[-2, -1, 2]} />
+          <pointLight color={props.emissive || "#7c3aed"} intensity={props.pointLightIntensity ?? 12} position={[-2, -1, 2]} />
           <Suspense fallback={null}>
-            <Model kind={kind} />
+            <Model {...props} />
           </Suspense>
         </Canvas>
       )}

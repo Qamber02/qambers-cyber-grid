@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { portfolioData } from '@/data/portfolio';
 
 const PortalScene = lazy(() => import('./three/PortalScene'));
+const FloatingProp = lazy(() => import('./three/FloatingProp'));
 
 class PortalErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
   state = { hasError: false };
@@ -25,17 +26,33 @@ const HeroSection = () => (
 
     <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
       {/* Left Column: Player Info & System HUD */}
-      <div className="relative z-10">
-        {/* System Header Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/25 bg-violet-950/40 px-3.5 py-1.5 backdrop-blur-md mb-6">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
-          </span>
-          <span className="system-label text-[11px] font-semibold text-violet-300 tracking-[0.22em]">
-            SYSTEM ACTIVE // SHADOW MONARCH
-          </span>
+      <div className="relative z-10 w-full">
+        {/* Phase 2: Desaturated Dagger Canvas */}
+        <div 
+          className="absolute inset-0 -inset-y-32 -inset-x-16 pointer-events-none z-[5] opacity-40" 
+          style={{ transform: 'rotate(-15deg)' }}
+        >
+          <PortalErrorBoundary>
+            <Suspense fallback={<div className="prop-fallback" aria-hidden="true"><span>◇</span></div>}>
+              <FloatingProp kind="dagger" opacity={0.4} emissiveIntensity={0.3} emissive="#6b7280" pointLightIntensity={4} idleSpin={false} />
+            </Suspense>
+          </PortalErrorBoundary>
         </div>
+
+        {/* Phase 2: Subtle Scrim for legibility */}
+        <div className="absolute inset-0 pointer-events-none z-[6]" style={{ background: 'radial-gradient(circle at 30% 20%, rgba(10,10,15,0.4) 0%, transparent 50%)' }} />
+        
+        <div className="relative z-10">
+          {/* System Header Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/25 bg-violet-950/40 px-3.5 py-1.5 backdrop-blur-md mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+            </span>
+            <span className="system-label text-[11px] font-semibold text-violet-300 tracking-[0.22em]">
+              SYSTEM ACTIVE // SHADOW MONARCH
+            </span>
+          </div>
 
         <p className="mb-3 font-mono text-xs tracking-wider text-violet-300/70">
           [System] Player status recognized. Class: Full-Stack Architect.
@@ -101,6 +118,7 @@ const HeroSection = () => (
         <div className="mt-10 flex items-center gap-3 font-mono text-xs text-violet-200/50">
           <Shield size={15} className="text-violet-400" />
           SYSTEM VERIFIED // NOBARA LINUX DEV ENVIRONMENT
+        </div>
         </div>
       </div>
 
