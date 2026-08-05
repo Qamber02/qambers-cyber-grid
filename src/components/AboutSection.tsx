@@ -44,6 +44,26 @@ const AboutSection = () => (
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{[
         ['LOCATION', 'Gwadar, Balochistan'], ['UNIVERSITY', 'University of Turbat'], ['GRADUATING', '2027'], ['STATUS', 'Available'],
       ].map(([label, value]) => <div key={label} className="system-panel p-4"><p className="system-label text-violet-300/70">{label}</p><p className="mt-2 text-sm font-semibold text-white/85">{value}</p></div>)}</div>
+      
+      {/* Current Quest Widget */}
+      <div className="mt-8 system-panel p-6 md:p-8 border-violet-500/30">
+        <div className="flex items-center justify-between mb-5">
+          <span className="system-label text-violet-300">CURRENT QUEST</span>
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-violet-500"></span>
+          </span>
+        </div>
+        <p className="font-mono text-sm md:text-base text-violet-200 leading-relaxed">
+          Building <strong className="text-white">Karwan</strong> — bringing hyperlocal food delivery to Gwadar and Turbat. Bootstrapping the entire architecture from zero to production.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <span className="proof-chip border-violet-500/20">Flutter</span>
+          <span className="proof-chip border-violet-500/20">FastAPI</span>
+          <span className="proof-chip border-violet-500/20">Supabase</span>
+          <span className="proof-chip border-violet-500/20">React</span>
+        </div>
+      </div>
       <div className="mt-14 grid gap-8 md:grid-cols-2">
         <div><p className="system-label text-violet-300">EDUCATION LOG</p><div className="mt-5 space-y-3">{portfolioData.education.map((education) => <article key={education.institution} className="system-panel p-5"><p className="font-semibold text-violet-100">{education.institution}</p><p className="mt-1 text-sm text-white/55">{education.degree}</p><p className="mt-3 font-mono text-xs text-violet-300/70">{education.gpa || education.score} // {education.graduationDate}</p></article>)}</div></div>
         <div><p className="system-label text-violet-300">ACHIEVEMENTS</p><div className="mt-5 space-y-3">{portfolioData.certifications.map((certification) => <article key={certification} className="system-panel flex gap-3 p-4 text-sm text-white/70"><span className="text-violet-400">◇</span>{certification}</article>)}</div></div>
