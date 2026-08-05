@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useGLTF } from '@react-three/drei';
+import { useGLTF, PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { supportsWebGL } from '@/lib/webgl';
 import { fitModelToContainer } from '@/lib/three-fit';
@@ -15,6 +15,7 @@ export interface FloatingPropProps {
   pointLightIntensity?: number;
   idleSpin?: boolean;
   fillRatio?: number;
+  interactive?: boolean;
 }
 
 const modelPaths: Record<PropKind, string> = {
@@ -79,7 +80,7 @@ function Model({
     const wrapper = new THREE.Group();
     wrapper.add(clone);
     return wrapper;
-  }, [kind, scene, camera, viewportSize.width, viewportSize.height]);
+  }, [kind, scene, camera, viewportSize.width, viewportSize.height, emissive, emissiveIntensity, opacity, customFillRatio]);
 
   useFrame((state, delta) => {
     if (!group.current) return;
@@ -151,7 +152,21 @@ export default function FloatingProp(props: FloatingPropProps) {
           <directionalLight position={[3, 4, 4]} intensity={3.8} color="#ddd6fe" />
           <pointLight color={props.emissive || "#7c3aed"} intensity={props.pointLightIntensity ?? 12} position={[-2, -1, 2]} />
           <Suspense fallback={null}>
-            <Model {...props} />
+            {props.interactive ? (
+              <PresentationControls
+                global={false}
+                cursor={true}
+                snap={true}
+                speed={1.8}
+                zoom={1}
+                polar={[-Math.PI / 3, Math.PI / 3]}
+                azimuth={[-Math.PI, Math.PI]}
+              >
+                <Model {...props} />
+              </PresentationControls>
+            ) : (
+              <Model {...props} />
+            )}
           </Suspense>
         </Canvas>
       )}

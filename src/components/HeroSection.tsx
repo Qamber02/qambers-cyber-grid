@@ -94,11 +94,11 @@ const HeroSection = () => (
       </div>
 
       {/* Right Column: 3D Weapon Frame & Diagnostics HUD */}
-      <div className="relative mx-auto w-full max-w-[540px]">
+      <div className="relative mx-auto w-full h-full min-h-[560px] sm:min-h-[640px] lg:min-h-[700px]">
         {/* Decorative corner borders */}
         <div className="pointer-events-none absolute -inset-2 rounded-2xl border border-violet-500/20 bg-gradient-to-b from-violet-500/10 via-transparent to-purple-900/10 backdrop-blur-3xl" />
 
-        <div className="portal-shell relative h-[420px] w-full overflow-hidden rounded-xl border border-violet-400/30 bg-[#07070c]/80 shadow-[0_0_50px_rgba(124,58,237,0.25)] md:h-[500px]">
+        <div className="portal-shell relative h-full min-h-[560px] sm:min-h-[640px] lg:min-h-[700px] w-full overflow-hidden rounded-xl border border-violet-400/30 bg-[#07070c]/80 shadow-[0_0_50px_rgba(124,58,237,0.25)]">
           {/* Top Frame Status Bar */}
           <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between border-b border-violet-400/15 bg-[#0a0a0f]/80 px-4 py-2.5 font-mono text-[10px] text-violet-200/70 backdrop-blur-md">
             <span className="flex items-center gap-2">
@@ -109,7 +109,7 @@ const HeroSection = () => (
           </div>
 
           <Suspense fallback={<div className="prop-fallback" aria-hidden="true"><span>◇</span></div>}>
-            <FloatingProp kind="dagger" fillRatio={0.7} />
+            <FloatingProp kind="dagger" fillRatio={0.96} interactive={true} />
           </Suspense>
 
           {/* Bottom Frame Status Overlay */}
