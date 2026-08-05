@@ -79,9 +79,9 @@ const ProjectsSection = () => (
                   rel="noopener noreferrer"
                   className="system-button system-button--solid text-xs gap-2"
                 >
-                  Launch Cherág App <ExternalLink size={14} />
+                  Launch {project.title} App <ExternalLink size={14} />
                 </a>
-              ) : (
+              ) : project.sourceLink ? (
                 <a
                   href={project.sourceLink}
                   target="_blank"
@@ -90,6 +90,11 @@ const ProjectsSection = () => (
                 >
                   View Repository <ArrowUpRight size={14} />
                 </a>
+              ) : (
+                <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-950/40 px-3.5 py-1.5 backdrop-blur-sm text-xs font-mono tracking-wider text-violet-300/80">
+                  <Shield size={14} className="text-violet-400" />
+                  <span>PROPRIETARY SYSTEM // IN PRODUCTION</span>
+                </div>
               )}
 
               {project.sourceLink && project.liveLink && (
