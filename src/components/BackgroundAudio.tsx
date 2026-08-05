@@ -5,23 +5,66 @@ export default function BackgroundAudio() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    const playAudio = () => {
+      if (!audioRef.current) return;
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          // Autoplay blocked by browser policy — fallback to first user interaction
+        });
+    };
+
+    // Attempt instant autoplay
+    playAudio();
+
+    // Fallback: trigger playback on first user gesture anywhere on the page
+    const handleUserGesture = () => {
+      if (audioRef.current && audioRef.current.paused) {
+        playAudio();
+      }
+      window.removeEventListener('click', handleUserGesture);
+      window.removeEventListener('keydown', handleUserGesture);
+      window.removeEventListener('pointerdown', handleUserGesture);
+      window.removeEventListener('touchstart', handleUserGesture);
+    };
+
+    window.addEventListener('click', handleUserGesture);
+    window.addEventListener('keydown', handleUserGesture);
+    window.addEventListener('pointerdown', handleUserGesture);
+    window.addEventListener('touchstart', handleUserGesture);
+
+    return () => {
+      window.removeEventListener('click', handleUserGesture);
+      window.removeEventListener('keydown', handleUserGesture);
+      window.removeEventListener('pointerdown', handleUserGesture);
+      window.removeEventListener('touchstart', handleUserGesture);
+    };
+  }, []);
+
   const toggleAudio = () => {
     if (!audioRef.current) return;
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch((err) => {
-        console.warn('Audio playback error:', err);
-      });
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((err) => {
+          console.warn('Audio playback error:', err);
+        });
     }
   };
 
   return (
     <div className="fixed bottom-6 left-6 z-[60]">
-      <audio ref={audioRef} src="/audio/bg-ost.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/audio/bg-ost.mp3" loop autoPlay preload="auto" />
       <button
         id="bg-audio-toggle-btn"
         type="button"
