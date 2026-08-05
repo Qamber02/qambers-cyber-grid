@@ -33,13 +33,19 @@ const MESSAGES = [
   'Arise, Qamber Muhammad Hanif.',
 ];
 
-// ── Typewriter hook ──
-function useTypewriter(messages: string[]) {
+// ── Typewriter hook with reset support ──
+function useTypewriter(messages: string[], resetKey: any) {
   const [msgIndex, setMsgIndex] = useState(0);
   const [charCount, setCharCount] = useState(0);
 
   useEffect(() => {
+    setMsgIndex(0);
+    setCharCount(0);
+  }, [resetKey]);
+
+  useEffect(() => {
     const msg = messages[msgIndex];
+    if (!msg) return;
     if (charCount < msg.length) {
       const t = window.setTimeout(() => setCharCount((c) => c + 1), 27);
       return () => window.clearTimeout(t);
@@ -54,9 +60,11 @@ function useTypewriter(messages: string[]) {
   }, [charCount, msgIndex, messages]);
 
   const done =
-    msgIndex === messages.length - 1 && charCount === messages[msgIndex].length;
+    Boolean(messages[msgIndex]) &&
+    msgIndex === messages.length - 1 &&
+    charCount === messages[msgIndex].length;
 
-  return { text: messages[msgIndex].slice(0, charCount), done };
+  return { text: messages[msgIndex]?.slice(0, charCount) || '', done };
 }
 
 export default function BootSequence() {
@@ -75,7 +83,25 @@ export default function BootSequence() {
   const [heroFrameloop, setHeroFrameloop] = useState<'always' | 'never'>('never');
   const [animating, setAnimating]         = useState(false);
 
-  const { text, done } = useTypewriter(MESSAGES);
+  const { text, done } = useTypewriter(MESSAGES, status);
+
+  // Clean reset whenever status becomes 'showing' (e.g. on Gate Replay)
+  useEffect(() => {
+    if (status === 'showing') {
+      setAnimating(false);
+      setHeroMounted(false);
+      setHeroVisible(false);
+      setHeroFrameloop('never');
+      if (directorRef.current) {
+        directorRef.current.progress = 0;
+      }
+      // Reset GSAP animated DOM elements back to full visibility
+      if (labelRef.current) gsap.set(labelRef.current, { autoAlpha: 1, y: 0 });
+      if (messageRef.current) gsap.set(messageRef.current, { autoAlpha: 1, y: 0 });
+      if (pillRef.current) gsap.set(pillRef.current, { autoAlpha: 1, y: 0 });
+      if (blackClipRef.current) gsap.set(blackClipRef.current, { autoAlpha: 0 });
+    }
+  }, [status, directorRef]);
 
   // Respect reduced-motion preference
   const prefersReduced =
@@ -192,7 +218,7 @@ export default function BootSequence() {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 z-0 opacity-15 mix-blend-screen bg-cover bg-center"
+        className="absolute inset-0 z-0 opacity-40 mix-blend-screen bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: 'url(/images/broken-glass.jpg)' }}
         aria-hidden="true"
       />
